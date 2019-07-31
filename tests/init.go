@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // This table defines supported forks and their chain config.

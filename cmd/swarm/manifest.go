@@ -24,9 +24,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/cmd/utils"
-	"github.com/KunkaYU/go-DATx/swarm/api"
-	swarm "github.com/KunkaYU/go-DATx/swarm/api/client"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/swarm/api"
+	swarm "github.com/DATxChain-Protocol/DATx/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

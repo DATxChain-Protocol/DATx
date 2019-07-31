@@ -22,9 +22,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/swarm/api"
-	httpapi "github.com/KunkaYU/go-DATx/swarm/api/http"
-	"github.com/KunkaYU/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/swarm/api"
+	httpapi "github.com/DATxChain-Protocol/DATx/swarm/api/http"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 func NewTestSwarmServer(t *testing.T) *TestSwarmServer {

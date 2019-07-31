@@ -21,8 +21,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 // Tests that transactions can be added to strict lists and list contents and

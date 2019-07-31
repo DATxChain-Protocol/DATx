@@ -26,10 +26,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/cmd/internal/browser"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/cmd/internal/browser"
+	"github.com/DATxChain-Protocol/DATx/params"
 
-	"github.com/KunkaYU/go-DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
 	cli "gopkg.in/urfave/cli.v1"
 )
 
@@ -41,7 +41,7 @@ var bugCommand = cli.Command{
 	Category:  "MISCELLANEOUS COMMANDS",
 }
 
-const issueUrl = "https://github.com/KunkaYU/go-DATx/issues/new"
+const issueUrl = "https://github.com/DATxChain-Protocol/DATx/issues/new"
 
 // reportBug reports a bug by opening a new URL to the go-datx GH issue
 // tracker and setting default values as the issue body.

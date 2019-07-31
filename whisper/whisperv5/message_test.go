@@ -21,8 +21,8 @@ import (
 	mrand "math/rand"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 func generateMessageParams() (*MessageParams, error) {

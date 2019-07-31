@@ -21,7 +21,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 func initDbStore(t *testing.T) *DbStore {

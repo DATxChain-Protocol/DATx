@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/KunkaYU/go-DATx/node"
-	"github.com/KunkaYU/go-DATx/p2p"
-	"github.com/KunkaYU/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for

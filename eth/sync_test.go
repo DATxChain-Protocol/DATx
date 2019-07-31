@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/eth/downloader"
-	"github.com/KunkaYU/go-DATx/p2p"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/eth/downloader"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

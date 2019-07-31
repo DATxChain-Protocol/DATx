@@ -17,7 +17,7 @@
 // Package bind generates DATx contract Go bindings.
 //
 // Detailed usage document and tutorial available on the go-datx Wiki page:
-// https://github.com/KunkaYU/go-DATx/wiki/Native-DApps:-Go-bindings-to-DATx-contracts
+// https://github.com/DATxChain-Protocol/DATx/wiki/Native-DApps:-Go-bindings-to-DATx-contracts
 package bind
 
 import (
@@ -28,7 +28,7 @@ import (
 	"text/template"
 	"unicode"
 
-	"github.com/KunkaYU/go-DATx/accounts/abi"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi"
 	"golang.org/x/tools/imports"
 )
 

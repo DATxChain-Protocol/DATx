@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/accounts/keystore"
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

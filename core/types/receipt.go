@@ -22,9 +22,9 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 //go:generate gencodec -type Receipt -field-override receiptMarshaling -out gen_receipt_json.go

@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 type journalEntry interface {

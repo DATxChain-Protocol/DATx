@@ -21,8 +21,8 @@ package gdatx
 import (
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/ethclient"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/ethclient"
 )
 
 // DATxClient provides access to the DATx APIs.

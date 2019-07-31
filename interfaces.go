@@ -22,8 +22,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // NotFound is returned by API methods if the requested item does not exist.

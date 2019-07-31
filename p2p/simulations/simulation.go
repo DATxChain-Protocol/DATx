@@ -20,7 +20,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
 )
 
 // Simulation provides a framework for running actions in a simulated network

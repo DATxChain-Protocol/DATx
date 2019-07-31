@@ -28,8 +28,8 @@ import (
 	"strings"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/KunkaYU/go-DATx/node"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
 )
 
 // DockerAdapter is a NodeAdapter which runs simulation nodes inside Docker

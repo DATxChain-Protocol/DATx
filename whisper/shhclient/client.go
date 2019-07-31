@@ -20,9 +20,9 @@ import (
 	"context"
 
 	"github.com/meitu/go-datx"
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/rpc"
-	whisper "github.com/KunkaYU/go-DATx/whisper/whisperv5"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/rpc"
+	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
 )
 
 // Client defines typed wrappers for the Whisper v5 RPC API.

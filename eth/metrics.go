@@ -17,8 +17,8 @@
 package eth
 
 import (
-	"github.com/KunkaYU/go-DATx/metrics"
-	"github.com/KunkaYU/go-DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/metrics"
+	"github.com/DATxChain-Protocol/DATx/p2p"
 )
 
 var (

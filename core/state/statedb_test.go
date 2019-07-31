@@ -30,9 +30,9 @@ import (
 
 	check "gopkg.in/check.v1"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to

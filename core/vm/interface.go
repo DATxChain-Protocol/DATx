@@ -19,8 +19,8 @@ package vm
 import (
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // StateDB is an EVM database for full state querying.

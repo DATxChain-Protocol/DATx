@@ -21,7 +21,7 @@ package whisperv2
 import (
 	"crypto/ecdsa"
 
-	"github.com/KunkaYU/go-DATx/event/filter"
+	"github.com/DATxChain-Protocol/DATx/event/filter"
 )
 
 // Filter is used to subscribe to specific types of whisper messages.

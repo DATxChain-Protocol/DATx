@@ -28,13 +28,13 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/KunkaYU/go-DATx/cmd/utils"
-	"github.com/KunkaYU/go-DATx/contracts/release"
-	"github.com/KunkaYU/go-DATx/dashboard"
-	"github.com/KunkaYU/go-DATx/eth"
-	"github.com/KunkaYU/go-DATx/node"
-	"github.com/KunkaYU/go-DATx/params"
-	whisper "github.com/KunkaYU/go-DATx/whisper/whisperv5"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/contracts/release"
+	"github.com/DATxChain-Protocol/DATx/dashboard"
+	"github.com/DATxChain-Protocol/DATx/eth"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/params"
+	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
 	"github.com/naoina/toml"
 )
 

@@ -22,8 +22,8 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/KunkaYU/go-DATx/cmd/utils"
-	swarm "github.com/KunkaYU/go-DATx/swarm/api/client"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	swarm "github.com/DATxChain-Protocol/DATx/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

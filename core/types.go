@@ -19,9 +19,9 @@ package core
 import (
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/core/state"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
 )
 
 // Validator is an interface which defines the standard for block validation. It

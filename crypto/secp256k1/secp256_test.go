@@ -24,8 +24,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common/math"
-	"github.com/KunkaYU/go-DATx/crypto/randentropy"
+	"github.com/DATxChain-Protocol/DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/crypto/randentropy"
 )
 
 const TestCount = 1000

@@ -24,7 +24,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 // RLPTest is the JSON structure of a single RLP test.

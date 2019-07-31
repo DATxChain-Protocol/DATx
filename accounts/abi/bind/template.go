@@ -16,7 +16,7 @@
 
 package bind
 
-import "github.com/KunkaYU/go-DATx/accounts/abi"
+import "github.com/DATxChain-Protocol/DATx/accounts/abi"
 
 // tmplData is the data structure required to fill the binding template.
 type tmplData struct {

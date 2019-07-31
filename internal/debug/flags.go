@@ -24,8 +24,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/KunkaYU/go-DATx/log"
-	"github.com/KunkaYU/go-DATx/log/term"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log/term"
 	colorable "github.com/mattn/go-colorable"
 	"gopkg.in/urfave/cli.v1"
 )

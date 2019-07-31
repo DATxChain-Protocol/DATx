@@ -22,9 +22,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/accounts"
-	"github.com/KunkaYU/go-DATx/event"
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/log"
 	"github.com/karalabe/hid"
 )
 

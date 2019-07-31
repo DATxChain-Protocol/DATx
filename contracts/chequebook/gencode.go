@@ -25,11 +25,11 @@ import (
 	"io/ioutil"
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/accounts/abi/bind"
-	"github.com/KunkaYU/go-DATx/accounts/abi/bind/backends"
-	"github.com/KunkaYU/go-DATx/contracts/chequebook/contract"
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind/backends"
+	"github.com/DATxChain-Protocol/DATx/contracts/chequebook/contract"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 var (

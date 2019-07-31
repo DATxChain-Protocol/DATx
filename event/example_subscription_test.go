@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/KunkaYU/go-DATx/event"
+	"github.com/DATxChain-Protocol/DATx/event"
 )
 
 func ExampleNewSubscription() {

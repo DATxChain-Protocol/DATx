@@ -37,12 +37,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/contracts/chequebook"
-	"github.com/KunkaYU/go-DATx/log"
-	"github.com/KunkaYU/go-DATx/p2p"
-	bzzswap "github.com/KunkaYU/go-DATx/swarm/services/swap"
-	"github.com/KunkaYU/go-DATx/swarm/services/swap/swap"
-	"github.com/KunkaYU/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/contracts/chequebook"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	bzzswap "github.com/DATxChain-Protocol/DATx/swarm/services/swap"
+	"github.com/DATxChain-Protocol/DATx/swarm/services/swap/swap"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 const (

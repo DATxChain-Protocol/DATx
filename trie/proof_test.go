@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
 )
 
 func init() {

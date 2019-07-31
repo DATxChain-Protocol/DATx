@@ -22,11 +22,11 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/accounts/abi/bind"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/contracts/ens/contract"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/contracts/ens/contract"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 var (

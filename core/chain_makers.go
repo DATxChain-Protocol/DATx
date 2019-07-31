@@ -20,15 +20,15 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/consensus/dpos"
-	"github.com/KunkaYU/go-DATx/consensus/ethash"
-	"github.com/KunkaYU/go-DATx/consensus/misc"
-	"github.com/KunkaYU/go-DATx/core/state"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/core/vm"
-	"github.com/KunkaYU/go-DATx/ethdb"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/consensus/dpos"
+	"github.com/DATxChain-Protocol/DATx/consensus/ethash"
+	"github.com/DATxChain-Protocol/DATx/consensus/misc"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // So we can deterministically seed different blockchains

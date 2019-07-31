@@ -25,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // faucetDockerfile is the Dockerfile required to build an faucet container to
@@ -40,7 +40,7 @@ RUN \
   apk add --update git go make gcc musl-dev ca-certificates linux-headers                             && \
 	mkdir -p $GOPATH/src/github.com/datx                                                            && \
 	(cd $GOPATH/src/github.com/datx && git clone --depth=1 https://github.com/meitu/go-datx) && \
-  go build -v github.com/KunkaYU/go-DATx/cmd/faucet                                              && \
+  go build -v github.com/DATxChain-Protocol/DATx/cmd/faucet                                              && \
   apk del git go make gcc musl-dev linux-headers                                                      && \
   rm -rf $GOPATH && rm -rf /var/cache/apk/*
 

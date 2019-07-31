@@ -6,10 +6,10 @@ package contract
 import (
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/accounts/abi"
-	"github.com/KunkaYU/go-DATx/accounts/abi/bind"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // ENSABI is the input ABI used to generate the binding from.

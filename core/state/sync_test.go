@@ -21,10 +21,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/ethdb"
-	"github.com/KunkaYU/go-DATx/trie"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/trie"
 )
 
 // testAccount is the data associated with an account used by the state tests.

@@ -19,7 +19,7 @@ package ethapi
 import (
 	"sync"
 
-	"github.com/KunkaYU/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 type AddrLocker struct {

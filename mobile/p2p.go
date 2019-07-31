@@ -21,7 +21,7 @@ package gdatx
 import (
 	"errors"
 
-	"github.com/KunkaYU/go-DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p"
 )
 
 // NodeInfo represents pi short summary of the information known about the host.

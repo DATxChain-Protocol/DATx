@@ -20,8 +20,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/math"
 )
 
 // packBytesSlice packs the given bytes as [L, V] as the canonical representation

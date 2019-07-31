@@ -21,11 +21,11 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/ethdb"
-	"github.com/KunkaYU/go-DATx/log"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 var deduplicateData = []byte("dbUpgrade_20170714deduplicateData")

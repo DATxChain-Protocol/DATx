@@ -22,8 +22,8 @@ import (
 	"math/big"
 
 	"github.com/meitu/go-datx"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 var (

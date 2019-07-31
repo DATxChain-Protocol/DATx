@@ -54,7 +54,7 @@ func TestBloom(t *testing.T) {
 import (
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/state"
 )
 
 func TestBloom9(t *testing.T) {

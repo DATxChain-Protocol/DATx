@@ -20,9 +20,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/eth/downloader"
-	"github.com/KunkaYU/go-DATx/light"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/eth/downloader"
+	"github.com/DATxChain-Protocol/DATx/light"
 )
 
 const (

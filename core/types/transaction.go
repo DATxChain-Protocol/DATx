@@ -24,10 +24,10 @@ import (
 	"math/big"
 	"sync/atomic"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 //go:generate gencodec -type txdata -field-override txdataMarshaling -out gen_tx_json.go

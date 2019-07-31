@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common/math"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 type diffTest struct {

@@ -3,9 +3,9 @@ InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
 # Links for "Add/Remove Programs"
-!define HELPURL "https://github.com/KunkaYU/go-DATx/issues"
-!define UPDATEURL "https://github.com/KunkaYU/go-DATx/releases"
-!define ABOUTURL "https://github.com/KunkaYU/go-DATx#datx-go"
+!define HELPURL "https://github.com/DATxChain-Protocol/DATx/issues"
+!define UPDATEURL "https://github.com/DATxChain-Protocol/DATx/releases"
+!define ABOUTURL "https://github.com/DATxChain-Protocol/DATx#datx-go"
 !define /date NOW "%Y%m%d"
 
 PageEx license

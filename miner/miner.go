@@ -21,17 +21,17 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/KunkaYU/go-DATx/accounts"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/consensus"
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/core/state"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/eth/downloader"
-	"github.com/KunkaYU/go-DATx/ethdb"
-	"github.com/KunkaYU/go-DATx/event"
-	"github.com/KunkaYU/go-DATx/log"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/consensus"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/eth/downloader"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // Backend wraps all methods required for mining.

@@ -28,11 +28,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/event"
-	"github.com/KunkaYU/go-DATx/p2p"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
-	"github.com/KunkaYU/go-DATx/p2p/simulations/adapters"
-	"github.com/KunkaYU/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/simulations/adapters"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 	"github.com/julienschmidt/httprouter"
 	"golang.org/x/net/websocket"
 )

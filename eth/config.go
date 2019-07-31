@@ -21,12 +21,12 @@ import (
 	"os"
 	"os/user"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/eth/downloader"
-	"github.com/KunkaYU/go-DATx/eth/gasprice"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/eth/downloader"
+	"github.com/DATxChain-Protocol/DATx/eth/gasprice"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // DefaultConfig contains default settings for use on the DATx main net.

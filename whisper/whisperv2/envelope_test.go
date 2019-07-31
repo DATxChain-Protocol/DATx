@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/crypto/ecies"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto/ecies"
 )
 
 func TestEnvelopeOpen(t *testing.T) {

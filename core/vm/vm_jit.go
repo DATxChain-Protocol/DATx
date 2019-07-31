@@ -38,9 +38,9 @@ import (
 	"math/big"
 	"unsafe"
 
-	"github.com/KunkaYU/go-DATx/core/state"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 type JitVm struct {

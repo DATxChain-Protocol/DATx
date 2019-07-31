@@ -29,9 +29,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/log"
 	"golang.org/x/crypto/ssh/terminal"
 )
 

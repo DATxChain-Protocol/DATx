@@ -23,13 +23,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/KunkaYU/go-DATx/cmd/utils"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/log"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
-	"github.com/KunkaYU/go-DATx/p2p/discv5"
-	"github.com/KunkaYU/go-DATx/p2p/nat"
-	"github.com/KunkaYU/go-DATx/p2p/netutil"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/discv5"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/p2p/netutil"
 )
 
 func main() {

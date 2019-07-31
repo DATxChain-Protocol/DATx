@@ -36,14 +36,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/accounts/abi/bind"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/contracts/chequebook/contract"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/log"
-	"github.com/KunkaYU/go-DATx/swarm/services/swap/swap"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/contracts/chequebook/contract"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/swarm/services/swap/swap"
 )
 
 // TODO(zelig): watch peer solvency and notify of bouncing cheques

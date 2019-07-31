@@ -22,9 +22,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/cmd/utils"
-	"github.com/KunkaYU/go-DATx/eth"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/eth"
+	"github.com/DATxChain-Protocol/DATx/params"
 	"gopkg.in/urfave/cli.v1"
 )
 

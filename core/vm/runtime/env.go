@@ -19,9 +19,9 @@ package runtime
 import (
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
 )
 
 func NewEnv(cfg *Config) *vm.EVM {

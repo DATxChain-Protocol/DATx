@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/consensus/ethash"
-	"github.com/KunkaYU/go-DATx/core/vm"
-	"github.com/KunkaYU/go-DATx/ethdb"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/consensus/ethash"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // Tests that DAO-fork enabled clients can properly filter out fork-commencing

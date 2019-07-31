@@ -24,8 +24,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 var testDownloadDir, _ = ioutil.TempDir(os.TempDir(), "bzz-test")

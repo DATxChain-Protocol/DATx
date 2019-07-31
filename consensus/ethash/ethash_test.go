@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // Tests that ethash works correctly in test mode.

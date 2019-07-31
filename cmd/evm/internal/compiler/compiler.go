@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/KunkaYU/go-DATx/core/asm"
+	"github.com/DATxChain-Protocol/DATx/core/asm"
 )
 
 func Compile(fn string, src []byte, debug bool) (string, error) {

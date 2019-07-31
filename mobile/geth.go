@@ -24,17 +24,17 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/eth"
-	"github.com/KunkaYU/go-DATx/eth/downloader"
-	"github.com/KunkaYU/go-DATx/ethclient"
-	"github.com/KunkaYU/go-DATx/ethstats"
-	"github.com/KunkaYU/go-DATx/les"
-	"github.com/KunkaYU/go-DATx/node"
-	"github.com/KunkaYU/go-DATx/p2p"
-	"github.com/KunkaYU/go-DATx/p2p/nat"
-	"github.com/KunkaYU/go-DATx/params"
-	whisper "github.com/KunkaYU/go-DATx/whisper/whisperv5"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/eth"
+	"github.com/DATxChain-Protocol/DATx/eth/downloader"
+	"github.com/DATxChain-Protocol/DATx/ethclient"
+	"github.com/DATxChain-Protocol/DATx/ethstats"
+	"github.com/DATxChain-Protocol/DATx/les"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/params"
+	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Gdatx

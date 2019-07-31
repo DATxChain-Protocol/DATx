@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/accounts/abi/bind"
-	"github.com/KunkaYU/go-DATx/accounts/abi/bind/backends"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind/backends"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 var testKey, _ = crypto.HexToECDSA("b71c71a67e1177ad4e901695e1b4b9ee17ae16c6668d313eac2f96dbcda3f291")

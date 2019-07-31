@@ -7,10 +7,10 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/common/math"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 func (g Genesis) MarshalJSON() ([]byte, error) {

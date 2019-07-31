@@ -23,8 +23,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/common/math"
-	"github.com/KunkaYU/go-DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
 )
 
 // Compiler contains information about the parsed source

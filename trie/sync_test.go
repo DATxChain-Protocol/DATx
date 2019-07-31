@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

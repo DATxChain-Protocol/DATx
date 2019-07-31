@@ -31,11 +31,11 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/crypto/ecies"
-	"github.com/KunkaYU/go-DATx/crypto/sha3"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto/ecies"
+	"github.com/DATxChain-Protocol/DATx/crypto/sha3"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 func TestSharedSecret(t *testing.T) {

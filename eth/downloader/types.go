@@ -19,7 +19,7 @@ package downloader
 import (
 	"fmt"
 
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

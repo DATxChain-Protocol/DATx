@@ -20,17 +20,17 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 /*
 http roundtripper to register for bzz url scheme
-see https://github.com/KunkaYU/go-DATx/issues/2040
+see https://github.com/DATxChain-Protocol/DATx/issues/2040
 Usage:
 
 import (
- "github.com/KunkaYU/go-DATx/common/httpclient"
- "github.com/KunkaYU/go-DATx/swarm/api/http"
+ "github.com/DATxChain-Protocol/DATx/common/httpclient"
+ "github.com/DATxChain-Protocol/DATx/swarm/api/http"
 )
 client := httpclient.New()
 // for (private) swarm proxy running locally

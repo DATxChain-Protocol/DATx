@@ -23,7 +23,7 @@ import (
 	"os"
 	"runtime/trace"
 
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // StartGoTrace turns on tracing, writing to the given file.

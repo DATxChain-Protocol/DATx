@@ -22,8 +22,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/KunkaYU/go-DATx/p2p"
-	"github.com/KunkaYU/go-DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
 )
 
 const (

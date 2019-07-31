@@ -25,11 +25,11 @@ import (
 	"os"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/node"
-	"github.com/KunkaYU/go-DATx/p2p"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
-	"github.com/KunkaYU/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 )
 
 // Node represents a node in a simulation network which is created by a

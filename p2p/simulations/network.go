@@ -23,11 +23,11 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/KunkaYU/go-DATx/event"
-	"github.com/KunkaYU/go-DATx/log"
-	"github.com/KunkaYU/go-DATx/p2p"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
-	"github.com/KunkaYU/go-DATx/p2p/simulations/adapters"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/simulations/adapters"
 )
 
 // NetworkConfig defines configuration options for starting a Network

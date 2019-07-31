@@ -26,11 +26,11 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/swarm/api"
-	swarm "github.com/KunkaYU/go-DATx/swarm/api/client"
-	"github.com/KunkaYU/go-DATx/swarm/storage"
-	"github.com/KunkaYU/go-DATx/swarm/testutil"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/swarm/api"
+	swarm "github.com/DATxChain-Protocol/DATx/swarm/api/client"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/swarm/testutil"
 )
 
 func TestBzzrGetPath(t *testing.T) {

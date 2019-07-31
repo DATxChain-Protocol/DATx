@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 // In this test, nodes try to randomly resolve each other.

@@ -21,11 +21,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/consensus/ethash"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/core/vm"
-	"github.com/KunkaYU/go-DATx/ethdb"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/consensus/ethash"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // Tests that simple header verification works, for both good and bad blocks.

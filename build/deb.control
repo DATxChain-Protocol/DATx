@@ -5,8 +5,8 @@ Maintainer: {{.Author}}
 Build-Depends: debhelper (>= 8.0.0), golang-1.9
 Standards-Version: 3.9.5
 Homepage: https://datx.org
-Vcs-Git: git://github.com/KunkaYU/go-DATx.git
-Vcs-Browser: https://github.com/KunkaYU/go-DATx
+Vcs-Git: git://github.com/DATxChain-Protocol/DATx.git
+Vcs-Browser: https://github.com/DATxChain-Protocol/DATx
 
 Package: {{.Name}}
 Architecture: any

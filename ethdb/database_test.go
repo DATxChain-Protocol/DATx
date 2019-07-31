@@ -25,7 +25,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
 )
 
 func newTestLDB() (*ethdb.LDBDatabase, func()) {

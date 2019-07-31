@@ -21,7 +21,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 func (Address) Generate(rand *rand.Rand, size int) reflect.Value {

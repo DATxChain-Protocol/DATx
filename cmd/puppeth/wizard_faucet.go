@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/KunkaYU/go-DATx/accounts/keystore"
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // deployFaucet queries the user for various input on deploying a faucet, after

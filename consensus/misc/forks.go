@@ -19,9 +19,9 @@ package misc
 import (
 	"fmt"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/types"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // VerifyForkHashes verifies that blocks conforming to network hard-forks do have

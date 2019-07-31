@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"reflect"
 
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/crypto/sha3"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/crypto/sha3"
 )
 
 const (

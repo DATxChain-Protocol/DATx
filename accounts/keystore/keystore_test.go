@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/accounts"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/event"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/event"
 )
 
 var testSigData = make([]byte, 32)

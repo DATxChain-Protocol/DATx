@@ -21,8 +21,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 // Event is an event potentially triggered by the EVM's LOG mechanism. The Event

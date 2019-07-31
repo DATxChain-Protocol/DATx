@@ -24,8 +24,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured

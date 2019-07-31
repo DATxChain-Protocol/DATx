@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/p2p/discover"
-	"github.com/KunkaYU/go-DATx/p2p/simulations/adapters"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/simulations/adapters"
 )
 
 // TestNetworkSimulation creates a multi-node simulation network with each node

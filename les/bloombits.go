@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/KunkaYU/go-DATx/common/bitutil"
-	"github.com/KunkaYU/go-DATx/light"
+	"github.com/DATxChain-Protocol/DATx/common/bitutil"
+	"github.com/DATxChain-Protocol/DATx/light"
 )
 
 const (

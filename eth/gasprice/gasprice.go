@@ -22,10 +22,10 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/internal/ethapi"
-	"github.com/KunkaYU/go-DATx/params"
-	"github.com/KunkaYU/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/internal/ethapi"
+	"github.com/DATxChain-Protocol/DATx/params"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 )
 
 var maxPrice = big.NewInt(500 * params.Shannon)

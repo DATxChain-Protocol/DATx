@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 //go:generate gencodec -type Log -field-override logMarshaling -out gen_log_json.go

@@ -19,8 +19,8 @@ package state
 import (
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
 )
 
 var addr = common.BytesToAddress([]byte("test"))

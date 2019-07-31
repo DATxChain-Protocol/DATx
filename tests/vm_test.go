@@ -19,7 +19,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
 )
 
 func TestVM(t *testing.T) {

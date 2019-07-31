@@ -24,12 +24,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/contracts/ens"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/swarm/network"
-	"github.com/KunkaYU/go-DATx/swarm/services/swap"
-	"github.com/KunkaYU/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/contracts/ens"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/swarm/network"
+	"github.com/DATxChain-Protocol/DATx/swarm/services/swap"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 const (

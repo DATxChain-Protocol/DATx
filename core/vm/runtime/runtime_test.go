@@ -21,11 +21,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/accounts/abi"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/state"
-	"github.com/KunkaYU/go-DATx/core/vm"
-	"github.com/KunkaYU/go-DATx/ethdb"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/ethdb"
 )
 
 func TestDefaults(t *testing.T) {

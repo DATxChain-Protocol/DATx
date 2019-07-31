@@ -24,9 +24,9 @@ import (
 	"io"
 	"sync"
 
-	"github.com/KunkaYU/go-DATx/bmt"
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/crypto/sha3"
+	"github.com/DATxChain-Protocol/DATx/bmt"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto/sha3"
 )
 
 type Hasher func() hash.Hash

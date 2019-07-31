@@ -20,8 +20,8 @@ import (
 	"math/big"
 
 	datx "github.com/meitu/go-datx"
-	"github.com/KunkaYU/go-DATx/accounts"
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // keystoreWallet implements the accounts.Wallet interface for the original

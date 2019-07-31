@@ -25,7 +25,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/KunkaYU/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // makeWizard creates and returns a new puppeth wizard.

@@ -21,11 +21,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/contracts/chequebook"
-	"github.com/KunkaYU/go-DATx/p2p/discover"
-	"github.com/KunkaYU/go-DATx/swarm/network/kademlia"
-	"github.com/KunkaYU/go-DATx/swarm/services/swap"
-	"github.com/KunkaYU/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/contracts/chequebook"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/swarm/network/kademlia"
+	"github.com/DATxChain-Protocol/DATx/swarm/services/swap"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 /*

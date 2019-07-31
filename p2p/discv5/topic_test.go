@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/mclock"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/mclock"
 )
 
 func TestTopicRadius(t *testing.T) {

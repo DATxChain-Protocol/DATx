@@ -21,8 +21,8 @@ import (
 	"sync"
 
 	datx "github.com/meitu/go-datx"
-	"github.com/KunkaYU/go-DATx/event"
-	"github.com/KunkaYU/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

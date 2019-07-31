@@ -34,8 +34,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/KunkaYU/go-DATx/core"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

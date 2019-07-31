@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 func TestTransaction(t *testing.T) {

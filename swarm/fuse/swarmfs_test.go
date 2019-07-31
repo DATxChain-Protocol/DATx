@@ -27,8 +27,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/swarm/api"
-	"github.com/KunkaYU/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/swarm/api"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 type fileInfo struct {

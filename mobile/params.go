@@ -19,8 +19,8 @@
 package gdatx
 
 import (
-	"github.com/KunkaYU/go-DATx/p2p/discv5"
-	"github.com/KunkaYU/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/p2p/discv5"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // MainnetGenesis returns the JSON spec to use for the main DATx network. It

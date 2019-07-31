@@ -19,8 +19,8 @@ package miner
 import (
 	"testing"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // noopHeaderRetriever is an implementation of headerRetriever that always

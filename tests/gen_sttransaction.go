@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/KunkaYU/go-DATx/common/hexutil"
-	"github.com/KunkaYU/go-DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/common/math"
 )
 
 var _ = (*stTransactionMarshaling)(nil)

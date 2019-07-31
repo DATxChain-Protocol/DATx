@@ -26,11 +26,11 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/KunkaYU/go-DATx/common"
-	"github.com/KunkaYU/go-DATx/common/math"
-	"github.com/KunkaYU/go-DATx/crypto"
-	"github.com/KunkaYU/go-DATx/crypto/ecies"
-	"github.com/KunkaYU/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto/ecies"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 // Envelope represents a clear-text data packet to transmit through the Whisper
