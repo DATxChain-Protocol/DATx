@@ -1,28 +1,28 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2017 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package shhclient
 
 import (
 	"context"
 
-	"github.com/meitu/go-datx"
-	"github.com/DATxChain-Protocol/DATx/common/hexutil"
-	"github.com/DATxChain-Protocol/DATx/rpc"
-	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
+	"github.com/DATx-Protocol/go-DATx"
+	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATx-Protocol/go-DATx/rpc"
+	whisper "github.com/DATx-Protocol/go-DATx/whisper/whisperv5"
 )
 
 // Client defines typed wrappers for the Whisper v5 RPC API.
@@ -168,7 +168,7 @@ func (sc *Client) Post(ctx context.Context, message whisper.NewMessage) error {
 // SubscribeMessages subscribes to messages that match the given criteria. This method
 // is only supported on bi-directional connections such as websockets and IPC.
 // NewMessageFilter uses polling and is supported over HTTP.
-func (ec *Client) SubscribeMessages(ctx context.Context, criteria whisper.Criteria, ch chan<- *whisper.Message) (datx.Subscription, error) {
+func (ec *Client) SubscribeMessages(ctx context.Context, criteria whisper.Criteria, ch chan<- *whisper.Message) (DATx.Subscription, error) {
 	return ec.c.ShhSubscribe(ctx, ch, "messages", criteria)
 }
 

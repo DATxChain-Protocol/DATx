@@ -1,4 +1,4 @@
-export ROOT="${GOPATH}/src/github.com/DATxChain-Protocol/DATx"
+export ROOT="${GOPATH}/src/github.com/DATx/go-DATx"
 export PATH="${ROOT}/swarm/dev/bin:${PATH}"
 
 cd "${ROOT}/swarm/dev"

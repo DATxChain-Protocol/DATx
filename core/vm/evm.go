@@ -1,18 +1,18 @@
-// Copyright 2014 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2014 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package vm
 
@@ -20,9 +20,9 @@ import (
 	"math/big"
 	"sync/atomic"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/params"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/params"
 )
 
 // emptyCodeHash is used by create to ensure deployment is disallowed to already
@@ -55,9 +55,9 @@ func run(evm *EVM, snapshot int, contract *Contract, input []byte) ([]byte, erro
 // it shouldn't be modified.
 type Context struct {
 	// CanTransfer returns whether the account contains
-	// sufficient ether to transfer the value
+	// sufficient datx to transfer the value
 	CanTransfer CanTransferFunc
-	// Transfer transfers ether from one account to the other
+	// Transfer transfers datx from one account to the other
 	Transfer TransferFunc
 	// GetHash returns the hash corresponding to n
 	GetHash GetHashFunc
@@ -74,7 +74,7 @@ type Context struct {
 	Difficulty  *big.Int       // Provides information for DIFFICULTY
 }
 
-// EVM is the DATx Virtual Machine base object and provides
+// EVM is the Ethereum Virtual Machine base object and provides
 // the necessary tools to run a contract on the given state with
 // the provided context. It should be noted that any error
 // generated through any of the calls should be considered a
@@ -98,7 +98,7 @@ type EVM struct {
 	// virtual machine configuration options used to initialise the
 	// evm.
 	vmConfig Config
-	// global (to this context) datx virtual machine
+	// global (to this context) DATx virtual machine
 	// used throughout the execution of the tx.
 	interpreter *Interpreter
 	// abort is used to abort the EVM calling operations

@@ -1,20 +1,20 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
-// Package les implements the Light DATx Subprotocol.
+// Package les implements the Light Ethereum Subprotocol.
 package les
 
 import (
@@ -27,13 +27,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/common/mclock"
-	"github.com/DATxChain-Protocol/DATx/ethdb"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/p2p"
-	"github.com/DATxChain-Protocol/DATx/p2p/discover"
-	"github.com/DATxChain-Protocol/DATx/p2p/discv5"
-	"github.com/DATxChain-Protocol/DATx/rlp"
+	"github.com/DATx-Protocol/go-DATx/common/mclock"
+	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATx-Protocol/go-DATx/p2p/discover"
+	"github.com/DATx-Protocol/go-DATx/p2p/discv5"
+	"github.com/DATx-Protocol/go-DATx/rlp"
 )
 
 const (
@@ -95,7 +95,7 @@ const (
 // known light server nodes. It received discovered nodes, stores statistics about
 // known nodes and takes care of always having enough good quality servers connected.
 type serverPool struct {
-	db     ethdb.Database
+	db     datxdb.Database
 	dbKey  []byte
 	server *p2p.Server
 	quit   chan struct{}
@@ -120,7 +120,7 @@ type serverPool struct {
 }
 
 // newServerPool creates a new serverPool instance
-func newServerPool(db ethdb.Database, quit chan struct{}, wg *sync.WaitGroup) *serverPool {
+func newServerPool(db datxdb.Database, quit chan struct{}, wg *sync.WaitGroup) *serverPool {
 	pool := &serverPool{
 		db:           db,
 		quit:         quit,

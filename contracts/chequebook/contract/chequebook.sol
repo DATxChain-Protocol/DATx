@@ -1,11 +1,11 @@
 pragma solidity ^0.4.18;
 
-import "https://github.com/DATx-Protocol/solidity/std/mortal.sol";
+import "https://github.com/DATx/solidity/std/mortal.sol";
 
-/// @title Chequebook for DATx micropayments
-/// @author Daniel A. Nagy <daniel@datx.org>
+/// @title Chequebook for Ethereum micropayments
+/// @author Daniel A. Nagy <daniel@DATx.org>
 contract chequebook is mortal {
-    // Cumulative paid amount in wei to each beneficiary
+    // Cumulative paid amount in uno to each beneficiary
     mapping (address => uint256) public sent;
 
     /// @notice Overdraft event
@@ -14,7 +14,7 @@ contract chequebook is mortal {
     /// @notice Cash cheque
     ///
     /// @param beneficiary beneficiary address
-    /// @param amount cumulative amount in wei
+    /// @param amount cumulative amount in uno
     /// @param sig_v signature parameter v
     /// @param sig_r signature parameter r
     /// @param sig_s signature parameter s

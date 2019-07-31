@@ -1,18 +1,18 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2017 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATx-Protocol/go-DATx/log"
 )
 
 // dashboardContent is the actual dashboard HTML content to serve up when users
@@ -39,7 +39,7 @@ var dashboardContent = `
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>{{.NetworkTitle}}: DATx Testnet</title>
+		<title>{{.NetworkTitle}}: Ethereum Testnet</title>
 
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -82,9 +82,9 @@ var dashboardContent = `
 									{{if .FaucetPage}}<li><a onclick="load('//{{.FaucetPage}}')"><i class="fa fa-bath"></i> Crypto Faucet</a></li>{{end}}
 									<li id="connect"><a><i class="fa fa-plug"></i> Connect Yourself</a>
 										<ul id="connect_list" class="nav child_menu">
-											<li><a onclick="$('#connect').removeClass('active'); $('#connect_list').toggle(); load('#connect-go-datx-gdatx')">Go DATx: Gdatx</a></li>
-											<li><a onclick="$('#connect').removeClass('active'); $('#connect_list').toggle(); load('#connect-go-datx-mist')">Go DATx: Wallet & Mist</a></li>
-											<li><a onclick="$('#connect').removeClass('active'); $('#connect_list').toggle(); load('#connect-go-datx-mobile')">Go DATx: Android & iOS</a></li>
+											<li><a onclick="$('#connect').removeClass('active'); $('#connect_list').toggle(); load('#connect-go-DATx-gdatx')">Go Ethereum: Gdatx</a></li>
+											<li><a onclick="$('#connect').removeClass('active'); $('#connect_list').toggle(); load('#connect-go-DATx-mist')">Go Ethereum: Wallet & Mist</a></li>
+											<li><a onclick="$('#connect').removeClass('active'); $('#connect_list').toggle(); load('#connect-go-DATx-mobile')">Go Ethereum: Android & iOS</a></li>
 										</ul>
 									</li>
 									<li><a onclick="load('#about')"><i class="fa fa-heartbeat"></i> About Puppeth</a></li>
@@ -94,10 +94,10 @@ var dashboardContent = `
 					</div>
 				</div>
 				<div class="right_col" role="main" style="padding: 0">
-					<div id="connect-go-datx-gdatx" hidden style="padding: 16px;">
+					<div id="connect-go-DATx-gdatx" hidden style="padding: 16px;">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Connect Yourself &ndash; Go DATx: Gdatx</h3>
+								<h3>Connect Yourself &ndash; Go Ethereum: Gdatx</h3>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -114,10 +114,10 @@ var dashboardContent = `
 										<br/>
 										<p>To run an archive node, download <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> and start Gdatx with:
 											<pre>gdatx --datadir=$HOME/.{{.Network}} init {{.GdatxGenesis}}</pre>
-											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=1024 --syncmode=full{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFullFlat}}</pre>
+											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=1024 --syncmode=full{{if .Ethstats}} --datxstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFullFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Gdatx from <a href="https://gdatx.datx.org/downloads/" target="about:blank">https://gdatx.datx.org/downloads/</a>.</p>
+										<p>You can download Gdatx from <a href="https://gdatx.DATx.org/downloads/" target="about:blank">https://gdatx.DATx.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -133,10 +133,10 @@ var dashboardContent = `
 										<br/>
 										<p>To run a full node, download <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> and start Gdatx with:
 											<pre>gdatx --datadir=$HOME/.{{.Network}} init {{.GdatxGenesis}}</pre>
-											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=512{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFullFlat}}</pre>
+											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=512{{if .Ethstats}} --datxstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFullFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Gdatx from <a href="https://gdatx.datx.org/downloads/" target="about:blank">https://gdatx.datx.org/downloads/</a>.</p>
+										<p>You can download Gdatx from <a href="https://gdatx.DATx.org/downloads/" target="about:blank">https://gdatx.DATx.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -155,10 +155,10 @@ var dashboardContent = `
 										<br/>
 										<p>To run a light node, download <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> and start Gdatx with:
 											<pre>gdatx --datadir=$HOME/.{{.Network}} --light init {{.GdatxGenesis}}</pre>
-											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --syncmode=light{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesLightFlat}}</pre>
+											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --syncmode=light{{if .Ethstats}} --datxstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesLightFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Gdatx from <a href="https://gdatx.datx.org/downloads/" target="about:blank">https://gdatx.datx.org/downloads/</a>.</p>
+										<p>You can download Gdatx from <a href="https://gdatx.DATx.org/downloads/" target="about:blank">https://gdatx.DATx.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -174,19 +174,19 @@ var dashboardContent = `
 										<br/>
 										<p>To run an embedded node, download <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> and start Gdatx with:
 											<pre>gdatx --datadir=$HOME/.{{.Network}} --light init {{.GdatxGenesis}}</pre>
-											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=32 --syncmode=light{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesLightFlat}}</pre>
+											<pre>gdatx --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=32 --syncmode=light{{if .Ethstats}} --datxstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesLightFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Gdatx from <a href="https://gdatx.datx.org/downloads/" target="about:blank">https://gdatx.datx.org/downloads/</a>.</p>
+										<p>You can download Gdatx from <a href="https://gdatx.DATx.org/downloads/" target="about:blank">https://gdatx.DATx.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div id="connect-go-datx-mist" hidden style="padding: 16px;">
+					<div id="connect-go-DATx-mist" hidden style="padding: 16px;">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Connect Yourself &ndash; Go DATx: Wallet &amp; Mist</h3>
+								<h3>Connect Yourself &ndash; Go Ethereum: Wallet &amp; Mist</h3>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -198,17 +198,17 @@ var dashboardContent = `
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
-										<p>The DATx Wallet is an <a href="https://electron.atom.io/" target="about:blank">Electron</a> based desktop application to manage your DATx accounts and funds. Beside the usual account life-cycle operations you would expect to perform, the wallet also provides a means to send transactions from your accounts and to interact with smart contracts deployed on the network.</p>
-										<p>Under the hood the wallet is backed by a go-datx full node, meaning that a mid range machine is assumed. Similarly, synchronization is based on <strong>fast-sync</strong>, which will download all blockchain data from the network and make it available to the wallet. Light nodes cannot currently fully back the wallet, but it's a target actively pursued.</p>
+										<p>The Ethereum Wallet is an <a href="https://electron.atom.io/" target="about:blank">Electron</a> based desktop application to manage your Ethereum accounts and funds. Beside the usual account life-cycle operations you would expect to perform, the wallet also provides a means to send transactions from your accounts and to interact with smart contracts deployed on the network.</p>
+										<p>Under the hood the wallet is backed by a go-DATx full node, meaning that a mid range machine is assumed. Similarly, synchronization is based on <strong>fast-sync</strong>, which will download all blockchain data from the network and make it available to the wallet. Light nodes cannot currently fully back the wallet, but it's a target actively pursued.</p>
 										<br/>
-										<p>To connect with the DATx Wallet, you'll need to initialize your private network first via Gdatx as the wallet does not currently support calling Gdatx directly. To initialize your local chain, download <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> and run:
+										<p>To connect with the Ethereum Wallet, you'll need to initialize your private network first via Gdatx as the wallet does not currently support calling Gdatx directly. To initialize your local chain, download <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> and run:
 											<pre>gdatx --datadir=$HOME/.{{.Network}} init {{.GdatxGenesis}}</pre>
 										</p>
-										<p>With your local chain initialized, you can start the DATx Wallet:
-											<pre>datxwallet --rpc $HOME/.{{.Network}}/gdatx.ipc --node-networkid={{.NetworkID}} --node-datadir=$HOME/.{{.Network}}{{if .Ethstats}} --node-ethstats='{{.Ethstats}}'{{end}} --node-bootnodes={{.BootnodesFullFlat}}</pre>
+										<p>With your local chain initialized, you can start the Ethereum Wallet:
+											<pre>DATxwallet --rpc $HOME/.{{.Network}}/gdatx.ipc --node-networkid={{.NetworkID}} --node-datadir=$HOME/.{{.Network}}{{if .Ethstats}} --node-datxstats='{{.Ethstats}}'{{end}} --node-bootnodes={{.BootnodesFullFlat}}</pre>
 										<p>
 										<br/>
-										<p>You can download the DATx Wallet from <a href="https://github.com/DATx-Protocol/mist/releases" target="about:blank">https://github.com/DATx-Protocol/mist/releases</a>.</p>
+										<p>You can download the Ethereum Wallet from <a href="https://github.com/DATx/mist/releases" target="about:blank">https://github.com/DATx/mist/releases</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -219,26 +219,26 @@ var dashboardContent = `
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
-										<p>The Mist browser is an <a href="https://electron.atom.io/" target="about:blank">Electron</a> based desktop application to load and interact with DATx enabled third party web DApps. Beside all the functionality provided by the DATx Wallet, Mist is an extended web-browser where loaded pages have access to the DATx network via a web3.js provider, and may also interact with users' own accounts (given proper authorization and confirmation of course).</p>
-										<p>Under the hood the browser is backed by a go-datx full node, meaning that a mid range machine is assumed. Similarly, synchronization is based on <strong>fast-sync</strong>, which will download all blockchain data from the network and make it available to the wallet. Light nodes cannot currently fully back the wallet, but it's a target actively pursued.</p>
+										<p>The Mist browser is an <a href="https://electron.atom.io/" target="about:blank">Electron</a> based desktop application to load and interact with Ethereum enabled third party web DApps. Beside all the functionality provided by the Ethereum Wallet, Mist is an extended web-browser where loaded pages have access to the Ethereum network via a DATxWeb.js provider, and may also interact with users' own accounts (given proper authorization and confirmation of course).</p>
+										<p>Under the hood the browser is backed by a go-DATx full node, meaning that a mid range machine is assumed. Similarly, synchronization is based on <strong>fast-sync</strong>, which will download all blockchain data from the network and make it available to the wallet. Light nodes cannot currently fully back the wallet, but it's a target actively pursued.</p>
 										<br/>
 										<p>To connect with the Mist browser, you'll need to initialize your private network first via Gdatx as Mist does not currently support calling Gdatx directly. To initialize your local chain, download <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> and run:
 											<pre>gdatx --datadir=$HOME/.{{.Network}} init {{.GdatxGenesis}}</pre>
 										</p>
 										<p>With your local chain initialized, you can start Mist:
-											<pre>mist --rpc $HOME/.{{.Network}}/gdatx.ipc --node-networkid={{.NetworkID}} --node-datadir=$HOME/.{{.Network}}{{if .Ethstats}} --node-ethstats='{{.Ethstats}}'{{end}} --node-bootnodes={{.BootnodesFullFlat}}</pre>
+											<pre>mist --rpc $HOME/.{{.Network}}/gdatx.ipc --node-networkid={{.NetworkID}} --node-datadir=$HOME/.{{.Network}}{{if .Ethstats}} --node-datxstats='{{.Ethstats}}'{{end}} --node-bootnodes={{.BootnodesFullFlat}}</pre>
 										<p>
 										<br/>
-										<p>You can download the Mist browser from <a href="https://github.com/DATx-Protocol/mist/releases" target="about:blank">https://github.com/DATx-Protocol/mist/releases</a>.</p>
+										<p>You can download the Mist browser from <a href="https://github.com/DATx/mist/releases" target="about:blank">https://github.com/DATx/mist/releases</a>.</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div id="connect-go-datx-mobile" hidden style="padding: 16px;">
+					<div id="connect-go-DATx-mobile" hidden style="padding: 16px;">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Connect Yourself &ndash; Go DATx: Android &amp; iOS</h3>
+								<h3>Connect Yourself &ndash; Go Ethereum: Android &amp; iOS</h3>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -246,26 +246,26 @@ var dashboardContent = `
 							<div class="col-md-6">
 								<div class="x_panel">
 									<div class="x_title">
-										<h2><i class="fa fa-android" aria-hidden="true"></i> Android devices <small>Accesses DATx via Java</small></h2>
+										<h2><i class="fa fa-android" aria-hidden="true"></i> Android devices <small>Accesses Ethereum via Java</small></h2>
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
-										<p>Starting with the 1.5 release of go-datx, we've transitioned away from shipping only full blown DATx clients and started focusing on releasing the code as reusable packages initially for Go projects, then later for Java based Android projects too. Mobile support is still evolving, hence is bound to change often and hard, but the DATx network can nonetheless be accessed from Android too.</p>
-										<p>Under the hood the Android library is backed by a go-datx light node, meaning that given a not-too-old Android device, you should be able to join the network without significant issues. Certain functionality is not yet available and rough edges are bound to appear here and there, please report issues if you find any.</p>
+										<p>Starting with the 1.5 release of go-DATx, we've transitioned away from shipping only full blown Ethereum clients and started focusing on releasing the code as reusable packages initially for Go projects, then later for Java based Android projects too. Mobile support is still evolving, hence is bound to change often and hard, but the Ethereum network can nonetheless be accessed from Android too.</p>
+										<p>Under the hood the Android library is backed by a go-DATx light node, meaning that given a not-too-old Android device, you should be able to join the network without significant issues. Certain functionality is not yet available and rough edges are bound to appear here and there, please report issues if you find any.</p>
 										<br/>
-										<p>The stable Android archives are distributed via Maven Central, and the develop snapshots via the Sonatype repositories. Before proceeding, please ensure you have a recent version configured in your Android project. You can find details in <a href="https://github.com/DATxChain-Protocol/DATx/wiki/Mobile:-Introduction#android-archive" target="about:blank">Mobile: Introduction &ndash; Android archive</a>.
-										<p>Before connecting to the DATx network, download the <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> genesis json file and either store it in your Android project as a resource file you can access, or save it as a string in a variable. You're going to need to to initialize your client.</p>
-										<p>Inside your Java code you can now import the gdatx archive and connect to DATx:
-											<pre>import org.datx.gdatx.*;</pre>
+										<p>The stable Android archives are distributed via Maven Central, and the develop snapshots via the Sonatype repositories. Before proceeding, please ensure you have a recent version configured in your Android project. You can find details in <a href="https://github.com/DATx-Protocol/go-DATx/wiki/Mobile:-Introduction#android-archive" target="about:blank">Mobile: Introduction &ndash; Android archive</a>.
+										<p>Before connecting to the Ethereum network, download the <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> genesis json file and either store it in your Android project as a resource file you can access, or save it as a string in a variable. You're going to need to to initialize your client.</p>
+										<p>Inside your Java code you can now import the gdatx archive and connect to Ethereum:
+											<pre>import org.DATx.gdatx.*;</pre>
 <pre>
 Enodes bootnodes = new Enodes();{{range .BootnodesLight}}
 bootnodes.append(new Enode("{{.}}"));{{end}}
 
 NodeConfig config = new NodeConfig();
 config.setBootstrapNodes(bootnodes);
-config.setDATxNetworkID({{.NetworkID}});
-config.setDATxGenesis(genesis);{{if .Ethstats}}
-config.setDATxNetStats("{{.Ethstats}}");{{end}}
+config.setEthereumNetworkID({{.NetworkID}});
+config.setEthereumGenesis(genesis);{{if .Ethstats}}
+config.setEthereumNetStats("{{.Ethstats}}");{{end}}
 
 Node node = new Node(getFilesDir() + "/.{{.Network}}", config);
 node.start();
@@ -277,16 +277,16 @@ node.start();
 							<div class="col-md-6">
 								<div class="x_panel">
 									<div class="x_title">
-										<h2><i class="fa fa-apple" aria-hidden="true"></i> iOS devices <small>Accesses DATx via ObjC/Swift</small></h2>
+										<h2><i class="fa fa-apple" aria-hidden="true"></i> iOS devices <small>Accesses Ethereum via ObjC/Swift</small></h2>
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
-										<p>Starting with the 1.5 release of go-datx, we've transitioned away from shipping only full blown DATx clients and started focusing on releasing the code as reusable packages initially for Go projects, then later for ObjC/Swift based iOS projects too. Mobile support is still evolving, hence is bound to change often and hard, but the DATx network can nonetheless be accessed from iOS too.</p>
-										<p>Under the hood the iOS library is backed by a go-datx light node, meaning that given a not-too-old Apple device, you should be able to join the network without significant issues. Certain functionality is not yet available and rough edges are bound to appear here and there, please report issues if you find any.</p>
+										<p>Starting with the 1.5 release of go-DATx, we've transitioned away from shipping only full blown Ethereum clients and started focusing on releasing the code as reusable packages initially for Go projects, then later for ObjC/Swift based iOS projects too. Mobile support is still evolving, hence is bound to change often and hard, but the Ethereum network can nonetheless be accessed from iOS too.</p>
+										<p>Under the hood the iOS library is backed by a go-DATx light node, meaning that given a not-too-old Apple device, you should be able to join the network without significant issues. Certain functionality is not yet available and rough edges are bound to appear here and there, please report issues if you find any.</p>
 										<br/>
-										<p>Both stable and develop builds of the iOS framework are available via CocoaPods. Before proceeding, please ensure you have a recent version configured in your iOS project. You can find details in <a href="https://github.com/DATxChain-Protocol/DATx/wiki/Mobile:-Introduction#ios-framework" target="about:blank">Mobile: Introduction &ndash; iOS framework</a>.
-										<p>Before connecting to the DATx network, download the <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> genesis json file and either store it in your iOS project as a resource file you can access, or save it as a string in a variable. You're going to need to to initialize your client.</p>
-										<p>Inside your Swift code you can now import the gdatx framework and connect to DATx (ObjC should be analogous):
+										<p>Both stable and develop builds of the iOS framework are available via CocoaPods. Before proceeding, please ensure you have a recent version configured in your iOS project. You can find details in <a href="https://github.com/DATx-Protocol/go-DATx/wiki/Mobile:-Introduction#ios-framework" target="about:blank">Mobile: Introduction &ndash; iOS framework</a>.
+										<p>Before connecting to the Ethereum network, download the <a href="/{{.GdatxGenesis}}"><code>{{.GdatxGenesis}}</code></a> genesis json file and either store it in your iOS project as a resource file you can access, or save it as a string in a variable. You're going to need to to initialize your client.</p>
+										<p>Inside your Swift code you can now import the gdatx framework and connect to Ethereum (ObjC should be analogous):
 											<pre>import Gdatx</pre>
 <pre>
 var error: NSError?
@@ -296,9 +296,9 @@ bootnodes?.append(GdatxNewEnode("{{.}}", &error)){{end}}
 
 let config = GdatxNewNodeConfig()
 config?.setBootstrapNodes(bootnodes)
-config?.setDATxNetworkID({{.NetworkID}})
-config?.setDATxGenesis(genesis){{if .Ethstats}}
-config?.setDATxNetStats("{{.Ethstats}}"){{end}}
+config?.setEthereumNetworkID({{.NetworkID}})
+config?.setEthereumGenesis(genesis){{if .Ethstats}}
+config?.setEthereumNetStats("{{.Ethstats}}"){{end}}
 
 let datadir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 let node = GdatxNewNode(datadir + "/.{{.Network}}", config, &error);
@@ -315,16 +315,16 @@ try! node?.start();
 							<div style="margin: 0 auto;">
 								<div class="x_panel">
 									<div class="x_title">
-										<h3>Puppeth &ndash; Your DATx private network manager</h3>
+										<h3>Puppeth &ndash; Your Ethereum private network manager</h3>
 										<div class="clearfix"></div>
 									</div>
 									<div style="display: inline-block; vertical-align: bottom; width: 623px; margin-top: 16px;">
-										<p>Puppeth is a tool to aid you in creating a new DATx network down to the genesis block, bootnodes, signers, ethstats server, crypto faucet, wallet browsers, block explorer, dashboard and more; without the hassle that it would normally entail to manually configure all these services one by one.</p>
+										<p>Puppeth is a tool to aid you in creating a new Ethereum network down to the genesis block, bootnodes, signers, datxstats server, crypto faucet, wallet browsers, block explorer, dashboard and more; without the hassle that it would normally entail to manually configure all these services one by one.</p>
 										<p>Puppeth uses ssh to dial in to remote servers, and builds its network components out of docker containers using docker-compose. The user is guided through the process via a command line wizard that does the heavy lifting and topology configuration automatically behind the scenes.</p>
 										<br/>
-										<p>Puppeth is distributed as part of the <a href="https://gdatx.datx.org/downloads/" target="about:blank">Gdatx &amp; Tools</a> bundles, but can also be installed separately via:<pre>go get github.com/DATxChain-Protocol/DATx/cmd/puppeth</pre></p>
+										<p>Puppeth is distributed as part of the <a href="https://gdatx.DATx.org/downloads/" target="about:blank">Gdatx &amp; Tools</a> bundles, but can also be installed separately via:<pre>go get github.com/DATx-Protocol/go-DATx/cmd/puppeth</pre></p>
 										<br/>
-										<p><em>Copyright 2017. The go-datx Authors.</em></p>
+										<p><em>Copyright 2017. The go-DATx Authors.</em></p>
 									</div>
 									<div style="display: inline-block; vertical-align: bottom; width: 217px;">
 										<img src="puppeth.png" style="height: 256px; margin: 16px 16px 16px 16px"></img>
@@ -345,9 +345,9 @@ try! node?.start();
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gentelella/1.3.0/js/custom.min.js"></script>
 		<script>
 			var load = function(url) {
-				$("#connect-go-datx-gdatx").fadeOut(300)
-				$("#connect-go-datx-mist").fadeOut(300)
-				$("#connect-go-datx-mobile").fadeOut(300)
+				$("#connect-go-DATx-gdatx").fadeOut(300)
+				$("#connect-go-DATx-mist").fadeOut(300)
+				$("#connect-go-DATx-mobile").fadeOut(300)
 				$("#about").fadeOut(300)
 				$("#frame-wrapper").fadeOut(300);
 
@@ -436,7 +436,7 @@ services:
 // deployDashboard deploys a new dashboard container to a remote machine via SSH,
 // docker and docker-compose. If an instance with the specified network name
 // already exists there, it will be overwritten!
-func deployDashboard(client *sshClient, network string, port int, vhost string, services map[string]string, conf *config, ethstats bool) ([]byte, error) {
+func deployDashboard(client *sshClient, network string, port int, vhost string, services map[string]string, conf *config, datxstats bool) ([]byte, error) {
 	// Generate the content to upload to the server
 	workdir := fmt.Sprintf("%d", rand.Int63())
 	files := make(map[string][]byte)
@@ -455,8 +455,8 @@ func deployDashboard(client *sshClient, network string, port int, vhost string, 
 	})
 	files[filepath.Join(workdir, "docker-compose.yaml")] = composefile.Bytes()
 
-	statsLogin := fmt.Sprintf("yournode:%s", conf.ethstats)
-	if !ethstats {
+	statsLogin := fmt.Sprintf("yournode:%s", conf.datxstats)
+	if !datxstats {
 		statsLogin = ""
 	}
 	indexfile := new(bytes.Buffer)
@@ -464,7 +464,7 @@ func deployDashboard(client *sshClient, network string, port int, vhost string, 
 		"Network":            network,
 		"NetworkID":          conf.genesis.Config.ChainId,
 		"NetworkTitle":       strings.Title(network),
-		"EthstatsPage":       services["ethstats"],
+		"EthstatsPage":       services["datxstats"],
 		"ExplorerPage":       services["explorer"],
 		"WalletPage":         services["wallet"],
 		"FaucetPage":         services["faucet"],
@@ -507,7 +507,7 @@ func (info *dashboardInfos) String() string {
 // checkDashboard does a health-check against a dashboard container to verify if
 // it's running, and if yes, gathering a collection of useful infos about it.
 func checkDashboard(client *sshClient, network string) (*dashboardInfos, error) {
-	// Inspect a possible ethstats container on the host
+	// Inspect a possible datxstats container on the host
 	infos, err := inspectContainer(client, fmt.Sprintf("%s_dashboard_1", network))
 	if err != nil {
 		return nil, err

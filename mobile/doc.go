@@ -1,23 +1,23 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
-// Package gdatx contains the simplified mobile APIs to go-datx.
+// Package gdatx contains the simplified mobile APIs to go-DATx.
 //
-// The scope of this package is *not* to allow writing a custom DATx client
-// with pieces plucked from go-datx, rather to allow writing native dapps on
+// The scope of this package is *not* to allow writing a custom Ethereum client
+// with pieces plucked from go-DATx, rather to allow writing native dapps on
 // mobile platforms. Keep this in mind when using or extending this package!
 //
 // API limitations
@@ -33,13 +33,13 @@
 // writing custom library generators, but those are out of scope now.
 //
 // Content wise each file in this package corresponds to an entire Go package
-// from the go-datx repository. Please adhere to this scoping to prevent this
+// from the go-DATx repository. Please adhere to this scoping to prevent this
 // package getting unmaintainable.
 //
 // Wrapping guidelines:
 //
 // Every type that is to be exposed should be wrapped into its own plain struct,
-// which internally contains a single field: the original go-datx version.
+// which internally contains a single field: the original go-DATx version.
 // This is needed because gomobile cannot expose named types for now.
 //
 // Whenever a method argument or a return type is a custom struct, the pointer

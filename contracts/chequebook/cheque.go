@@ -1,24 +1,24 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
-// Package chequebook package wraps the 'chequebook' DATx smart contract.
+// Package chequebook package wraps the 'chequebook' Ethereum smart contract.
 //
 // The functions in this package allow using chequebook for
-// issuing, receiving, verifying cheques in ether; (auto)cashing cheques in ether
-// as well as (auto)depositing ether to the chequebook contract.
+// issuing, receiving, verifying cheques in datx; (auto)cashing cheques in datx
+// as well as (auto)depositing datx to the chequebook contract.
 package chequebook
 
 //go:generate abigen --sol contract/chequebook.sol --pkg contract --out contract/chequebook.go
@@ -36,14 +36,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/common/hexutil"
-	"github.com/DATxChain-Protocol/DATx/contracts/chequebook/contract"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/swarm/services/swap/swap"
+	"github.com/DATx-Protocol/go-DATx/accounts/abi/bind"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATx-Protocol/go-DATx/contracts/chequebook/contract"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/swarm/services/swap/swap"
 )
 
 // TODO(zelig): watch peer solvency and notify of bouncing cheques
@@ -52,8 +52,8 @@ import (
 // Some functionality requires interacting with the blockchain:
 // * setting current balance on peer's chequebook
 // * sending the transaction to cash the cheque
-// * depositing ether to the chequebook
-// * watching incoming ether
+// * depositing datx to the chequebook
+// * watching incoming datx
 
 var (
 	gasToCash = big.NewInt(2000000) // gas cost of a cash transaction using chequebook
@@ -620,7 +620,7 @@ func sig2vrs(sig []byte) (v byte, r, s [32]byte) {
 	return
 }
 
-// Cash cashes the cheque by sending an DATx transaction.
+// Cash cashes the cheque by sending an Ethereum transaction.
 func (self *Cheque) Cash(session *contract.ChequebookSession) (string, error) {
 	v, r, s := sig2vrs(self.Sig)
 	tx, err := session.Cash(self.Beneficiary, self.Amount, v, r, s)

@@ -1,20 +1,20 @@
-// Copyright 2014 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2014 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
-// Package core implements the DATx consensus protocol.
+// Package core implements the Ethereum consensus protocol.
 package core
 
 import (
@@ -27,21 +27,21 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/common/mclock"
-	"github.com/DATxChain-Protocol/DATx/consensus"
-	"github.com/DATxChain-Protocol/DATx/consensus/dpos"
-	"github.com/DATxChain-Protocol/DATx/core/state"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/core/vm"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/ethdb"
-	"github.com/DATxChain-Protocol/DATx/event"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/metrics"
-	"github.com/DATxChain-Protocol/DATx/params"
-	"github.com/DATxChain-Protocol/DATx/rlp"
-	"github.com/DATxChain-Protocol/DATx/trie"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/common/mclock"
+	"github.com/DATx-Protocol/go-DATx/consensus"
+	"github.com/DATx-Protocol/go-DATx/consensus/dpos"
+	"github.com/DATx-Protocol/go-DATx/core/state"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/core/vm"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATx-Protocol/go-DATx/event"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/metrics"
+	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATx-Protocol/go-DATx/rlp"
+	"github.com/DATx-Protocol/go-DATx/trie"
 	"github.com/hashicorp/golang-lru"
 )
 
@@ -80,7 +80,7 @@ type BlockChain struct {
 	config *params.ChainConfig // chain & network configuration
 
 	hc            *HeaderChain
-	chainDb       ethdb.Database
+	chainDb       datxdb.Database
 	rmLogsFeed    event.Feed
 	chainFeed     event.Feed
 	chainSideFeed event.Feed
@@ -118,9 +118,9 @@ type BlockChain struct {
 }
 
 // NewBlockChain returns a fully initialised block chain using information
-// available in the database. It initialises the default DATx Validator and
+// available in the database. It initialises the default Ethereum Validator and
 // Processor.
-func NewBlockChain(chainDb ethdb.Database, config *params.ChainConfig, engine consensus.Engine, vmConfig vm.Config) (*BlockChain, error) {
+func NewBlockChain(chainDb datxdb.Database, config *params.ChainConfig, engine consensus.Engine, vmConfig vm.Config) (*BlockChain, error) {
 	bodyCache, _ := lru.New(bodyCacheLimit)
 	bodyRLPCache, _ := lru.New(bodyCacheLimit)
 	blockCache, _ := lru.New(blockCacheLimit)
@@ -569,7 +569,7 @@ func (bc *BlockChain) GetBlockByNumber(number uint64) *types.Block {
 }
 
 // GetBlocksFromHash returns the block corresponding to hash and up to n-1 ancestors.
-// [deprecated by eth/62]
+// [deprecated by datx/62]
 func (bc *BlockChain) GetBlocksFromHash(hash common.Hash, n int) (blocks []*types.Block) {
 	number := bc.hc.GetBlockNumber(hash)
 	for i := 0; i < n; i++ {
@@ -745,7 +745,7 @@ func (bc *BlockChain) InsertReceiptChain(blockChain types.Blocks, receiptChain [
 		}
 		stats.processed++
 
-		if batch.ValueSize() >= ethdb.IdealBatchSize {
+		if batch.ValueSize() >= datxdb.IdealBatchSize {
 			if err := batch.Write(); err != nil {
 				return 0, err
 			}

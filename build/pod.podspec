@@ -2,12 +2,12 @@ Pod::Spec.new do |spec|
   spec.name         = 'Gdatx'
   spec.version      = '{{.Version}}'
   spec.license      = { :type => 'GNU Lesser General Public License, Version 3.0' }
-  spec.homepage     = 'https://github.com/DATxChain-Protocol/DATx'
+  spec.homepage     = 'https://github.com/DATx/go-DATx'
   spec.authors      = { {{range .Contributors}}
 		'{{.Name}}' => '{{.Email}}',{{end}}
 	}
-  spec.summary      = 'iOS DATx Client'
-  spec.source       = { :git => 'https://github.com/DATxChain-Protocol/DATx.git', :commit => '{{.Commit}}' }
+  spec.summary      = 'iOS Ethereum Client'
+  spec.source       = { :git => 'https://github.com/DATx/go-DATx.git', :commit => '{{.Commit}}' }
 
 	spec.platform = :ios
   spec.ios.deployment_target  = '9.0'

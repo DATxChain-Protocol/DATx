@@ -69,13 +69,13 @@ var (
 	licenseCommentRE = regexp.MustCompile(`^//\s*(Copyright|This file is part of).*?\n(?://.*?\n)*\n*`)
 
 	// this text appears at the start of AUTHORS
-	authorsFileHeader = "# This is the official list of go-datx authors for copyright purposes.\n\n"
+	authorsFileHeader = "# This is the official list of go-DATx authors for copyright purposes.\n\n"
 )
 
 // this template generates the license comment.
 // its input is an info structure.
 var licenseT = template.Must(template.New("").Parse(`
-// Copyright {{.Year}} The go-datx Authors
+// Copyright {{.Year}} The go-DATx Authors
 // This file is part of {{.Whole false}}.
 //
 // {{.Whole true}} is free software: you can redistribute it and/or modify
@@ -114,12 +114,12 @@ func (i info) ShortLicense() string {
 
 func (i info) Whole(startOfSentence bool) string {
 	if i.gpl() {
-		return "go-datx"
+		return "go-DATx"
 	}
 	if startOfSentence {
-		return "The go-datx library"
+		return "The go-DATx library"
 	}
-	return "the go-datx library"
+	return "the go-DATx library"
 }
 
 func (i info) gpl() bool {

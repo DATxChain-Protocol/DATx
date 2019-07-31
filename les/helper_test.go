@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 // This file contains some shares testing functionality, common to  multiple
 // different files and modules being tested.
@@ -25,19 +25,19 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/consensus/ethash"
-	"github.com/DATxChain-Protocol/DATx/core"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/core/vm"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/ethdb"
-	"github.com/DATxChain-Protocol/DATx/event"
-	"github.com/DATxChain-Protocol/DATx/les/flowcontrol"
-	"github.com/DATxChain-Protocol/DATx/light"
-	"github.com/DATxChain-Protocol/DATx/p2p"
-	"github.com/DATxChain-Protocol/DATx/p2p/discover"
-	"github.com/DATxChain-Protocol/DATx/params"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/consensus/ethash"
+	"github.com/DATx-Protocol/go-DATx/core"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/core/vm"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATx-Protocol/go-DATx/event"
+	"github.com/DATx-Protocol/go-DATx/les/flowcontrol"
+	"github.com/DATx-Protocol/go-DATx/light"
+	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATx-Protocol/go-DATx/p2p/discover"
+	"github.com/DATx-Protocol/go-DATx/params"
 )
 
 var (
@@ -80,11 +80,11 @@ func testChainGen(i int, block *core.BlockGen) {
 
 	switch i {
 	case 0:
-		// In block 1, the test bank sends account #1 some ether.
+		// In block 1, the test bank sends account #1 some datx.
 		tx, _ := types.SignTx(types.NewTransaction(types.Binary, block.TxNonce(testBankAddress), acc1Addr, big.NewInt(10000), bigTxGas, nil, nil), signer, testBankKey)
 		block.AddTx(tx)
 	case 1:
-		// In block 2, the test bank sends some more ether to account #1.
+		// In block 2, the test bank sends some more datx to account #1.
 		// acc1Addr passes it on to account #2.
 		// acc1Addr creates a test contract.
 		tx1, _ := types.SignTx(types.NewTransaction(types.Binary, block.TxNonce(testBankAddress), acc1Addr, big.NewInt(1000), bigTxGas, nil, nil), signer, testBankKey)
@@ -130,7 +130,7 @@ func testRCL() RequestCostList {
 // newTestProtocolManager creates a new protocol manager for testing purposes,
 // with the given number of blocks already known, and potential notification
 // channels for different events.
-func newTestProtocolManager(lightSync bool, blocks int, generator func(int, *core.BlockGen), peers *peerSet, odr *LesOdr, db ethdb.Database) (*ProtocolManager, error) {
+func newTestProtocolManager(lightSync bool, blocks int, generator func(int, *core.BlockGen), peers *peerSet, odr *LesOdr, db datxdb.Database) (*ProtocolManager, error) {
 	var (
 		evmux  = new(event.TypeMux)
 		engine = ethash.NewFaker()
@@ -186,7 +186,7 @@ func newTestProtocolManager(lightSync bool, blocks int, generator func(int, *cor
 // with the given number of blocks already known, and potential notification
 // channels for different events. In case of an error, the constructor force-
 // fails the test.
-func newTestProtocolManagerMust(t *testing.T, lightSync bool, blocks int, generator func(int, *core.BlockGen), peers *peerSet, odr *LesOdr, db ethdb.Database) *ProtocolManager {
+func newTestProtocolManagerMust(t *testing.T, lightSync bool, blocks int, generator func(int, *core.BlockGen), peers *peerSet, odr *LesOdr, db datxdb.Database) *ProtocolManager {
 	pm, err := newTestProtocolManager(lightSync, blocks, generator, peers, odr, db)
 	if err != nil {
 		t.Fatalf("Failed to create protocol manager: %v", err)

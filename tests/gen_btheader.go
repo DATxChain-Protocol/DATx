@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/common/hexutil"
-	"github.com/DATxChain-Protocol/DATx/common/math"
-	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATx-Protocol/go-DATx/common/math"
+	"github.com/DATx-Protocol/go-DATx/core/types"
 )
 
 var _ = (*btHeaderMarshaling)(nil)

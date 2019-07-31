@@ -1,18 +1,18 @@
-// Copyright 2015 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2015 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 // Package release contains the node service that tracks client releases.
 package release
@@ -25,15 +25,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/eth"
-	"github.com/DATxChain-Protocol/DATx/internal/ethapi"
-	"github.com/DATxChain-Protocol/DATx/les"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/node"
-	"github.com/DATxChain-Protocol/DATx/p2p"
-	"github.com/DATxChain-Protocol/DATx/rpc"
+	"github.com/DATx-Protocol/go-DATx/accounts/abi/bind"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/datx"
+	"github.com/DATx-Protocol/go-DATx/internal/ethapi"
+	"github.com/DATx-Protocol/go-DATx/les"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/node"
+	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATx-Protocol/go-DATx/rpc"
 )
 
 // Interval to check for new releases
@@ -41,7 +41,7 @@ const releaseRecheckInterval = time.Hour
 
 // Config contains the configurations of the release service.
 type Config struct {
-	Oracle common.Address // DATx address of the release oracle
+	Oracle common.Address // Ethereum address of the release oracle
 	Major  uint32         // Major version component of the release
 	Minor  uint32         // Minor version component of the release
 	Patch  uint32         // Patch version component of the release
@@ -60,21 +60,21 @@ type ReleaseService struct {
 // NewReleaseService creates a new service to periodically check for new client
 // releases and notify the user of such.
 func NewReleaseService(ctx *node.ServiceContext, config Config) (node.Service, error) {
-	// Retrieve the DATx service dependency to access the blockchain
+	// Retrieve the Ethereum service dependency to access the blockchain
 	var apiBackend ethapi.Backend
-	var datx *eth.DATx
-	if err := ctx.Service(&datx); err == nil {
-		apiBackend = datx.ApiBackend
+	var DATx *datx.Ethereum
+	if err := ctx.Service(&DATx); err == nil {
+		apiBackend = DATx.ApiBackend
 	} else {
-		var datx *les.LightDATx
-		if err := ctx.Service(&datx); err == nil {
-			apiBackend = datx.ApiBackend
+		var DATx *les.LightEthereum
+		if err := ctx.Service(&DATx); err == nil {
+			apiBackend = DATx.ApiBackend
 		} else {
 			return nil, err
 		}
 	}
 	// Construct the release service
-	contract, err := NewReleaseOracle(config.Oracle, eth.NewContractBackend(apiBackend))
+	contract, err := NewReleaseOracle(config.Oracle, datx.NewContractBackend(apiBackend))
 	if err != nil {
 		return nil, err
 	}
@@ -149,7 +149,7 @@ func (r *ReleaseService) checkVersion() {
 
 		warning := fmt.Sprintf("Client v%d.%d.%d-%x seems older than the latest upstream release v%d.%d.%d-%x",
 			r.config.Major, r.config.Minor, r.config.Patch, r.config.Commit[:4], version.Major, version.Minor, version.Patch, version.Commit[:4])
-		howtofix := fmt.Sprintf("Please check https://github.com/DATxChain-Protocol/DATx/releases for new releases")
+		howtofix := fmt.Sprintf("Please check https://github.com/DATx-Protocol/go-DATx/releases for new releases")
 		separator := strings.Repeat("-", len(warning))
 
 		log.Warn(separator)

@@ -4,14 +4,14 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.datx</groupId>
+  <groupId>org.DATx</groupId>
   <artifactId>gdatx</artifactId>
   <version>{{.Version}}</version>
   <packaging>aar</packaging>
 
-  <name>Android DATx Client</name>
-  <description>Android port of the go-datx libraries and node</description>
-  <url>https://github.com/DATxChain-Protocol/DATx</url>
+  <name>Android Ethereum Client</name>
+  <description>Android port of the go-DATx libraries and node</description>
+  <url>https://github.com/DATx/go-DATx</url>
   <inceptionYear>2015</inceptionYear>
 
   <licenses>
@@ -23,8 +23,8 @@
   </licenses>
 
   <organization>
-    <name>DATx</name>
-    <url>https://datx.org</url>
+    <name>Ethereum</name>
+    <url>https://DATx.org</url>
   </organization>
 
   <developers>
@@ -48,10 +48,10 @@
 
   <issueManagement>
     <system>GitHub Issues</system>
-    <url>https://github.com/DATxChain-Protocol/DATx/issues/</url>
+    <url>https://github.com/DATx/go-DATx/issues/</url>
   </issueManagement>
 
   <scm>
-    <url>https://github.com/DATxChain-Protocol/DATx</url>
+    <url>https://github.com/DATx/go-DATx</url>
   </scm>
 </project>

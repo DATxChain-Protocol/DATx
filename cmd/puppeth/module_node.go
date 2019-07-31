@@ -1,18 +1,18 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2017 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -25,12 +25,12 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATx-Protocol/go-DATx/log"
 )
 
-// nodeDockerfile is the Dockerfile required to run an DATx node.
+// nodeDockerfile is the Dockerfile required to run an Ethereum node.
 var nodeDockerfile = `
-FROM datx/client-go:latest
+FROM DATx/client-go:latest
 
 ADD genesis.json /genesis.json
 {{if .Unlock}}
@@ -39,14 +39,14 @@ ADD genesis.json /genesis.json
 {{end}}
 RUN \
   echo 'gdatx init /genesis.json' > gdatx.sh && \{{if .Unlock}}
-	echo 'mkdir -p /root/.datx/keystore/ && cp /signer.json /root/.datx/keystore/' >> gdatx.sh && \{{end}}
-	echo $'gdatx --networkid {{.NetworkID}} --cache 512 --port {{.Port}} --maxpeers {{.Peers}} {{.LightFlag}} --ethstats \'{{.Ethstats}}\' {{if .BootV4}}--bootnodesv4 {{.BootV4}}{{end}} {{if .BootV5}}--bootnodesv5 {{.BootV5}}{{end}} {{if .Coinbase}}--coinbase {{.Coinbase}} --mine{{end}}{{if .Unlock}}--unlock 0 --password /signer.pass --mine{{end}} --targetgaslimit {{.GasTarget}} --gasprice {{.GasPrice}}' >> gdatx.sh
+	echo 'mkdir -p /root/.DATx/keystore/ && cp /signer.json /root/.DATx/keystore/' >> gdatx.sh && \{{end}}
+	echo $'gdatx --networkid {{.NetworkID}} --cache 512 --port {{.Port}} --maxpeers {{.Peers}} {{.LightFlag}} --datxstats \'{{.Ethstats}}\' {{if .BootV4}}--bootnodesv4 {{.BootV4}}{{end}} {{if .BootV5}}--bootnodesv5 {{.BootV5}}{{end}} {{if .Coinbase}}--coinbase {{.Coinbase}} --mine{{end}}{{if .Unlock}}--unlock 0 --password /signer.pass --mine{{end}} --targetgaslimit {{.GasTarget}} --gasprice {{.GasPrice}}' >> gdatx.sh
 
 ENTRYPOINT ["/bin/sh", "gdatx.sh"]
 `
 
 // nodeComposefile is the docker-compose.yml file required to deploy and maintain
-// an DATx node (bootnode or miner for now).
+// an Ethereum node (bootnode or miner for now).
 var nodeComposefile = `
 version: '2'
 services:
@@ -58,7 +58,7 @@ services:
       - "{{.FullPort}}:{{.FullPort}}/udp"{{if .Light}}
       - "{{.LightPort}}:{{.LightPort}}/udp"{{end}}
     volumes:
-      - {{.Datadir}}:/root/.datx
+      - {{.Datadir}}:/root/.DATx
     environment:
       - FULL_PORT={{.FullPort}}/tcp
       - LIGHT_PORT={{.LightPort}}/udp
@@ -76,7 +76,7 @@ services:
     restart: always
 `
 
-// deployNode deploys a new DATx node container to a remote machine via SSH,
+// deployNode deploys a new Ethereum node container to a remote machine via SSH,
 // docker and docker-compose. If an instance with the specified network name
 // already exists there, it will be overwritten!
 func deployNode(client *sshClient, network string, bootv4, bootv5 []string, config *nodeInfos) ([]byte, error) {
@@ -102,7 +102,7 @@ func deployNode(client *sshClient, network string, bootv4, bootv5 []string, conf
 		"LightFlag": lightFlag,
 		"BootV4":    strings.Join(bootv4, ","),
 		"BootV5":    strings.Join(bootv5, ","),
-		"Ethstats":  config.ethstats,
+		"Ethstats":  config.datxstats,
 		"Coinbase":  config.coinbase,
 		"GasTarget": uint64(1000000 * config.gasTarget),
 		"GasPrice":  uint64(1000000000 * config.gasPrice),
@@ -120,7 +120,7 @@ func deployNode(client *sshClient, network string, bootv4, bootv5 []string, conf
 		"Light":      config.peersLight > 0,
 		"LightPort":  config.portFull + 1,
 		"LightPeers": config.peersLight,
-		"Ethstats":   config.ethstats[:strings.Index(config.ethstats, ":")],
+		"Ethstats":   config.datxstats[:strings.Index(config.datxstats, ":")],
 		"Coinbase":   config.coinbase,
 		"GasTarget":  config.gasTarget,
 		"GasPrice":   config.gasPrice,
@@ -150,7 +150,7 @@ type nodeInfos struct {
 	genesis    []byte
 	network    int64
 	datadir    string
-	ethstats   string
+	datxstats   string
 	portFull   int
 	portLight  int
 	enodeFull  string
@@ -170,8 +170,8 @@ func (info *nodeInfos) String() string {
 	if info.peersLight > 0 {
 		discv5 = fmt.Sprintf(", portv5=%d", info.portLight)
 	}
-	return fmt.Sprintf("port=%d%s, datadir=%s, peers=%d, lights=%d, ethstats=%s, gastarget=%0.3f MGas, gasprice=%0.3f GWei",
-		info.portFull, discv5, info.datadir, info.peersTotal, info.peersLight, info.ethstats, info.gasTarget, info.gasPrice)
+	return fmt.Sprintf("port=%d%s, datadir=%s, peers=%d, lights=%d, datxstats=%s, gastarget=%0.3f MGas, gasprice=%0.3f GWei",
+		info.portFull, discv5, info.datadir, info.peersTotal, info.peersLight, info.datxstats, info.gasTarget, info.gasPrice)
 }
 
 // checkNode does a health-check against an boot or seal node server to verify
@@ -222,12 +222,12 @@ func checkNode(client *sshClient, network string, boot bool) (*nodeInfos, error)
 	// Assemble and return the useful infos
 	stats := &nodeInfos{
 		genesis:    genesis,
-		datadir:    infos.volumes["/root/.datx"],
+		datadir:    infos.volumes["/root/.DATx"],
 		portFull:   infos.portmap[infos.envvars["FULL_PORT"]],
 		portLight:  infos.portmap[infos.envvars["LIGHT_PORT"]],
 		peersTotal: totalPeers,
 		peersLight: lightPeers,
-		ethstats:   infos.envvars["STATS_NAME"],
+		datxstats:   infos.envvars["STATS_NAME"],
 		coinbase:   infos.envvars["MINER_NAME"],
 		keyJSON:    keyJSON,
 		keyPass:    keyPass,

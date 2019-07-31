@@ -1,20 +1,20 @@
-// Copyright 2014 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2014 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
-// Package utils contains internal helper functions for go-datx commands.
+// Package utils contains internal helper functions for go-DATx commands.
 package utils
 
 import (
@@ -26,12 +26,12 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/DATxChain-Protocol/DATx/core"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/internal/debug"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/node"
-	"github.com/DATxChain-Protocol/DATx/rlp"
+	"github.com/DATx-Protocol/go-DATx/core"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/internal/debug"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/node"
+	"github.com/DATx-Protocol/go-DATx/rlp"
 )
 
 const (

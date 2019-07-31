@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package node
 
@@ -22,8 +22,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/DATxChain-Protocol/DATx/p2p"
-	"github.com/DATxChain-Protocol/DATx/p2p/nat"
+	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATx-Protocol/go-DATx/p2p/nat"
 )
 
 const (
@@ -37,9 +37,9 @@ const (
 var DefaultConfig = Config{
 	DataDir:     DefaultDataDir(),
 	HTTPPort:    DefaultHTTPPort,
-	HTTPModules: []string{"net", "web3"},
+	HTTPModules: []string{"net", "DATxWeb"},
 	WSPort:      DefaultWSPort,
-	WSModules:   []string{"net", "web3"},
+	WSModules:   []string{"net", "DATxWeb"},
 	P2P: p2p.Config{
 		ListenAddr:      ":30303",
 		DiscoveryV5Addr: ":30304",
@@ -55,11 +55,11 @@ func DefaultDataDir() string {
 	home := homeDir()
 	if home != "" {
 		if runtime.GOOS == "darwin" {
-			return filepath.Join(home, "Library", "DATx")
+			return filepath.Join(home, "Library", "Ethereum")
 		} else if runtime.GOOS == "windows" {
-			return filepath.Join(home, "AppData", "Roaming", "DATx")
+			return filepath.Join(home, "AppData", "Roaming", "Ethereum")
 		} else {
-			return filepath.Join(home, ".datx")
+			return filepath.Join(home, ".DATx")
 		}
 	}
 	// As we cannot guess a stable location, return empty and handle later

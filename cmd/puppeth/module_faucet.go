@@ -1,18 +1,18 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2017 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -25,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATx-Protocol/go-DATx/log"
 )
 
 // faucetDockerfile is the Dockerfile required to build an faucet container to
@@ -38,9 +38,9 @@ ENV GOPATH /go
 
 RUN \
   apk add --update git go make gcc musl-dev ca-certificates linux-headers                             && \
-	mkdir -p $GOPATH/src/github.com/datx                                                            && \
-	(cd $GOPATH/src/github.com/datx && git clone --depth=1 https://github.com/meitu/go-datx) && \
-  go build -v github.com/DATxChain-Protocol/DATx/cmd/faucet                                              && \
+	mkdir -p $GOPATH/src/github.com/DATx                                                            && \
+	(cd $GOPATH/src/github.com/DATx && git clone --depth=1 https://github.com/DATx-Protocol/go-DATx) && \
+  go build -v github.com/DATx-Protocol/go-DATx/cmd/faucet                                              && \
   apk del git go make gcc musl-dev linux-headers                                                      && \
   rm -rf $GOPATH && rm -rf /var/cache/apk/*
 
@@ -51,7 +51,7 @@ ADD account.pass /account.pass
 EXPOSE 8080
 
 CMD [ \
-	"/faucet", "--genesis", "/genesis.json", "--network", "{{.NetworkID}}", "--bootnodes", "{{.Bootnodes}}", "--ethstats", "{{.Ethstats}}", "--ethport", "{{.EthPort}}", \
+	"/faucet", "--genesis", "/genesis.json", "--network", "{{.NetworkID}}", "--bootnodes", "{{.Bootnodes}}", "--datxstats", "{{.Ethstats}}", "--ethport", "{{.EthPort}}", \
 	"--faucet.name", "{{.FaucetName}}", "--faucet.amount", "{{.FaucetAmount}}", "--faucet.minutes", "{{.FaucetMinutes}}", "--faucet.tiers", "{{.FaucetTiers}}",          \
 	"--github.user", "{{.GitHubUser}}", "--github.token", "{{.GitHubToken}}", "--account.json", "/account.json", "--account.pass", "/account.pass"                       \
 	{{if .CaptchaToken}}, "--captcha.token", "{{.CaptchaToken}}", "--captcha.secret", "{{.CaptchaSecret}}"{{end}}                                                        \
@@ -102,7 +102,7 @@ func deployFaucet(client *sshClient, network string, bootnodes []string, config 
 	template.Must(template.New("").Parse(faucetDockerfile)).Execute(dockerfile, map[string]interface{}{
 		"NetworkID":     config.node.network,
 		"Bootnodes":     strings.Join(bootnodes, ","),
-		"Ethstats":      config.node.ethstats,
+		"Ethstats":      config.node.datxstats,
 		"EthPort":       config.node.portFull,
 		"GitHubUser":    config.githubUser,
 		"GitHubToken":   config.githubToken,
@@ -122,7 +122,7 @@ func deployFaucet(client *sshClient, network string, bootnodes []string, config 
 		"VHost":         config.host,
 		"ApiPort":       config.port,
 		"EthPort":       config.node.portFull,
-		"EthName":       config.node.ethstats[:strings.Index(config.node.ethstats, ":")],
+		"EthName":       config.node.datxstats[:strings.Index(config.node.datxstats, ":")],
 		"GitHubUser":    config.githubUser,
 		"GitHubToken":   config.githubToken,
 		"CaptchaToken":  config.captchaToken,
@@ -164,7 +164,7 @@ type faucetInfos struct {
 
 // String implements the stringer interface.
 func (info *faucetInfos) String() string {
-	return fmt.Sprintf("host=%s, api=%d, eth=%d, amount=%d, minutes=%d, tiers=%d, github=%s, captcha=%v, ethstats=%s", info.host, info.port, info.node.portFull, info.amount, info.minutes, info.tiers, info.githubUser, info.captchaToken != "", info.node.ethstats)
+	return fmt.Sprintf("host=%s, api=%d, datx=%d, amount=%d, minutes=%d, tiers=%d, github=%s, captcha=%v, datxstats=%s", info.host, info.port, info.node.portFull, info.amount, info.minutes, info.tiers, info.githubUser, info.captchaToken != "", info.node.datxstats)
 }
 
 // checkFaucet does a health-check against an faucet server to verify whether
@@ -215,7 +215,7 @@ func checkFaucet(client *sshClient, network string) (*faucetInfos, error) {
 		node: &nodeInfos{
 			datadir:  infos.volumes["/root/.faucet"],
 			portFull: infos.portmap[infos.envvars["ETH_PORT"]+"/tcp"],
-			ethstats: infos.envvars["ETH_NAME"],
+			datxstats: infos.envvars["ETH_NAME"],
 			keyJSON:  keyJSON,
 			keyPass:  keyPass,
 		},

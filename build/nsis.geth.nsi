@@ -29,9 +29,9 @@
 # - sign installer
 CRCCheck on
 
-!define GROUPNAME "DATx"
+!define GROUPNAME "Ethereum"
 !define APPNAME "Gdatx"
-!define DESCRIPTION "Official Go implementation of the DATx protocol"
+!define DESCRIPTION "Official Go implementation of the Ethereum protocol"
 !addplugindir .\
 
 # Require admin rights on NT6+ (When UAC is turned on)

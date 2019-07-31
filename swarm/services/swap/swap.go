@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package swap
 
@@ -26,14 +26,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/contracts/chequebook"
-	"github.com/DATxChain-Protocol/DATx/contracts/chequebook/contract"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/swarm/services/swap/swap"
+	"github.com/DATx-Protocol/go-DATx/accounts/abi/bind"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/contracts/chequebook"
+	"github.com/DATx-Protocol/go-DATx/contracts/chequebook/contract"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/swarm/services/swap/swap"
 )
 
 // SwAP       Swarm Accounting Protocol with
@@ -44,12 +44,12 @@ import (
 
 var (
 	autoCashInterval     = 300 * time.Second           // default interval for autocash
-	autoCashThreshold    = big.NewInt(50000000000000)  // threshold that triggers autocash (wei)
+	autoCashThreshold    = big.NewInt(50000000000000)  // threshold that triggers autocash (uno)
 	autoDepositInterval  = 300 * time.Second           // default interval for autocash
-	autoDepositThreshold = big.NewInt(50000000000000)  // threshold that triggers autodeposit (wei)
-	autoDepositBuffer    = big.NewInt(100000000000000) // buffer that is surplus for fork protection etc (wei)
-	buyAt                = big.NewInt(20000000000)     // maximum chunk price host is willing to pay (wei)
-	sellAt               = big.NewInt(20000000000)     // minimum chunk price host requires (wei)
+	autoDepositThreshold = big.NewInt(50000000000000)  // threshold that triggers autodeposit (uno)
+	autoDepositBuffer    = big.NewInt(100000000000000) // buffer that is surplus for fork protection etc (uno)
+	buyAt                = big.NewInt(20000000000)     // maximum chunk price host is willing to pay (uno)
+	sellAt               = big.NewInt(20000000000)     // minimum chunk price host requires (uno)
 	payAt                = 100                         // threshold that triggers payment {request} (units)
 	dropAt               = 10000                       // threshold that triggers disconnect (units)
 )
@@ -162,12 +162,12 @@ func NewSwap(local *SwapParams, remote *SwapProfile, backend chequebook.Backend,
 	self.SetRemote(remote.Profile)
 	var buy, sell string
 	if self.Buys {
-		buy = "purchase from peer enabled at " + remote.SellAt.String() + " wei/chunk"
+		buy = "purchase from peer enabled at " + remote.SellAt.String() + " uno/chunk"
 	} else {
 		buy = "purchase from peer disabled"
 	}
 	if self.Sells {
-		sell = "selling to peer enabled at " + local.SellAt.String() + " wei/chunk"
+		sell = "selling to peer enabled at " + local.SellAt.String() + " uno/chunk"
 	} else {
 		sell = "selling to peer disabled"
 	}

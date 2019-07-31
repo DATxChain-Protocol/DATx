@@ -1,4 +1,4 @@
-// DATx Name Service contracts by Nick Johnson <nick@datx.org>
+// Ethereum Name Service contracts by Nick Johnson <nick@DATx.org>
 // 
 // To the extent possible under law, the person who associated CC0 with
 // ENS contracts has waived all copyright and related or neighboring rights

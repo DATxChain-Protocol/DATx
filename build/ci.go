@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 // +build none
 
@@ -58,7 +58,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/internal/build"
+	"github.com/DATx-Protocol/go-DATx/internal/build"
 )
 
 var (
@@ -85,23 +85,23 @@ var (
 	debExecutables = []debExecutable{
 		{
 			Name:        "abigen",
-			Description: "Source code generator to convert DATx contract definitions into easy to use, compile-time type-safe Go packages.",
+			Description: "Source code generator to convert Ethereum contract definitions into easy to use, compile-time type-safe Go packages.",
 		},
 		{
 			Name:        "bootnode",
-			Description: "DATx bootnode.",
+			Description: "Ethereum bootnode.",
 		},
 		{
 			Name:        "evm",
-			Description: "Developer utility version of the EVM (DATx Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode.",
+			Description: "Developer utility version of the EVM (Ethereum Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode.",
 		},
 		{
 			Name:        "gdatx",
-			Description: "DATx CLI client.",
+			Description: "Ethereum CLI client.",
 		},
 		{
 			Name:        "puppeth",
-			Description: "DATx private network manager.",
+			Description: "Ethereum private network manager.",
 		},
 		{
 			Name:        "rlpdump",
@@ -109,11 +109,11 @@ var (
 		},
 		{
 			Name:        "swarm",
-			Description: "DATx Swarm daemon and tools",
+			Description: "Ethereum Swarm daemon and tools",
 		},
 		{
 			Name:        "wnode",
-			Description: "DATx Whisper diagnostic tool",
+			Description: "Ethereum Whisper diagnostic tool",
 		},
 	}
 
@@ -184,7 +184,7 @@ func doInstall(cmdline []string) {
 		fmt.Sscanf(strings.TrimPrefix(runtime.Version(), "go1."), "%d", &minor)
 		if minor < 7 {
 			log.Println("You have Go version", runtime.Version())
-			log.Println("go-datx requires at least Go version 1.7 and cannot")
+			log.Println("go-DATx requires at least Go version 1.7 and cannot")
 			log.Println("be compiled with an earlier version. Please upgrade your Go installation.")
 			os.Exit(1)
 		}
@@ -453,7 +453,7 @@ func maybeSkipArchive(env build.Environment) {
 func doDebianSource(cmdline []string) {
 	var (
 		signer  = flag.String("signer", "", `Signing key name, also used as package author`)
-		upload  = flag.String("upload", "", `Where to upload the source package (usually "ppa:datx/datx")`)
+		upload  = flag.String("upload", "", `Where to upload the source package (usually "ppa:DATx/DATx")`)
 		workdir = flag.String("workdir", "", `Output directory for packages (uses temp dir if unset)`)
 		now     = time.Now()
 	)
@@ -515,7 +515,7 @@ func isUnstableBuild(env build.Environment) bool {
 type debMetadata struct {
 	Env build.Environment
 
-	// go-datx version being built. Note that this
+	// go-DATx version being built. Note that this
 	// is not the debian package version. The package version
 	// is constructed by VersionString.
 	Version string
@@ -532,7 +532,7 @@ type debExecutable struct {
 func newDebMetadata(distro, author string, env build.Environment, t time.Time) debMetadata {
 	if author == "" {
 		// No signing key, use default author.
-		author = "DATx Builds <fjl@datx.org>"
+		author = "Ethereum Builds <fjl@DATx.org>"
 	}
 	return debMetadata{
 		Env:         env,
@@ -548,9 +548,9 @@ func newDebMetadata(distro, author string, env build.Environment, t time.Time) d
 // on all executable packages.
 func (meta debMetadata) Name() string {
 	if isUnstableBuild(meta.Env) {
-		return "datx-unstable"
+		return "DATx-unstable"
 	}
-	return "datx"
+	return "DATx"
 }
 
 // VersionString returns the debian version of the packages.
@@ -594,7 +594,7 @@ func (meta debMetadata) ExeConflicts(exe debExecutable) string {
 		// be preferred and the conflicting files should be handled via
 		// alternates. We might do this eventually but using a conflict is
 		// easier now.
-		return "datx, " + exe.Name
+		return "DATx, " + exe.Name
 	}
 	return ""
 }
@@ -720,7 +720,7 @@ func doAndroidArchive(cmdline []string) {
 	// Build the Android archive and Maven resources
 	build.MustRun(goTool("get", "golang.org/x/mobile/cmd/gomobile"))
 	build.MustRun(gomobileTool("init", "--ndk", os.Getenv("ANDROID_NDK")))
-	build.MustRun(gomobileTool("bind", "--target", "android", "--javapkg", "org.datx", "-v", "github.com/DATxChain-Protocol/DATx/mobile"))
+	build.MustRun(gomobileTool("bind", "--target", "android", "--javapkg", "org.DATx", "-v", "github.com/DATx-Protocol/go-DATx/mobile"))
 
 	if *local {
 		// If we're building locally, copy bundle to build dir and skip Maven
@@ -840,7 +840,7 @@ func doXCodeFramework(cmdline []string) {
 	// Build the iOS XCode framework
 	build.MustRun(goTool("get", "golang.org/x/mobile/cmd/gomobile"))
 	build.MustRun(gomobileTool("init"))
-	bind := gomobileTool("bind", "--target", "ios", "--tags", "ios", "-v", "github.com/DATxChain-Protocol/DATx/mobile")
+	bind := gomobileTool("bind", "--target", "ios", "--tags", "ios", "-v", "github.com/DATx-Protocol/go-DATx/mobile")
 
 	if *local {
 		// If we're building locally, use the build folder and stop afterwards

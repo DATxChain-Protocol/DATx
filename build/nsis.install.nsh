@@ -3,9 +3,9 @@ InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
 # Links for "Add/Remove Programs"
-!define HELPURL "https://github.com/DATxChain-Protocol/DATx/issues"
-!define UPDATEURL "https://github.com/DATxChain-Protocol/DATx/releases"
-!define ABOUTURL "https://github.com/DATxChain-Protocol/DATx#datx-go"
+!define HELPURL "https://github.com/DATx/go-DATx/issues"
+!define UPDATEURL "https://github.com/DATx/go-DATx/releases"
+!define ABOUTURL "https://github.com/DATx/go-DATx#DATx-go"
 !define /date NOW "%Y%m%d"
 
 PageEx license
@@ -29,11 +29,11 @@ Section "Gdatx" GETH_IDX
   SimpleFC::AdvRemoveRule "Gdatx UDP discovery (UDP:30303)"
 
   # Firewall - add rules
-  SimpleFC::AdvAddRule "Gdatx incoming peers (TCP:30303)" ""  6 1 1 2147483647 1 "$INSTDIR\gdatx.exe" "" "" "DATx" 30303 "" "" ""
-  SimpleFC::AdvAddRule "Gdatx outgoing peers (TCP:30303)" ""  6 2 1 2147483647 1 "$INSTDIR\gdatx.exe" "" "" "DATx" "" 30303 "" ""
-  SimpleFC::AdvAddRule "Gdatx UDP discovery (UDP:30303)" "" 17 2 1 2147483647 1 "$INSTDIR\gdatx.exe" "" "" "DATx" "" 30303 "" ""
+  SimpleFC::AdvAddRule "Gdatx incoming peers (TCP:30303)" ""  6 1 1 2147483647 1 "$INSTDIR\gdatx.exe" "" "" "Ethereum" 30303 "" "" ""
+  SimpleFC::AdvAddRule "Gdatx outgoing peers (TCP:30303)" ""  6 2 1 2147483647 1 "$INSTDIR\gdatx.exe" "" "" "Ethereum" "" 30303 "" ""
+  SimpleFC::AdvAddRule "Gdatx UDP discovery (UDP:30303)" "" 17 2 1 2147483647 1 "$INSTDIR\gdatx.exe" "" "" "Ethereum" "" 30303 "" ""
 
-  # Set default IPC endpoint (https://github.com/DATx-Protocol/EIPs/issues/147)
+  # Set default IPC endpoint (https://github.com/DATx/EIPs/issues/147)
   ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gdatx.ipc"
   ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "A" "HKLM" "\\.\pipe\gdatx.ipc"
 

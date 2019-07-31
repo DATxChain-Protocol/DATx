@@ -4,8 +4,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/params"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/params"
 )
 
 func TestByteOp(t *testing.T) {

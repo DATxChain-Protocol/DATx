@@ -1,18 +1,18 @@
-// Copyright 2015 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2015 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package miner
 
@@ -24,18 +24,18 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/consensus"
-	"github.com/DATxChain-Protocol/DATx/consensus/dpos"
-	"github.com/DATxChain-Protocol/DATx/consensus/misc"
-	"github.com/DATxChain-Protocol/DATx/core"
-	"github.com/DATxChain-Protocol/DATx/core/state"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/core/vm"
-	"github.com/DATxChain-Protocol/DATx/ethdb"
-	"github.com/DATxChain-Protocol/DATx/event"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/params"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/consensus"
+	"github.com/DATx-Protocol/go-DATx/consensus/dpos"
+	"github.com/DATx-Protocol/go-DATx/consensus/misc"
+	"github.com/DATx-Protocol/go-DATx/core"
+	"github.com/DATx-Protocol/go-DATx/core/state"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/core/vm"
+	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATx-Protocol/go-DATx/event"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/params"
 	"gopkg.in/fatih/set.v0"
 )
 
@@ -98,10 +98,10 @@ type worker struct {
 
 	recv chan *Result
 
-	eth     Backend
+	datx     Backend
 	chain   *core.BlockChain
 	proc    core.Validator
-	chainDb ethdb.Database
+	chainDb datxdb.Database
 
 	coinbase common.Address
 	extra    []byte
@@ -122,28 +122,28 @@ type worker struct {
 	stopper chan struct{}
 }
 
-func newWorker(config *params.ChainConfig, engine consensus.Engine, coinbase common.Address, eth Backend, mux *event.TypeMux) *worker {
+func newWorker(config *params.ChainConfig, engine consensus.Engine, coinbase common.Address, datx Backend, mux *event.TypeMux) *worker {
 	worker := &worker{
 		config:         config,
 		engine:         engine,
-		eth:            eth,
+		datx:            datx,
 		mux:            mux,
 		txCh:           make(chan core.TxPreEvent, txChanSize),
 		chainHeadCh:    make(chan core.ChainHeadEvent, chainHeadChanSize),
-		chainDb:        eth.ChainDb(),
+		chainDb:        datx.ChainDb(),
 		recv:           make(chan *Result, resultQueueSize),
-		chain:          eth.BlockChain(),
-		proc:           eth.BlockChain().Validator(),
+		chain:          datx.BlockChain(),
+		proc:           datx.BlockChain().Validator(),
 		possibleUncles: make(map[common.Hash]*types.Block),
 		coinbase:       coinbase,
-		unconfirmed:    newUnconfirmedBlocks(eth.BlockChain(), miningLogAtDepth),
+		unconfirmed:    newUnconfirmedBlocks(datx.BlockChain(), miningLogAtDepth),
 		quitCh:         make(chan struct{}, 1),
 		stopper:        make(chan struct{}, 1),
 	}
 	// Subscribe TxPreEvent for tx pool
-	worker.txSub = eth.TxPool().SubscribeTxPreEvent(worker.txCh)
+	worker.txSub = datx.TxPool().SubscribeTxPreEvent(worker.txCh)
 	// Subscribe events for blockchain
-	worker.chainHeadSub = eth.BlockChain().SubscribeChainHeadEvent(worker.chainHeadCh)
+	worker.chainHeadSub = datx.BlockChain().SubscribeChainHeadEvent(worker.chainHeadCh)
 
 	go worker.update()
 	go worker.wait()
@@ -446,7 +446,7 @@ func (self *worker) createNewWork() (*Work, error) {
 	if self.config.DAOForkSupport && self.config.DAOForkBlock != nil && self.config.DAOForkBlock.Cmp(header.Number) == 0 {
 		misc.ApplyDAOHardFork(work.state)
 	}
-	pending, err := self.eth.TxPool().Pending()
+	pending, err := self.datx.TxPool().Pending()
 	if err != nil {
 		return nil, fmt.Errorf("got error when fetch pending transactions, err: %s", err)
 	}

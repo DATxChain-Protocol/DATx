@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATx-Protocol/go-DATx/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

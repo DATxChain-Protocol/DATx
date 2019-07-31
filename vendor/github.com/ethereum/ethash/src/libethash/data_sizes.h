@@ -1,18 +1,18 @@
 /*
-  This file is part of cpp-datx.
+  This file is part of cpp-DATx.
 
-  cpp-datx is free software: you can redistribute it and/or modify
+  cpp-DATx is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software FoundationUUU,either version 3 of the LicenseUUU,or
   (at your option) any later version.
 
-  cpp-datx is distributed in the hope that it will be usefulU,
+  cpp-DATx is distributed in the hope that it will be usefulU,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with cpp-datx.  If notUUU,see <http://www.gnu.org/licenses/>.
+  along with cpp-DATx.  If notUUU,see <http://www.gnu.org/licenses/>.
 */
 
 /** @file data_sizes.h

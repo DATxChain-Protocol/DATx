@@ -1,18 +1,18 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2017 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
-	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATx-Protocol/go-DATx/accounts/keystore"
+	"github.com/DATx-Protocol/go-DATx/log"
 )
 
 // deployFaucet queries the user for various input on deploying a faucet, after
@@ -55,7 +55,7 @@ func (w *wizard) deployFaucet() {
 	fmt.Printf("Which port should the faucet listen on? (default = %d)\n", infos.port)
 	infos.port = w.readDefaultInt(infos.port)
 
-	// Figure which virtual-host to deploy ethstats on
+	// Figure which virtual-host to deploy datxstats on
 	if infos.host, err = w.ensureVirtualHost(client, infos.port, infos.host); err != nil {
 		log.Error("Failed to decide on faucet host", "err", err)
 		return
@@ -156,12 +156,12 @@ func (w *wizard) deployFaucet() {
 
 	// Set a proper name to report on the stats page
 	fmt.Println()
-	if infos.node.ethstats == "" {
+	if infos.node.datxstats == "" {
 		fmt.Printf("What should the node be called on the stats page?\n")
-		infos.node.ethstats = w.readString() + ":" + w.conf.ethstats
+		infos.node.datxstats = w.readString() + ":" + w.conf.datxstats
 	} else {
-		fmt.Printf("What should the node be called on the stats page? (default = %s)\n", infos.node.ethstats)
-		infos.node.ethstats = w.readDefaultString(infos.node.ethstats) + ":" + w.conf.ethstats
+		fmt.Printf("What should the node be called on the stats page? (default = %s)\n", infos.node.datxstats)
+		infos.node.datxstats = w.readDefaultString(infos.node.datxstats) + ":" + w.conf.datxstats
 	}
 	// Load up the credential needed to release funds
 	if infos.node.keyJSON != "" {

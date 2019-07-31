@@ -5,10 +5,10 @@ import (
 
 	"encoding/binary"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/ethdb"
-	"github.com/DATxChain-Protocol/DATx/trie"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATx-Protocol/go-DATx/trie"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -38,7 +38,7 @@ var (
 	}
 )
 
-func mockNewDposContext(db ethdb.Database) *types.DposContext {
+func mockNewDposContext(db datxdb.Database) *types.DposContext {
 	dposContext, err := types.NewDposContextFromProto(db, &types.DposContextProto{})
 	if err != nil {
 		return nil
@@ -80,7 +80,7 @@ func getMintCnt(epochID int64, candidate common.Address, mintCntTrie *trie.Trie)
 }
 
 func TestUpdateMintCnt(t *testing.T) {
-	db, _ := ethdb.NewMemDatabase()
+	db, _ := datxdb.NewMemDatabase()
 	dposContext := mockNewDposContext(db)
 
 	// new block still in the same epoch with current block, but newMiner is the first time to mint in the epoch

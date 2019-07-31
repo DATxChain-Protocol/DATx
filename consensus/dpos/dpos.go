@@ -9,21 +9,21 @@ import (
 	"sync"
 	"time"
 
+	"github.com/DATx-Protocol/go-DATx/accounts"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/consensus"
+	"github.com/DATx-Protocol/go-DATx/consensus/misc"
+	"github.com/DATx-Protocol/go-DATx/core/state"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/crypto/sha3"
+	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATx-Protocol/go-DATx/rlp"
+	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATx-Protocol/go-DATx/trie"
 	lru "github.com/hashicorp/golang-lru"
-	"github.com/DATxChain-Protocol/DATx/accounts"
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/consensus"
-	"github.com/DATxChain-Protocol/DATx/consensus/misc"
-	"github.com/DATxChain-Protocol/DATx/core/state"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/crypto/sha3"
-	"github.com/DATxChain-Protocol/DATx/ethdb"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/params"
-	"github.com/DATxChain-Protocol/DATx/rlp"
-	"github.com/DATxChain-Protocol/DATx/rpc"
-	"github.com/DATxChain-Protocol/DATx/trie"
 )
 
 const (
@@ -43,8 +43,8 @@ var (
 	big8  = big.NewInt(8)
 	big32 = big.NewInt(32)
 
-	frontierBlockReward  *big.Int = big.NewInt(5e+18) // Block reward in wei for successfully mining a block
-	byzantiumBlockReward *big.Int = big.NewInt(3e+18) // Block reward in wei for successfully mining a block upward from Byzantium
+	frontierBlockReward  *big.Int = big.NewInt(5e+18) // Block reward in uno for successfully mining a block
+	byzantiumBlockReward *big.Int = big.NewInt(3e+18) // Block reward in uno for successfully mining a block upward from Byzantium
 
 	timeOfFirstBlock = int64(0)
 
@@ -83,7 +83,7 @@ var (
 
 type Dpos struct {
 	config *params.DposConfig // Consensus engine configuration parameters
-	db     ethdb.Database     // Database to store and retrieve snapshot checkpoints
+	db     datxdb.Database    // Database to store and retrieve snapshot checkpoints
 
 	signer               common.Address
 	signFn               SignerFn
@@ -130,7 +130,7 @@ func sigHash(header *types.Header) (hash common.Hash) {
 	return hash
 }
 
-func New(config *params.DposConfig, db ethdb.Database) *Dpos {
+func New(config *params.DposConfig, db datxdb.Database) *Dpos {
 	signatures, _ := lru.NewARC(inmemorySignatures)
 	return &Dpos{
 		config:     config,
@@ -331,7 +331,7 @@ func (s *Dpos) loadConfirmedBlockHeader(chain consensus.ChainReader) (*types.Hea
 }
 
 // store inserts the snapshot into the database.
-func (s *Dpos) storeConfirmedBlockHeader(db ethdb.Database) error {
+func (s *Dpos) storeConfirmedBlockHeader(db datxdb.Database) error {
 	return db.Put(confirmedBlockHead, s.confirmedBlockHeader.Hash().Bytes())
 }
 
@@ -473,7 +473,7 @@ func (d *Dpos) Authorize(signer common.Address, signFn SignerFn) {
 	d.mu.Unlock()
 }
 
-// ecrecover extracts the DATx account address from a signed header.
+// ecrecover extracts the Ethereum account address from a signed header.
 func ecrecover(header *types.Header, sigcache *lru.ARCCache) (common.Address, error) {
 	// If the signature's already cached, return that
 	hash := header.Hash()
@@ -485,7 +485,7 @@ func ecrecover(header *types.Header, sigcache *lru.ARCCache) (common.Address, er
 		return common.Address{}, errMissingSignature
 	}
 	signature := header.Extra[len(header.Extra)-extraSeal:]
-	// Recover the public key and the DATx address
+	// Recover the public key and the Ethereum address
 	pubkey, err := crypto.Ecrecover(sigHash(header).Bytes(), signature)
 	if err != nil {
 		return common.Address{}, err

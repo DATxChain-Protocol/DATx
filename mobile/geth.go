@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 // Contains all the wrappers from the node package to support client side node
 // management on mobile platforms.
@@ -24,22 +24,22 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/DATxChain-Protocol/DATx/core"
-	"github.com/DATxChain-Protocol/DATx/eth"
-	"github.com/DATxChain-Protocol/DATx/eth/downloader"
-	"github.com/DATxChain-Protocol/DATx/ethclient"
-	"github.com/DATxChain-Protocol/DATx/ethstats"
-	"github.com/DATxChain-Protocol/DATx/les"
-	"github.com/DATxChain-Protocol/DATx/node"
-	"github.com/DATxChain-Protocol/DATx/p2p"
-	"github.com/DATxChain-Protocol/DATx/p2p/nat"
-	"github.com/DATxChain-Protocol/DATx/params"
-	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
+	"github.com/DATx-Protocol/go-DATx/core"
+	"github.com/DATx-Protocol/go-DATx/datx"
+	"github.com/DATx-Protocol/go-DATx/datx/downloader"
+	"github.com/DATx-Protocol/go-DATx/datxclient"
+	"github.com/DATx-Protocol/go-DATx/datxstats"
+	"github.com/DATx-Protocol/go-DATx/les"
+	"github.com/DATx-Protocol/go-DATx/node"
+	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATx-Protocol/go-DATx/p2p/nat"
+	"github.com/DATx-Protocol/go-DATx/params"
+	whisper "github.com/DATx-Protocol/go-DATx/whisper/whisperv5"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Gdatx
 // node embedded into a mobile process. The available values are a subset of the
-// entire API provided by go-datx to reduce the maintenance surface and dev
+// entire API provided by go-DATx to reduce the maintenance surface and dev
 // complexity.
 type NodeConfig struct {
 	// Bootstrap nodes used to establish connectivity with the rest of the network.
@@ -49,26 +49,26 @@ type NodeConfig struct {
 	// set to zero, then only the configured static and trusted peers can connect.
 	MaxPeers int
 
-	// DATxEnabled specifies whether the node should run the DATx protocol.
-	DATxEnabled bool
+	// EthereumEnabled specifies whether the node should run the Ethereum protocol.
+	EthereumEnabled bool
 
-	// DATxNetworkID is the network identifier used by the DATx protocol to
+	// EthereumNetworkID is the network identifier used by the Ethereum protocol to
 	// decide if remote peers should be accepted or not.
-	DATxNetworkID int64 // uint64 in truth, but Java can't handle that...
+	EthereumNetworkID int64 // uint64 in truth, but Java can't handle that...
 
-	// DATxGenesis is the genesis JSON to use to seed the blockchain with. An
+	// EthereumGenesis is the genesis JSON to use to seed the blockchain with. An
 	// empty genesis state is equivalent to using the mainnet's state.
-	DATxGenesis string
+	EthereumGenesis string
 
-	// DATxDatabaseCache is the system memory in MB to allocate for database caching.
+	// EthereumDatabaseCache is the system memory in MB to allocate for database caching.
 	// A minimum of 16MB is always reserved.
-	DATxDatabaseCache int
+	EthereumDatabaseCache int
 
-	// DATxNetStats is a netstats connection string to use to report various
+	// EthereumNetStats is a netstats connection string to use to report various
 	// chain, transaction and node stats to a monitoring server.
 	//
 	// It has the form "nodename:secret@host:port"
-	DATxNetStats string
+	EthereumNetStats string
 
 	// WhisperEnabled specifies whether the node should run the Whisper protocol.
 	WhisperEnabled bool
@@ -79,9 +79,9 @@ type NodeConfig struct {
 var defaultNodeConfig = &NodeConfig{
 	BootstrapNodes:        FoundationBootnodes(),
 	MaxPeers:              25,
-	DATxEnabled:       true,
-	DATxNetworkID:     1,
-	DATxDatabaseCache: 16,
+	EthereumEnabled:       true,
+	EthereumNetworkID:     1,
+	EthereumDatabaseCache: 16,
 }
 
 // NewNodeConfig creates a new node option set, initialized to the default values.
@@ -90,7 +90,7 @@ func NewNodeConfig() *NodeConfig {
 	return &config
 }
 
-// Node represents a Gdatx DATx node instance.
+// Node represents a Gdatx Ethereum node instance.
 type Node struct {
 	node *node.Node
 }
@@ -129,32 +129,32 @@ func NewNode(datadir string, config *NodeConfig) (stack *Node, _ error) {
 	}
 
 	var genesis *core.Genesis
-	if config.DATxGenesis != "" {
+	if config.EthereumGenesis != "" {
 		// Parse the user supplied genesis spec if not mainnet
 		genesis = new(core.Genesis)
-		if err := json.Unmarshal([]byte(config.DATxGenesis), genesis); err != nil {
+		if err := json.Unmarshal([]byte(config.EthereumGenesis), genesis); err != nil {
 			return nil, fmt.Errorf("invalid genesis spec: %v", err)
 		}
 	}
-	// Register the DATx protocol if requested
-	if config.DATxEnabled {
-		ethConf := eth.DefaultConfig
+	// Register the Ethereum protocol if requested
+	if config.EthereumEnabled {
+		ethConf := datx.DefaultConfig
 		ethConf.Genesis = genesis
 		ethConf.SyncMode = downloader.LightSync
-		ethConf.NetworkId = uint64(config.DATxNetworkID)
-		ethConf.DatabaseCache = config.DATxDatabaseCache
+		ethConf.NetworkId = uint64(config.EthereumNetworkID)
+		ethConf.DatabaseCache = config.EthereumDatabaseCache
 		if err := rawStack.Register(func(ctx *node.ServiceContext) (node.Service, error) {
 			return les.New(ctx, &ethConf)
 		}); err != nil {
-			return nil, fmt.Errorf("datx init: %v", err)
+			return nil, fmt.Errorf("DATx init: %v", err)
 		}
 		// If netstats reporting is requested, do it
-		if config.DATxNetStats != "" {
+		if config.EthereumNetStats != "" {
 			if err := rawStack.Register(func(ctx *node.ServiceContext) (node.Service, error) {
-				var lesServ *les.LightDATx
+				var lesServ *les.LightEthereum
 				ctx.Service(&lesServ)
 
-				return ethstats.New(config.DATxNetStats, nil, lesServ)
+				return datxstats.New(config.EthereumNetStats, nil, lesServ)
 			}); err != nil {
 				return nil, fmt.Errorf("netstats init: %v", err)
 			}
@@ -182,13 +182,13 @@ func (n *Node) Stop() error {
 	return n.node.Stop()
 }
 
-// GetDATxClient retrieves a client to access the DATx subsystem.
-func (n *Node) GetDATxClient() (client *DATxClient, _ error) {
+// GetEthereumClient retrieves a client to access the Ethereum subsystem.
+func (n *Node) GetEthereumClient() (client *EthereumClient, _ error) {
 	rpc, err := n.node.Attach()
 	if err != nil {
 		return nil, err
 	}
-	return &DATxClient{ethclient.NewClient(rpc)}, nil
+	return &EthereumClient{datxclient.NewClient(rpc)}, nil
 }
 
 // GetNodeInfo gathers and returns a collection of metadata known about the host.

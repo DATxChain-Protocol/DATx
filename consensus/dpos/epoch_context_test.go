@@ -6,11 +6,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/core/state"
-	"github.com/DATxChain-Protocol/DATx/core/types"
-	"github.com/DATxChain-Protocol/DATx/ethdb"
-	"github.com/DATxChain-Protocol/DATx/trie"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/core/state"
+	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATx-Protocol/go-DATx/trie"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -32,7 +32,7 @@ func TestEpochContextCountVotes(t *testing.T) {
 		common.HexToAddress("0x9d9667c71bb09d6ca7c3ed12bfe5e7be24e2ffe1"): {},
 	}
 	balance := int64(5)
-	db, _ := ethdb.NewMemDatabase()
+	db, _ := datxdb.NewMemDatabase()
 	stateDB, _ := state.New(common.Hash{}, state.NewDatabase(db))
 	dposContext, err := types.NewDposContext(db)
 	assert.Nil(t, err)
@@ -62,7 +62,7 @@ func TestEpochContextCountVotes(t *testing.T) {
 }
 
 func TestLookupValidator(t *testing.T) {
-	db, _ := ethdb.NewMemDatabase()
+	db, _ := datxdb.NewMemDatabase()
 	dposCtx, _ := types.NewDposContext(db)
 	mockEpochContext := &EpochContext{
 		DposContext: dposCtx,
@@ -86,7 +86,7 @@ func TestLookupValidator(t *testing.T) {
 }
 
 func TestEpochContextKickoutValidator(t *testing.T) {
-	db, _ := ethdb.NewMemDatabase()
+	db, _ := datxdb.NewMemDatabase()
 	stateDB, _ := state.New(common.Hash{}, state.NewDatabase(db))
 	dposContext, err := types.NewDposContext(db)
 	assert.Nil(t, err)
@@ -261,7 +261,7 @@ func getCandidates(candidateTrie *trie.Trie) map[common.Address]bool {
 }
 
 func TestEpochContextTryElect(t *testing.T) {
-	db, _ := ethdb.NewMemDatabase()
+	db, _ := datxdb.NewMemDatabase()
 	stateDB, _ := state.New(common.Hash{}, state.NewDatabase(db))
 	dposContext, err := types.NewDposContext(db)
 	assert.Nil(t, err)

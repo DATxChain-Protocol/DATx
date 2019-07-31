@@ -5,7 +5,7 @@ package whisperv6
 import (
 	"encoding/json"
 
-	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATx-Protocol/go-DATx/common/hexutil"
 )
 
 var _ = (*newMessageOverride)(nil)

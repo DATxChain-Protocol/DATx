@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "github.com/DATxChain-Protocol/DATx/crypto"
+	ethcrypto "github.com/DATx-Protocol/go-DATx/crypto"
 )
 
 var (

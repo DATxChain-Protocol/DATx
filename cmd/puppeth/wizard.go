@@ -1,18 +1,18 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2017 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -29,9 +29,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/core"
-	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/core"
+	"github.com/DATx-Protocol/go-DATx/log"
 	"golang.org/x/crypto/ssh/terminal"
 )
 
@@ -42,7 +42,7 @@ type config struct {
 	genesis   *core.Genesis // Genesis block to cache for node deploys
 	bootFull  []string      // Bootnodes to always connect to by full nodes
 	bootLight []string      // Bootnodes to always connect to by light nodes
-	ethstats  string        // Ethstats settings to cache for node deploys
+	datxstats  string        // Ethstats settings to cache for node deploys
 
 	Servers map[string][]byte `json:"servers,omitempty"`
 }
@@ -73,7 +73,7 @@ type wizard struct {
 	conf    config // Configurations from previous runs
 
 	servers  map[string]*sshClient // SSH connections to servers to administer
-	services map[string][]string   // DATx services known to be running on servers
+	services map[string][]string   // Ethereum services known to be running on servers
 
 	in *bufio.Reader // Wrapper around stdin to allow reading user input
 }
@@ -239,7 +239,7 @@ func (w *wizard) readPassword() string {
 }
 
 // readAddress reads a single line from stdin, trimming if from spaces and converts
-// it to an DATx address.
+// it to an Ethereum address.
 func (w *wizard) readAddress() *common.Address {
 	for {
 		// Read the address from the user
@@ -263,7 +263,7 @@ func (w *wizard) readAddress() *common.Address {
 }
 
 // readDefaultAddress reads a single line from stdin, trimming if from spaces and
-// converts it to an DATx address. If an empty line is entered, the default
+// converts it to an Ethereum address. If an empty line is entered, the default
 // value is returned.
 func (w *wizard) readDefaultAddress(def common.Address) common.Address {
 	for {
@@ -303,7 +303,7 @@ func (w *wizard) readJSON() string {
 // readIPAddress reads a single line from stdin, trimming if from spaces and
 // returning it if it's convertible to an IP address. The reason for keeping
 // the user input format instead of returning a Go net.IP is to match with
-// weird formats used by ethstats, which compares IPs textually, not by value.
+// weird formats used by datxstats, which compares IPs textually, not by value.
 func (w *wizard) readIPAddress() string {
 	for {
 		// Read the IP address from the user

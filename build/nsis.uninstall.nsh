@@ -21,7 +21,7 @@ Section "Uninstall"
   SimpleFC::AdvRemoveRule "Gdatx outgoing peers (TCP:30303)"
   SimpleFC::AdvRemoveRule "Gdatx UDP discovery (UDP:30303)"
 
-  # Remove IPC endpoint (https://github.com/DATx-Protocol/EIPs/issues/147)
+  # Remove IPC endpoint (https://github.com/DATx/EIPs/issues/147)
   ${un.EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gdatx.ipc"
 
   # Remove install directory from PATH

@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package network
 
@@ -21,11 +21,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/contracts/chequebook"
-	"github.com/DATxChain-Protocol/DATx/p2p/discover"
-	"github.com/DATxChain-Protocol/DATx/swarm/network/kademlia"
-	"github.com/DATxChain-Protocol/DATx/swarm/services/swap"
-	"github.com/DATxChain-Protocol/DATx/swarm/storage"
+	"github.com/DATx-Protocol/go-DATx/contracts/chequebook"
+	"github.com/DATx-Protocol/go-DATx/p2p/discover"
+	"github.com/DATx-Protocol/go-DATx/swarm/network/kademlia"
+	"github.com/DATx-Protocol/go-DATx/swarm/services/swap"
+	"github.com/DATx-Protocol/go-DATx/swarm/storage"
 )
 
 /*

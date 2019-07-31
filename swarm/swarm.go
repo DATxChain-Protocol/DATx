@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package swarm
 
@@ -23,22 +23,22 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/contracts/chequebook"
-	"github.com/DATxChain-Protocol/DATx/contracts/ens"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/ethclient"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/node"
-	"github.com/DATxChain-Protocol/DATx/p2p"
-	"github.com/DATxChain-Protocol/DATx/p2p/discover"
-	"github.com/DATxChain-Protocol/DATx/rpc"
-	"github.com/DATxChain-Protocol/DATx/swarm/api"
-	httpapi "github.com/DATxChain-Protocol/DATx/swarm/api/http"
-	"github.com/DATxChain-Protocol/DATx/swarm/fuse"
-	"github.com/DATxChain-Protocol/DATx/swarm/network"
-	"github.com/DATxChain-Protocol/DATx/swarm/storage"
+	"github.com/DATx-Protocol/go-DATx/accounts/abi/bind"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/contracts/chequebook"
+	"github.com/DATx-Protocol/go-DATx/contracts/ens"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/datxclient"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/node"
+	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATx-Protocol/go-DATx/p2p/discover"
+	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATx-Protocol/go-DATx/swarm/api"
+	httpapi "github.com/DATx-Protocol/go-DATx/swarm/api/http"
+	"github.com/DATx-Protocol/go-DATx/swarm/fuse"
+	"github.com/DATx-Protocol/go-DATx/swarm/network"
+	"github.com/DATx-Protocol/go-DATx/swarm/storage"
 )
 
 // the swarm stack
@@ -76,7 +76,7 @@ func (self *Swarm) API() *SwarmAPI {
 
 // creates a new swarm service instance
 // implements node.Service
-func NewSwarm(ctx *node.ServiceContext, backend chequebook.Backend, ensClient *ethclient.Client, config *api.Config, swapEnabled, syncEnabled bool, cors string) (self *Swarm, err error) {
+func NewSwarm(ctx *node.ServiceContext, backend chequebook.Backend, ensClient *datxclient.Client, config *api.Config, swapEnabled, syncEnabled bool, cors string) (self *Swarm, err error) {
 	if bytes.Equal(common.FromHex(config.PublicKey), storage.ZeroKey) {
 		return nil, fmt.Errorf("empty public key")
 	}
@@ -148,7 +148,7 @@ func NewSwarm(ctx *node.ServiceContext, backend chequebook.Backend, ensClient *e
 
 	self.api = api.NewApi(self.dpa, self.dns)
 	// Manifests for Smart Hosting
-	log.Debug(fmt.Sprintf("-> Web3 virtual server API"))
+	log.Debug(fmt.Sprintf("-> DATxWeb virtual server API"))
 
 	self.sfs = fuse.NewSwarmFS(self.api)
 	log.Debug("-> Initializing Fuse file system")

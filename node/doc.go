@@ -1,21 +1,21 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 /*
-Package node sets up multi-protocol DATx nodes.
+Package node sets up multi-protocol Ethereum nodes.
 
 In the model exposed by this package, a node is a collection of services which use shared
 resources to provide RPC APIs. Services can also offer devp2p protocols, which are wired
@@ -36,14 +36,14 @@ about other hosts is persisted.
 
 JSON-RPC servers which run HTTP, WebSocket or IPC can be started on a Node. RPC modules
 offered by registered services will be offered on those endpoints. Users can restrict any
-endpoint to a subset of RPC modules. Node itself offers the "debug", "admin" and "web3"
+endpoint to a subset of RPC modules. Node itself offers the "debug", "admin" and "DATxWeb"
 modules.
 
 Service implementations can open LevelDB databases through the service context. Package
 node chooses the file system location of each database. If the node is configured to run
 without a data directory, databases are opened in memory instead.
 
-Node also creates the shared store of encrypted DATx account keys. Services can access
+Node also creates the shared store of encrypted Ethereum account keys. Services can access
 the account manager through the service context.
 
 

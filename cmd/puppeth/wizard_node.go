@@ -1,18 +1,18 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2017 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
-	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATx-Protocol/go-DATx/accounts/keystore"
+	"github.com/DATx-Protocol/go-DATx/log"
 )
 
 // deployNode creates a new node configuration based on some user input.
@@ -32,8 +32,8 @@ func (w *wizard) deployNode(boot bool) {
 		log.Error("No genesis block configured")
 		return
 	}
-	if w.conf.ethstats == "" {
-		log.Error("No ethstats server configured")
+	if w.conf.datxstats == "" {
+		log.Error("No datxstats server configured")
 		return
 	}
 	// Select the server to interact with
@@ -43,7 +43,7 @@ func (w *wizard) deployNode(boot bool) {
 	}
 	client := w.servers[server]
 
-	// Retrieve any active ethstats configurations from the server
+	// Retrieve any active datxstats configurations from the server
 	infos, err := checkNode(client, w.network, boot)
 	if err != nil {
 		if boot {
@@ -81,12 +81,12 @@ func (w *wizard) deployNode(boot bool) {
 
 	// Set a proper name to report on the stats page
 	fmt.Println()
-	if infos.ethstats == "" {
+	if infos.datxstats == "" {
 		fmt.Printf("What should the node be called on the stats page?\n")
-		infos.ethstats = w.readString() + ":" + w.conf.ethstats
+		infos.datxstats = w.readString() + ":" + w.conf.datxstats
 	} else {
-		fmt.Printf("What should the node be called on the stats page? (default = %s)\n", infos.ethstats)
-		infos.ethstats = w.readDefaultString(infos.ethstats) + ":" + w.conf.ethstats
+		fmt.Printf("What should the node be called on the stats page? (default = %s)\n", infos.datxstats)
+		infos.datxstats = w.readDefaultString(infos.datxstats) + ":" + w.conf.datxstats
 	}
 	// If the node is a miner/signer, load up needed credentials
 	if !boot {
@@ -130,7 +130,7 @@ func (w *wizard) deployNode(boot bool) {
 	}
 	// Try to deploy the full node on the host
 	if out, err := deployNode(client, w.network, w.conf.bootFull, w.conf.bootLight, infos); err != nil {
-		log.Error("Failed to deploy DATx node container", "err", err)
+		log.Error("Failed to deploy Ethereum node container", "err", err)
 		if len(out) > 0 {
 			fmt.Printf("%s\n", out)
 		}

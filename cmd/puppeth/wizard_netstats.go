@@ -1,18 +1,18 @@
-// Copyright 2017 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2017 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/DATxChain-Protocol/DATx/core"
-	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATx-Protocol/go-DATx/core"
+	"github.com/DATx-Protocol/go-DATx/log"
 	"github.com/olekukonko/tablewriter"
 )
 
@@ -66,14 +66,14 @@ func (w *wizard) networkStats(tips bool) {
 		} else {
 			services["nginx"] = infos.String()
 		}
-		logger.Debug("Checking for ethstats availability")
+		logger.Debug("Checking for datxstats availability")
 		if infos, err := checkEthstats(client, w.network); err != nil {
 			if err != ErrServiceUnknown {
-				services["ethstats"] = err.Error()
+				services["datxstats"] = err.Error()
 			}
 		} else {
-			services["ethstats"] = infos.String()
-			protips.ethstats = infos.config
+			services["datxstats"] = infos.String()
+			protips.datxstats = infos.config
 		}
 		logger.Debug("Checking for bootnode availability")
 		if infos, err := checkNode(client, w.network, true); err != nil {
@@ -138,8 +138,8 @@ func (w *wizard) networkStats(tips bool) {
 			protips.network = genesis.Config.ChainId.Int64()
 		}
 	}
-	if protips.ethstats != "" {
-		w.conf.ethstats = protips.ethstats
+	if protips.datxstats != "" {
+		w.conf.datxstats = protips.datxstats
 	}
 	w.conf.bootFull = protips.bootFull
 	w.conf.bootLight = protips.bootLight
@@ -159,7 +159,7 @@ type protips struct {
 	network   int64
 	bootFull  []string
 	bootLight []string
-	ethstats  string
+	datxstats  string
 }
 
 // print analyzes the network information available and prints a collection of
@@ -171,13 +171,13 @@ func (p *protips) print(network string) {
 		fullinit = fmt.Sprintf("gdatx --datadir=$HOME/.%s init %s.json && ", network, network)
 		lightinit = fmt.Sprintf("gdatx --datadir=$HOME/.%s --light init %s.json && ", network, network)
 	}
-	// If an ethstats server is available, add the ethstats flag
+	// If an datxstats server is available, add the datxstats flag
 	statsflag := ""
-	if p.ethstats != "" {
-		if strings.Contains(p.ethstats, " ") {
-			statsflag = fmt.Sprintf(` --ethstats="yournode:%s"`, p.ethstats)
+	if p.datxstats != "" {
+		if strings.Contains(p.datxstats, " ") {
+			statsflag = fmt.Sprintf(` --datxstats="yournode:%s"`, p.datxstats)
 		} else {
-			statsflag = fmt.Sprintf(` --ethstats=yournode:%s`, p.ethstats)
+			statsflag = fmt.Sprintf(` --datxstats=yournode:%s`, p.datxstats)
 		}
 	}
 	// If bootnodes have been specified, add the bootnode flag

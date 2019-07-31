@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package console
 
@@ -27,9 +27,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/DATxChain-Protocol/DATx/internal/jsre"
-	"github.com/DATxChain-Protocol/DATx/internal/web3ext"
-	"github.com/DATxChain-Protocol/DATx/rpc"
+	"github.com/DATx-Protocol/go-DATx/internal/jsre"
+	"github.com/DATx-Protocol/go-DATx/internal/DATxWebext"
+	"github.com/DATx-Protocol/go-DATx/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 	"github.com/robertkrimen/otto"
@@ -52,7 +52,7 @@ const DefaultPrompt = "> "
 type Config struct {
 	DataDir  string       // Data directory to store the console history at
 	DocRoot  string       // Filesystem path from where to load JavaScript files from
-	Client   *rpc.Client  // RPC client to execute DATx requests through
+	Client   *rpc.Client  // RPC client to execute Ethereum requests through
 	Prompt   string       // Input prompt prefix string (defaults to DefaultPrompt)
 	Prompter UserPrompter // Input prompter to allow interactive user feedback (defaults to TerminalPrompter)
 	Printer  io.Writer    // Output writer to serialize any display strings to (defaults to os.Stdout)
@@ -63,7 +63,7 @@ type Config struct {
 // JavaScript console attached to a running node via an external or in-process RPC
 // client.
 type Console struct {
-	client   *rpc.Client  // RPC client to execute DATx requests through
+	client   *rpc.Client  // RPC client to execute Ethereum requests through
 	jsre     *jsre.JSRE   // JavaScript runtime environment running the interpreter
 	prompt   string       // Input prompt prefix string
 	prompter UserPrompter // Input prompter to allow interactive user feedback
@@ -117,41 +117,41 @@ func (c *Console) init(preload []string) error {
 	if err := c.jsre.Compile("bignumber.js", jsre.BigNumber_JS); err != nil {
 		return fmt.Errorf("bignumber.js: %v", err)
 	}
-	if err := c.jsre.Compile("web3.js", jsre.Web3_JS); err != nil {
-		return fmt.Errorf("web3.js: %v", err)
+	if err := c.jsre.Compile("DATxWeb.js", jsre.DATxWeb_JS); err != nil {
+		return fmt.Errorf("DATxWeb.js: %v", err)
 	}
-	if _, err := c.jsre.Run("var Web3 = require('web3');"); err != nil {
-		return fmt.Errorf("web3 require: %v", err)
+	if _, err := c.jsre.Run("var DATxWeb = require('DATxWeb');"); err != nil {
+		return fmt.Errorf("DATxWeb require: %v", err)
 	}
-	if _, err := c.jsre.Run("var web3 = new Web3(jeth);"); err != nil {
-		return fmt.Errorf("web3 provider: %v", err)
+	if _, err := c.jsre.Run("var DATxWeb = new DATxWeb(jeth);"); err != nil {
+		return fmt.Errorf("DATxWeb provider: %v", err)
 	}
 	// Load the supported APIs into the JavaScript runtime environment
 	apis, err := c.client.SupportedModules()
 	if err != nil {
 		return fmt.Errorf("api modules: %v", err)
 	}
-	flatten := "var eth = web3.eth; var personal = web3.personal; "
+	flatten := "var datx = DATxWeb.datx; var personal = DATxWeb.personal; "
 	for api := range apis {
-		if api == "web3" {
+		if api == "DATxWeb" {
 			continue // manually mapped or ignore
 		}
-		if file, ok := web3ext.Modules[api]; ok {
+		if file, ok := DATxWebext.Modules[api]; ok {
 			// Load our extension for the module.
 			if err = c.jsre.Compile(fmt.Sprintf("%s.js", api), file); err != nil {
 				return fmt.Errorf("%s.js: %v", api, err)
 			}
-			flatten += fmt.Sprintf("var %s = web3.%s; ", api, api)
-		} else if obj, err := c.jsre.Run("web3." + api); err == nil && obj.IsObject() {
-			// Enable web3.js built-in extension if available.
-			flatten += fmt.Sprintf("var %s = web3.%s; ", api, api)
+			flatten += fmt.Sprintf("var %s = DATxWeb.%s; ", api, api)
+		} else if obj, err := c.jsre.Run("DATxWeb." + api); err == nil && obj.IsObject() {
+			// Enable DATxWeb.js built-in extension if available.
+			flatten += fmt.Sprintf("var %s = DATxWeb.%s; ", api, api)
 		}
 	}
 	if _, err = c.jsre.Run(flatten); err != nil {
 		return fmt.Errorf("namespace flattening: %v", err)
 	}
 	// Initialize the global name register (disabled for now)
-	//c.jsre.Run(`var GlobalRegistrar = eth.contract(` + registrar.GlobalRegistrarAbi + `);   registrar = GlobalRegistrar.at("` + registrar.GlobalRegistrarAddr + `");`)
+	//c.jsre.Run(`var GlobalRegistrar = datx.contract(` + registrar.GlobalRegistrarAbi + `);   registrar = GlobalRegistrar.at("` + registrar.GlobalRegistrarAddr + `");`)
 
 	// If the console is in interactive mode, instrument password related methods to query the user
 	if c.prompter != nil {
@@ -162,8 +162,8 @@ func (c *Console) init(preload []string) error {
 		}
 		// Override the openWallet, unlockAccount, newAccount and sign methods since
 		// these require user interaction. Assign these method in the Console the
-		// original web3 callbacks. These will be called by the jeth.* methods after
-		// they got the password from the user and send the original web3 request to
+		// original DATxWeb callbacks. These will be called by the jeth.* methods after
+		// they got the password from the user and send the original DATxWeb request to
 		// the backend.
 		if obj := personal.Object(); obj != nil { // make sure the personal api is enabled over the interface
 			if _, err = c.jsre.Run(`jeth.openWallet = personal.openWallet;`); err != nil {
@@ -235,15 +235,15 @@ func (c *Console) AutoCompleteInput(line string, pos int) (string, []string, str
 		return "", nil, ""
 	}
 	// Chunck data to relevant part for autocompletion
-	// E.g. in case of nested lines eth.getBalance(eth.coinb<tab><tab>
+	// E.g. in case of nested lines datx.getBalance(datx.coinb<tab><tab>
 	start := pos - 1
 	for ; start > 0; start-- {
 		// Skip all methods and namespaces (i.e. including te dot)
 		if line[start] == '.' || (line[start] >= 'a' && line[start] <= 'z') || (line[start] >= 'A' && line[start] <= 'Z') {
 			continue
 		}
-		// Handle web3 in a special way (i.e. other numbers aren't auto completed)
-		if start >= 3 && line[start-3:start] == "web3" {
+		// Handle DATxWeb in a special way (i.e. other numbers aren't auto completed)
+		if start >= 3 && line[start-3:start] == "DATxWeb" {
 			start -= 3
 			continue
 		}
@@ -260,10 +260,10 @@ func (c *Console) Welcome() {
 	// Print some generic Gdatx metadata
 	fmt.Fprintf(c.printer, "Welcome to the Gdatx JavaScript console!\n\n")
 	c.jsre.Run(`
-		console.log(" instance: " + web3.version.node);
-		console.log("validator: " + eth.validator);
-		console.log(" coinbase: " + eth.coinbase);
-		console.log(" at block: " + eth.blockNumber + " (" + new Date(1000 * eth.getBlock(eth.blockNumber).timestamp) + ")");
+		console.log(" instance: " + DATxWeb.version.node);
+		console.log("validator: " + datx.validator);
+		console.log(" coinbase: " + datx.coinbase);
+		console.log(" at block: " + datx.blockNumber + " (" + new Date(1000 * datx.getBlock(datx.blockNumber).timestamp) + ")");
 		console.log("  datadir: " + admin.datadir);
 	`)
 	// List all the supported modules for the user to call

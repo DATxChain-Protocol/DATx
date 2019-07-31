@@ -1,22 +1,22 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of the go-datx library.
+// Copyright 2016 The go-DATx Authors
+// This file is part of the go-DATx library.
 //
-// The go-datx library is free software: you can redistribute it and/or modify
+// The go-DATx library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-datx library is distributed in the hope that it will be useful,
+// The go-DATx library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-datx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
 
 package bind
 
-import "github.com/DATxChain-Protocol/DATx/accounts/abi"
+import "github.com/DATx-Protocol/go-DATx/accounts/abi"
 
 // tmplData is the data structure required to fill the binding template.
 type tmplData struct {
@@ -65,7 +65,7 @@ package {{.Package}}
 		// {{.Type}}Bin is the compiled bytecode used for deploying new contracts.
 		const {{.Type}}Bin = ` + "`" + `{{.InputBin}}` + "`" + `
 
-		// Deploy{{.Type}} deploys a new DATx contract, binding an instance of {{.Type}} to it.
+		// Deploy{{.Type}} deploys a new Ethereum contract, binding an instance of {{.Type}} to it.
 		func Deploy{{.Type}}(auth *bind.TransactOpts, backend bind.ContractBackend {{range .Constructor.Inputs}}, {{.Name}} {{bindtype .Type}}{{end}}) (common.Address, *types.Transaction, *{{.Type}}, error) {
 		  parsed, err := abi.JSON(strings.NewReader({{.Type}}ABI))
 		  if err != nil {
@@ -79,23 +79,23 @@ package {{.Package}}
 		}
 	{{end}}
 
-	// {{.Type}} is an auto generated Go binding around an DATx contract.
+	// {{.Type}} is an auto generated Go binding around an Ethereum contract.
 	type {{.Type}} struct {
 	  {{.Type}}Caller     // Read-only binding to the contract
 	  {{.Type}}Transactor // Write-only binding to the contract
 	}
 
-	// {{.Type}}Caller is an auto generated read-only Go binding around an DATx contract.
+	// {{.Type}}Caller is an auto generated read-only Go binding around an Ethereum contract.
 	type {{.Type}}Caller struct {
 	  contract *bind.BoundContract // Generic contract wrapper for the low level calls
 	}
 
-	// {{.Type}}Transactor is an auto generated write-only Go binding around an DATx contract.
+	// {{.Type}}Transactor is an auto generated write-only Go binding around an Ethereum contract.
 	type {{.Type}}Transactor struct {
 	  contract *bind.BoundContract // Generic contract wrapper for the low level calls
 	}
 
-	// {{.Type}}Session is an auto generated Go binding around an DATx contract,
+	// {{.Type}}Session is an auto generated Go binding around an Ethereum contract,
 	// with pre-set call and transact options.
 	type {{.Type}}Session struct {
 	  Contract     *{{.Type}}        // Generic contract binding to set the session for
@@ -103,31 +103,31 @@ package {{.Package}}
 	  TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 	}
 
-	// {{.Type}}CallerSession is an auto generated read-only Go binding around an DATx contract,
+	// {{.Type}}CallerSession is an auto generated read-only Go binding around an Ethereum contract,
 	// with pre-set call options.
 	type {{.Type}}CallerSession struct {
 	  Contract *{{.Type}}Caller // Generic contract caller binding to set the session for
 	  CallOpts bind.CallOpts    // Call options to use throughout this session
 	}
 
-	// {{.Type}}TransactorSession is an auto generated write-only Go binding around an DATx contract,
+	// {{.Type}}TransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 	// with pre-set transact options.
 	type {{.Type}}TransactorSession struct {
 	  Contract     *{{.Type}}Transactor // Generic contract transactor binding to set the session for
 	  TransactOpts bind.TransactOpts    // Transaction auth options to use throughout this session
 	}
 
-	// {{.Type}}Raw is an auto generated low-level Go binding around an DATx contract.
+	// {{.Type}}Raw is an auto generated low-level Go binding around an Ethereum contract.
 	type {{.Type}}Raw struct {
 	  Contract *{{.Type}} // Generic contract binding to access the raw methods on
 	}
 
-	// {{.Type}}CallerRaw is an auto generated low-level read-only Go binding around an DATx contract.
+	// {{.Type}}CallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
 	type {{.Type}}CallerRaw struct {
 		Contract *{{.Type}}Caller // Generic read-only contract binding to access the raw methods on
 	}
 
-	// {{.Type}}TransactorRaw is an auto generated low-level write-only Go binding around an DATx contract.
+	// {{.Type}}TransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
 	type {{.Type}}TransactorRaw struct {
 		Contract *{{.Type}}Transactor // Generic write-only contract binding to access the raw methods on
 	}
@@ -274,8 +274,8 @@ const tmplSourceJava = `
 
 package {{.Package}};
 
-import org.datx.gdatx.*;
-import org.datx.gdatx.internal.*;
+import org.DATx.gdatx.*;
+import org.DATx.gdatx.internal.*;
 
 {{range $contract := .Contracts}}
 	public class {{.Type}} {
@@ -286,8 +286,8 @@ import org.datx.gdatx.internal.*;
 			// BYTECODE is the compiled bytecode used for deploying new contracts.
 			public final static byte[] BYTECODE = "{{.InputBin}}".getBytes();
 
-			// deploy deploys a new DATx contract, binding an instance of {{.Type}} to it.
-			public static {{.Type}} deploy(TransactOpts auth, DATxClient client{{range .Constructor.Inputs}}, {{bindtype .Type}} {{.Name}}{{end}}) throws Exception {
+			// deploy deploys a new Ethereum contract, binding an instance of {{.Type}} to it.
+			public static {{.Type}} deploy(TransactOpts auth, EthereumClient client{{range .Constructor.Inputs}}, {{bindtype .Type}} {{.Name}}{{end}}) throws Exception {
 				Interfaces args = Gdatx.newInterfaces({{(len .Constructor.Inputs)}});
 				{{range $index, $element := .Constructor.Inputs}}
 				  args.set({{$index}}, Gdatx.newInterface()); args.get({{$index}}).set{{namedtype (bindtype .Type) .Type}}({{.Name}});
@@ -303,17 +303,17 @@ import org.datx.gdatx.internal.*;
 			}
 		{{end}}
 
-		// DATx address where this contract is located at.
+		// Ethereum address where this contract is located at.
 		public final Address Address;
 
-		// DATx transaction in which this contract was deployed (if known!).
+		// Ethereum transaction in which this contract was deployed (if known!).
 		public final Transaction Deployer;
 
 		// Contract instance bound to a blockchain address.
 		private final BoundContract Contract;
 
 		// Creates a new instance of {{.Type}}, bound to a specific deployed contract.
-		public {{.Type}}(Address address, DATxClient client) throws Exception {
+		public {{.Type}}(Address address, EthereumClient client) throws Exception {
 			this(Gdatx.bindContract(address, ABI, client));
 		}
 

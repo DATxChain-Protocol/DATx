@@ -2,11 +2,11 @@ FROM alpine:3.5
 
 RUN \
   apk add --update go git make gcc musl-dev linux-headers ca-certificates && \
-  git clone --depth 1 https://github.com/DATxChain-Protocol/DATx && \
-  (cd go-datx && make gdatx) && \
-  cp go-datx/build/bin/gdatx /gdatx && \
+  git clone --depth 1 https://github.com/DATx/go-DATx && \
+  (cd go-DATx && make gdatx) && \
+  cp go-DATx/build/bin/gdatx /gdatx && \
   apk del go git make gcc musl-dev linux-headers && \
-  rm -rf /go-datx && rm -rf /var/cache/apk/*
+  rm -rf /go-DATx && rm -rf /var/cache/apk/*
 
 EXPOSE 8545
 EXPOSE 30303

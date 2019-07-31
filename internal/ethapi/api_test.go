@@ -4,8 +4,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/DATxChain-Protocol/DATx/common/hexutil"
-	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATx-Protocol/go-DATx/core/types"
 )
 
 func TestToTransaction(t *testing.T) {

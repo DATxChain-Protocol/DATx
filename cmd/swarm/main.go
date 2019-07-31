@@ -1,18 +1,18 @@
-// Copyright 2016 The go-datx Authors
-// This file is part of go-datx.
+// Copyright 2016 The go-DATx Authors
+// This file is part of go-DATx.
 //
-// go-datx is free software: you can redistribute it and/or modify
+// go-DATx is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-datx is distributed in the hope that it will be useful,
+// go-DATx is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-datx. If not, see <http://www.gnu.org/licenses/>.
+// along with go-DATx. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -31,23 +31,23 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/DATxChain-Protocol/DATx/accounts"
-	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
-	"github.com/DATxChain-Protocol/DATx/cmd/utils"
-	"github.com/DATxChain-Protocol/DATx/common"
-	"github.com/DATxChain-Protocol/DATx/console"
-	"github.com/DATxChain-Protocol/DATx/contracts/ens"
-	"github.com/DATxChain-Protocol/DATx/crypto"
-	"github.com/DATxChain-Protocol/DATx/ethclient"
-	"github.com/DATxChain-Protocol/DATx/internal/debug"
-	"github.com/DATxChain-Protocol/DATx/log"
-	"github.com/DATxChain-Protocol/DATx/node"
-	"github.com/DATxChain-Protocol/DATx/p2p"
-	"github.com/DATxChain-Protocol/DATx/p2p/discover"
-	"github.com/DATxChain-Protocol/DATx/params"
-	"github.com/DATxChain-Protocol/DATx/rpc"
-	"github.com/DATxChain-Protocol/DATx/swarm"
-	bzzapi "github.com/DATxChain-Protocol/DATx/swarm/api"
+	"github.com/DATx-Protocol/go-DATx/accounts"
+	"github.com/DATx-Protocol/go-DATx/accounts/keystore"
+	"github.com/DATx-Protocol/go-DATx/cmd/utils"
+	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATx-Protocol/go-DATx/console"
+	"github.com/DATx-Protocol/go-DATx/contracts/ens"
+	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATx-Protocol/go-DATx/datxclient"
+	"github.com/DATx-Protocol/go-DATx/internal/debug"
+	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATx-Protocol/go-DATx/node"
+	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATx-Protocol/go-DATx/p2p/discover"
+	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATx-Protocol/go-DATx/swarm"
+	bzzapi "github.com/DATx-Protocol/go-DATx/swarm/api"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -95,7 +95,7 @@ var (
 	}
 	SwarmSwapAPIFlag = cli.StringFlag{
 		Name:  "swap-api",
-		Usage: "URL of the DATx API provider to use to settle SWAP payments",
+		Usage: "URL of the Ethereum API provider to use to settle SWAP payments",
 	}
 	SwarmSyncEnabledFlag = cli.BoolTFlag{
 		Name:  "sync",
@@ -103,7 +103,7 @@ var (
 	}
 	EnsAPIFlag = cli.StringFlag{
 		Name:  "ens-api",
-		Usage: "URL of the DATx API provider to use for ENS record lookups",
+		Usage: "URL of the Ethereum API provider to use for ENS record lookups",
 		Value: node.DefaultIPCEndpoint("gdatx"),
 	}
 	EnsAddrFlag = cli.StringFlag{
@@ -159,13 +159,13 @@ func init() {
 	utils.ListenPortFlag.Value = 30399
 }
 
-var app = utils.NewApp(gitCommit, "DATx Swarm")
+var app = utils.NewApp(gitCommit, "Ethereum Swarm")
 
 // This init function creates the cli.App.
 func init() {
 	app.Action = bzzd
 	app.HideVersion = true // we have a command to print the version
-	app.Copyright = "Copyright 2013-2016 The go-datx Authors"
+	app.Copyright = "Copyright 2013-2016 The go-DATx Authors"
 	app.Commands = []cli.Command{
 		{
 			Action:    version,
@@ -256,12 +256,12 @@ Manage the local chunk database.
 					Description: `
 Export a local chunk database as a tar archive (use - to send to stdout).
 
-    swarm db export ~/.datx/swarm/bzz-KEY/chunks chunks.tar
+    swarm db export ~/.DATx/swarm/bzz-KEY/chunks chunks.tar
 
 The export may be quite large, consider piping the output through the Unix
 pv(1) tool to get a progress bar:
 
-    swarm db export ~/.datx/swarm/bzz-KEY/chunks - | pv > chunks.tar
+    swarm db export ~/.DATx/swarm/bzz-KEY/chunks - | pv > chunks.tar
 `,
 				},
 				{
@@ -272,12 +272,12 @@ pv(1) tool to get a progress bar:
 					Description: `
 Import chunks from a tar archive into a local chunk database (use - to read from stdin).
 
-    swarm db import ~/.datx/swarm/bzz-KEY/chunks chunks.tar
+    swarm db import ~/.DATx/swarm/bzz-KEY/chunks chunks.tar
 
 The import may be quite large, consider piping the input through the Unix
 pv(1) tool to get a progress bar:
 
-    pv chunks.tar | swarm db import ~/.datx/swarm/bzz-KEY/chunks -
+    pv chunks.tar | swarm db import ~/.DATx/swarm/bzz-KEY/chunks -
 `,
 				},
 				{
@@ -428,7 +428,7 @@ func detectEnsAddr(client *rpc.Client) (common.Address, error) {
 		return common.Address{}, err
 	}
 
-	block, err := ethclient.NewClient(client).BlockByNumber(ctx, big.NewInt(0))
+	block, err := datxclient.NewClient(client).BlockByNumber(ctx, big.NewInt(0))
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -478,23 +478,23 @@ func registerBzzService(ctx *cli.Context, stack *node.Node) {
 	cors := ctx.GlobalString(CorsStringFlag.Name)
 
 	boot := func(ctx *node.ServiceContext) (node.Service, error) {
-		var swapClient *ethclient.Client
+		var swapClient *datxclient.Client
 		if swapapi != "" {
 			log.Info("connecting to SWAP API", "url", swapapi)
-			swapClient, err = ethclient.Dial(swapapi)
+			swapClient, err = datxclient.Dial(swapapi)
 			if err != nil {
 				return nil, fmt.Errorf("error connecting to SWAP API %s: %s", swapapi, err)
 			}
 		}
 
-		var ensClient *ethclient.Client
+		var ensClient *datxclient.Client
 		if ensapi != "" {
 			log.Info("connecting to ENS API", "url", ensapi)
 			client, err := rpc.Dial(ensapi)
 			if err != nil {
 				return nil, fmt.Errorf("error connecting to ENS API %s: %s", ensapi, err)
 			}
-			ensClient = ethclient.NewClient(client)
+			ensClient = datxclient.NewClient(client)
 
 			if ensAddr != "" {
 				bzzconfig.EnsRoot = common.HexToAddress(ensAddr)
