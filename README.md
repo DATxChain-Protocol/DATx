@@ -29,7 +29,6 @@ The go-datx project comes with several wrappers/executables found in the `cmd` d
 | `abigen` | Source code generator to convert DATx contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [DATx contract ABIs](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI) with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://github.com/ethereum/go-ethereum/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts) wiki page for details. |
 | `bootnode` | Stripped down version of our DATx client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks. |
 | `evm` | Developer utility version of the EVM (DATx Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `evm --code 60ff60ff --debug`). |
-| `gdatxrpctest` | Developer utility tool to support our [datx/rpc-test](https://github.com/ethereum/rpc-tests) test suite which validates baseline conformity to the [DATx JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) specs. Please see the [test suite's readme](https://github.com/ethereum/rpc-tests/blob/master/README.md) for details. |
 | `rlpdump` | Developer utility tool to convert binary RLP ([Recursive Length Prefix](https://github.com/ethereum/wiki/wiki/RLP)) dumps (data encoding used by the DATx protocol both network as well as consensus wise) to user friendlier hierarchical representation (e.g. `rlpdump --hex CE0183FFFFFFC4C304050583616263`). |
 | `swarm`    | swarm daemon and tools. This is the entrypoint for the swarm network. `swarm --help` for command line options and subcommands. See https://swarm-guide.readthedocs.io for swarm documentation. |
 | `puppeth`    | a CLI wizard that aids in creating a new DATx network. |
@@ -126,12 +125,6 @@ This will start gdatx in fast sync mode with a DB memory allowance of 512MB just
 Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `gdatx` binds to the local interface and RPC endpoints is not accessible from the outside.
 
 ### Programatically interfacing Gdatx nodes
-
-As a developer, sooner rather than later you'll want to start interacting with Gdatx and the DATx
-network via your own programs and not manually through the console. To aid this, Gdatx has built in
-support for a JSON-RPC based APIs ([standard APIs](https://github.com/ethereum/wiki/wiki/JSON-RPC) and
-[Gdatx specific APIs](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)). These can be
-exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
 The IPC interface is enabled by default and exposes all the APIs supported by Gdatx, whereas the HTTP
 and WS interfaces need to manually be enabled and only expose a subset of APIs due to security reasons.
@@ -242,49 +235,6 @@ $ gdatx --datadir=path/to/custom/data/folder --bootnodes=<bootnode-enode-url-fro
 
 *Note: Since your network will be completely cut off from the main and test networks, you'll also
 need to configure a miner to process transactions and create new blocks for you.*
-
-#### Running a private miner
-
-Mining on the public DATx network is a complex task as it's only feasible using GPUs, requiring
-an OpenCL or CUDA enabled `ethminer` instance. For information on such a setup, please consult the
-[EtherMining subreddit](https://www.reddit.com/r/EtherMining/) and the [Genoil miner](https://github.com/Genoil/cpp-datx)
-repository.
-
-In a private network setting however, a single CPU miner instance is more than enough for practical
-purposes as it can produce a stable stream of blocks at the correct intervals without needing heavy
-resources (consider running on a single thread, no need for multiple ones either). To start a Gdatx
-instance for mining, run it with all your usual flags, extended by:
-
-```
-$ gdatx <usual-flags> --mine --minerthreads=1 --coinbase=0x0000000000000000000000000000000000000000
-```
-
-Which will start mining blocks and transactions on a single CPU thread, crediting all proceedings to
-the account specified by `--coinbase`. You can further tune the mining by changing the default gas
-limit blocks converge to (`--targetgaslimit`) and the price transactions are accepted at (`--gasprice`).
-
-## Contribution
-
-Thank you for considering to help out with the source code! We welcome contributions from
-anyone on the internet, and are grateful for even the smallest of fixes!
-
-If you'd like to contribute to go-datx, please fork, fix, commit and send a pull request
-for the maintainers to review and merge into the main code base. If you wish to submit more
-complex changes though, please check up with the core devs first on [our gitter channel](https://gitter.im/datx/go-datx)
-to ensure those changes are in line with the general philosophy of the project and/or get some
-early feedback which can make both your efforts much lighter as well as our review and merge
-procedures quick and simple.
-
-Please make sure your contributions adhere to our coding guidelines:
-
- * Code must adhere to the official Go [formatting](https://golang.org/doc/effective_go.html#formatting) guidelines (i.e. uses [gofmt](https://golang.org/cmd/gofmt/)).
- * Code must be documented adhering to the official Go [commentary](https://golang.org/doc/effective_go.html#commentary) guidelines.
- * Pull requests need to be based on and opened against the `master` branch.
- * Commit messages should be prefixed with the package(s) they modify.
-   * E.g. "eth, rpc: make trace configs optional"
-
-Please see the [Developers' Guide](https://github.com/ethereum/go-ethereum/wiki/Developers'-Guide)
-for more details on configuring your environment, managing project dependencies and testing procedures.
 
 ## License
 
