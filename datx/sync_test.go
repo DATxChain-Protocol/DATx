@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/datx/downloader"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/datx/downloader"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

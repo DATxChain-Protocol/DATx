@@ -23,8 +23,8 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
 )
 
 var unmarshalLogTests = map[string]struct {

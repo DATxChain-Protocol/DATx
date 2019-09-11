@@ -26,7 +26,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common/mclock"
+	"github.com/DATxChain-Protocol/DATx/common/mclock"
 )
 
 var (

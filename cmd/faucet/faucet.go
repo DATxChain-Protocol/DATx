@@ -41,22 +41,22 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/accounts"
-	"github.com/DATx-Protocol/go-DATx/accounts/keystore"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/datx/downloader"
-	"github.com/DATx-Protocol/go-DATx/datxclient"
-	"github.com/DATx-Protocol/go-DATx/datxstats"
-	"github.com/DATx-Protocol/go-DATx/les"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/node"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/p2p/discover"
-	"github.com/DATx-Protocol/go-DATx/p2p/discv5"
-	"github.com/DATx-Protocol/go-DATx/p2p/nat"
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/datx/downloader"
+	"github.com/DATxChain-Protocol/DATx/datxclient"
+	"github.com/DATxChain-Protocol/DATx/datxstats"
+	"github.com/DATxChain-Protocol/DATx/les"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/discv5"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/params"
 	"golang.org/x/net/websocket"
 )
 
@@ -442,7 +442,7 @@ func (f *faucet) apiHandler(conn *websocket.Conn) {
 		case strings.HasPrefix(msg.URL, "https://www.facebook.com/"):
 			username, avatar, address, err = authFacebook(msg.URL)
 		default:
-			err = errors.New("Something funky happened, please open an issue at https://github.com/DATx-Protocol/go-DATx/issues")
+			err = errors.New("Something funky happened, please open an issue at https://github.com/DATxChain-Protocol/DATx/issues")
 		}
 		if err != nil {
 			if err = sendError(conn, err); err != nil {

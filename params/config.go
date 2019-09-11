@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 var (

@@ -23,13 +23,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/DATx-Protocol/go-DATx/cmd/utils"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/p2p/discover"
-	"github.com/DATx-Protocol/go-DATx/p2p/discv5"
-	"github.com/DATx-Protocol/go-DATx/p2p/nat"
-	"github.com/DATx-Protocol/go-DATx/p2p/netutil"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/discv5"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/p2p/netutil"
 )
 
 func main() {

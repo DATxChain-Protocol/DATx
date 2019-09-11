@@ -26,12 +26,12 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/internal/debug"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/node"
-	"github.com/DATx-Protocol/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/internal/debug"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 const (

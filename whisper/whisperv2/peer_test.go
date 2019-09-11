@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
 )
 
 type testPeer struct {

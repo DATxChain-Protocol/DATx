@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/meitu/go-datx"
+	"github.com/DATxChain-Protocol/DATx"
 	"github.com/DATxChain-Protocol/DATx/common"
 	"github.com/DATxChain-Protocol/DATx/common/hexutil"
 	"github.com/DATxChain-Protocol/DATx/core/types"

@@ -21,8 +21,8 @@ package gdatx
 import (
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/datxclient"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/datxclient"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/common/math"
 )
 
 func TestBlockNumberJSONUnmarshal(t *testing.T) {

@@ -26,11 +26,11 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/common/bitutil"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/crypto/sha3"
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/bitutil"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto/sha3"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 const (

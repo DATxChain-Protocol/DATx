@@ -22,8 +22,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
 )
 
 const (
@@ -41,10 +41,9 @@ var DefaultConfig = Config{
 	WSPort:      DefaultWSPort,
 	WSModules:   []string{"net", "DATxWeb"},
 	P2P: p2p.Config{
-		ListenAddr:      ":30303",
-		DiscoveryV5Addr: ":30304",
-		MaxPeers:        25,
-		NAT:             nat.Any(),
+		ListenAddr: ":30303",
+		MaxPeers:   25,
+		NAT:        nat.Any(),
 	},
 }
 

@@ -19,9 +19,9 @@ package types
 import (
 	"bytes"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/rlp"
-	"github.com/DATx-Protocol/go-DATx/trie"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/trie"
 )
 
 type DerivableList interface {

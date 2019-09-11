@@ -21,11 +21,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/crypto/sha3"
-	"github.com/DATx-Protocol/go-DATx/datxdb"
-	"github.com/DATx-Protocol/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/crypto/sha3"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 // Tests block header storage and retrieval operations.

@@ -24,7 +24,7 @@ import (
 
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

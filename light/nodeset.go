@@ -20,10 +20,10 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/rlp"
-	"github.com/DATx-Protocol/go-DATx/trie"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/trie"
 )
 
 // NodeSet stores a set of trie nodes. It implements trie.Database and can also

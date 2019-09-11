@@ -19,7 +19,7 @@ package number
 import (
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 var tt256 = new(big.Int).Lsh(big.NewInt(1), 256)

@@ -19,8 +19,8 @@ package trie
 import (
 	"fmt"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 var secureKeyPrefix = []byte("secure-key-")

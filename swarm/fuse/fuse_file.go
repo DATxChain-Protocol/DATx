@@ -26,8 +26,8 @@ import (
 
 	"bazil.org/fuse"
 	"bazil.org/fuse/fs"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 	"golang.org/x/net/context"
 )
 

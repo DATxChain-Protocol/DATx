@@ -21,17 +21,17 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/DATx-Protocol/go-DATx/accounts"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/consensus"
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/core/state"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/datx/downloader"
-	"github.com/DATx-Protocol/go-DATx/datxdb"
-	"github.com/DATx-Protocol/go-DATx/event"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/consensus"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/datx/downloader"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // Backend wraps all methods required for mining.

@@ -19,7 +19,7 @@ package whisperv5
 import (
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 func BenchmarkDeriveKeyMaterial(b *testing.B) {

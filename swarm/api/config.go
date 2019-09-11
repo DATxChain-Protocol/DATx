@@ -24,12 +24,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/contracts/ens"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/swarm/network"
-	"github.com/DATx-Protocol/go-DATx/swarm/services/swap"
-	"github.com/DATx-Protocol/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/contracts/ens"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/swarm/network"
+	"github.com/DATxChain-Protocol/DATx/swarm/services/swap"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 const (

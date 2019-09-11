@@ -28,8 +28,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/swarm/api"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/swarm/api"
 )
 
 //templateMap holds a mapping of an HTTP error code to a template

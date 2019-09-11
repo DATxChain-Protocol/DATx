@@ -21,12 +21,12 @@ import (
 	"os"
 	"os/user"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/datx/downloader"
-	"github.com/DATx-Protocol/go-DATx/datx/gasprice"
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/datx/downloader"
+	"github.com/DATxChain-Protocol/DATx/datx/gasprice"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // DefaultConfig contains default settings for use on the Ethereum main net.

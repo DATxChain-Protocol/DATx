@@ -19,7 +19,7 @@ package gdatx
 import (
 	"os"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // SetVerbosity sets the global verbosity level (between 0 and 6 - see logger/verbosity.go).

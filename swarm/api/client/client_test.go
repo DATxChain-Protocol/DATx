@@ -25,8 +25,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/swarm/api"
-	"github.com/DATx-Protocol/go-DATx/swarm/testutil"
+	"github.com/DATxChain-Protocol/DATx/swarm/api"
+	"github.com/DATxChain-Protocol/DATx/swarm/testutil"
 )
 
 // TestClientUploadDownloadRaw test uploading and downloading raw data to swarm

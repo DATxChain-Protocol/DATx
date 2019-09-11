@@ -22,8 +22,8 @@ import (
 	"errors"
 	"math/big"
 
-	DATx "github.com/DATx-Protocol/go-DATx"
-	"github.com/DATx-Protocol/go-DATx/common"
+	DATx "github.com/DATxChain-Protocol/DATx"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 // Subscription represents an event subscription where events are

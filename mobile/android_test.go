@@ -25,7 +25,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/internal/build"
+	"github.com/DATxChain-Protocol/DATx/internal/build"
 )
 
 // androidTestClass is a Java class to do some lightweight tests against the Android
@@ -202,7 +202,7 @@ func TestAndroid(t *testing.T) {
 		}
 	}
 	// Generate the mobile bindings for Gdatx and add the tester class
-	gobind := exec.Command("gomobile", "bind", "-javapkg", "org.DATx", "github.com/DATx-Protocol/go-DATx/mobile")
+	gobind := exec.Command("gomobile", "bind", "-javapkg", "org.DATx", "github.com/DATxChain-Protocol/DATx/mobile")
 	if output, err := gobind.CombinedOutput(); err != nil {
 		t.Logf("%s", output)
 		t.Fatalf("failed to run gomobile bind: %v", err)

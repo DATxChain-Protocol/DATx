@@ -25,9 +25,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/cmd/utils"
-	"github.com/DATx-Protocol/go-DATx/node"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 	"github.com/gizak/termui"
 	"gopkg.in/urfave/cli.v1"
 )

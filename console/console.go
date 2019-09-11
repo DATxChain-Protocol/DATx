@@ -27,9 +27,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/internal/jsre"
-	"github.com/DATx-Protocol/go-DATx/internal/DATxWebext"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/internal/jsre"
+	"github.com/DATxChain-Protocol/DATx/internal/DATxWebext"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 	"github.com/robertkrimen/otto"

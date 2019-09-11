@@ -21,7 +21,7 @@ import (
 	"bytes"
 	"errors"
 
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 const (

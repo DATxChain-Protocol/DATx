@@ -25,11 +25,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/p2p/discover"
-	"github.com/DATx-Protocol/go-DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
 )
 
 var keys []string = []string{

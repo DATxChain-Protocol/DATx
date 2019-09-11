@@ -22,7 +22,7 @@ package gdatx
 import (
 	"errors"
 
-	"github.com/DATx-Protocol/go-DATx/p2p/discv5"
+	"github.com/DATxChain-Protocol/DATx/p2p/discv5"
 )
 
 // Enode represents a host on the network.

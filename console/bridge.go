@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/accounts/usbwallet"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/accounts/usbwallet"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 	"github.com/robertkrimen/otto"
 )
 

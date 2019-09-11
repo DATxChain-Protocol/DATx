@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 type Address common.Hash

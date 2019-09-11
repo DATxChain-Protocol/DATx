@@ -22,11 +22,11 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/consensus/ethash"
-	"github.com/DATx-Protocol/go-DATx/core/vm"
-	"github.com/DATx-Protocol/go-DATx/datxdb"
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/consensus/ethash"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 func TestSetupGenesis(t *testing.T) {

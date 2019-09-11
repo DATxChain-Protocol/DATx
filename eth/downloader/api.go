@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	datx "github.com/meitu/go-datx"
 	"github.com/DATxChain-Protocol/DATx/event"
 	"github.com/DATxChain-Protocol/DATx/rpc"
+	datx "github.com/DATxChain-Protocol/DATx"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.
@@ -121,7 +121,7 @@ func (api *PublicDownloaderAPI) Syncing(ctx context.Context) (*rpc.Subscription,
 
 // SyncingResult provides information about the current synchronisation status for this node.
 type SyncingResult struct {
-	Syncing bool                  `json:"syncing"`
+	Syncing bool              `json:"syncing"`
 	Status  datx.SyncProgress `json:"status"`
 }
 

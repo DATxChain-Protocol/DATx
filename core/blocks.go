@@ -16,7 +16,7 @@
 
 package core
 
-import "github.com/DATx-Protocol/go-DATx/common"
+import "github.com/DATxChain-Protocol/DATx/common"
 
 // BadHashes represent a set of manually tracked bad hashes (usually hard forks)
 var BadHashes = map[common.Hash]bool{

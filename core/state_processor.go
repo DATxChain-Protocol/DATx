@@ -19,14 +19,14 @@ package core
 import (
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/consensus"
-	"github.com/DATx-Protocol/go-DATx/consensus/misc"
-	"github.com/DATx-Protocol/go-DATx/core/state"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/core/vm"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/consensus"
+	"github.com/DATxChain-Protocol/DATx/consensus/misc"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 // StateProcessor is a basic Processor, which takes care of transitioning

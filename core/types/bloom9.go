@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 type bytesBacked interface {

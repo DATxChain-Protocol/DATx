@@ -25,15 +25,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/accounts/abi/bind"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/datx"
-	"github.com/DATx-Protocol/go-DATx/internal/ethapi"
-	"github.com/DATx-Protocol/go-DATx/les"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/node"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/datx"
+	"github.com/DATxChain-Protocol/DATx/internal/ethapi"
+	"github.com/DATxChain-Protocol/DATx/les"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 )
 
 // Interval to check for new releases
@@ -149,7 +149,7 @@ func (r *ReleaseService) checkVersion() {
 
 		warning := fmt.Sprintf("Client v%d.%d.%d-%x seems older than the latest upstream release v%d.%d.%d-%x",
 			r.config.Major, r.config.Minor, r.config.Patch, r.config.Commit[:4], version.Major, version.Minor, version.Patch, version.Commit[:4])
-		howtofix := fmt.Sprintf("Please check https://github.com/DATx-Protocol/go-DATx/releases for new releases")
+		howtofix := fmt.Sprintf("Please check https://github.com/DATxChain-Protocol/DATx/releases for new releases")
 		separator := strings.Repeat("-", len(warning))
 
 		log.Warn(separator)

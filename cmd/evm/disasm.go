@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/core/asm"
+	"github.com/DATxChain-Protocol/DATx/core/asm"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

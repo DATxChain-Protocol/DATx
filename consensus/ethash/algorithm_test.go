@@ -25,9 +25,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
-	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // Tests that verification caches can be correctly generated.

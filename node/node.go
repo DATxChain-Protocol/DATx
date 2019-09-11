@@ -26,13 +26,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/DATx-Protocol/go-DATx/accounts"
-	"github.com/DATx-Protocol/go-DATx/datxdb"
-	"github.com/DATx-Protocol/go-DATx/event"
-	"github.com/DATx-Protocol/go-DATx/internal/debug"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/internal/debug"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 

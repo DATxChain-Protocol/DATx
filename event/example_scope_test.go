@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/DATx-Protocol/go-DATx/event"
+	"github.com/DATxChain-Protocol/DATx/event"
 )
 
 // This example demonstrates how SubscriptionScope can be used to control the lifetime of

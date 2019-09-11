@@ -27,12 +27,12 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/DATx-Protocol/go-DATx/accounts/keystore"
-	"github.com/DATx-Protocol/go-DATx/internal/cmdtest"
-	"github.com/DATx-Protocol/go-DATx/node"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/rpc"
-	"github.com/DATx-Protocol/go-DATx/swarm"
+	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
+	"github.com/DATxChain-Protocol/DATx/internal/cmdtest"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/swarm"
 )
 
 func init() {

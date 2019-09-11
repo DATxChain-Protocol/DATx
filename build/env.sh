@@ -10,11 +10,11 @@ fi
 # Create fake Go workspace if it doesn't exist yet.
 workspace="$PWD/build/_workspace"
 root="$PWD"
-ethdir="$workspace/src/github.com/DATx-Protocol"
-if [ ! -L "$ethdir/go-DATx" ]; then
+ethdir="$workspace/src/github.com/DATxChain-Protocol"
+if [ ! -L "$ethdir/DATx" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. go-DATx
+    ln -s ../../../../../. DATx
     cd "$root"
 fi
 
@@ -23,8 +23,8 @@ GOPATH="$workspace"
 export GOPATH
 
 # Run the command inside the workspace.
-cd "$ethdir/go-DATx"
-PWD="$ethdir/go-DATx"
+cd "$ethdir/DATx"
+PWD="$ethdir/DATx"
 
 # Launch the arguments with the configured environment.
 exec "$@"

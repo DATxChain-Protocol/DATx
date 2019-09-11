@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 // Hash represents the 32 byte Keccak256 hash of arbitrary data.

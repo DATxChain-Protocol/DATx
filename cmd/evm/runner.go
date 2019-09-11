@@ -27,16 +27,16 @@ import (
 
 	goruntime "runtime"
 
-	"github.com/DATx-Protocol/go-DATx/cmd/evm/internal/compiler"
-	"github.com/DATx-Protocol/go-DATx/cmd/utils"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/core/state"
-	"github.com/DATx-Protocol/go-DATx/core/vm"
-	"github.com/DATx-Protocol/go-DATx/core/vm/runtime"
-	"github.com/DATx-Protocol/go-DATx/datxdb"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/cmd/evm/internal/compiler"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/core/vm/runtime"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/params"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

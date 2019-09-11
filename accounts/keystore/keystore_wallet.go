@@ -19,9 +19,9 @@ package keystore
 import (
 	"math/big"
 
-	DATx "github.com/DATx-Protocol/go-DATx"
-	"github.com/DATx-Protocol/go-DATx/accounts"
-	"github.com/DATx-Protocol/go-DATx/core/types"
+	DATx "github.com/DATxChain-Protocol/DATx"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // keystoreWallet implements the accounts.Wallet interface for the original

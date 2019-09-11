@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 // Tests whether a message can be wrapped without any identity or encryption.

@@ -1,18 +1,18 @@
-// Copyright 2016 The go-DATx Authors
-// This file is part of the go-DATx library.
+// Copyright 2016 The go-ethereum Authors
+// This file is part of the go-ethereum library.
 //
-// The go-DATx library is free software: you can redistribute it and/or modify
+// The go-ethereum library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-DATx library is distributed in the hope that it will be useful,
+// The go-ethereum library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
 package discv5
 
@@ -23,7 +23,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common/mclock"
+	"github.com/DATxChain-Protocol/DATx/common/mclock"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 const (
@@ -235,7 +236,7 @@ func (t *topicTable) deleteEntry(e *topicEntry) {
 
 // It is assumed that topics and waitPeriods have the same length.
 func (t *topicTable) useTicket(node *Node, serialNo uint32, topics []Topic, idx int, issueTime uint64, waitPeriods []uint32) (registered bool) {
-	debugLog(fmt.Sprintf("useTicket %v %v %v", serialNo, topics, waitPeriods))
+	log.Trace("Using discovery ticket", "serial", serialNo, "topics", topics, "waits", waitPeriods)
 	//fmt.Println("useTicket", serialNo, topics, waitPeriods)
 	t.collectGarbage()
 
@@ -270,15 +271,15 @@ func (t *topicTable) useTicket(node *Node, serialNo uint32, topics []Topic, idx 
 	return false
 }
 
-func (topictab *topicTable) getTicket(node *Node, topics []Topic) *ticket {
-	topictab.collectGarbage()
+func (t *topicTable) getTicket(node *Node, topics []Topic) *ticket {
+	t.collectGarbage()
 
 	now := mclock.Now()
-	n := topictab.getOrNewNode(node)
+	n := t.getOrNewNode(node)
 	n.lastIssuedTicket++
-	topictab.storeTicketCounters(node)
+	t.storeTicketCounters(node)
 
-	t := &ticket{
+	tic := &ticket{
 		issueTime: now,
 		topics:    topics,
 		serial:    n.lastIssuedTicket,
@@ -286,15 +287,15 @@ func (topictab *topicTable) getTicket(node *Node, topics []Topic) *ticket {
 	}
 	for i, topic := range topics {
 		var waitPeriod time.Duration
-		if topic := topictab.topics[topic]; topic != nil {
+		if topic := t.topics[topic]; topic != nil {
 			waitPeriod = topic.wcl.waitPeriod
 		} else {
 			waitPeriod = minWaitPeriod
 		}
 
-		t.regTime[i] = now + mclock.AbsTime(waitPeriod)
+		tic.regTime[i] = now + mclock.AbsTime(waitPeriod)
 	}
-	return t
+	return tic
 }
 
 const gcInterval = time.Minute

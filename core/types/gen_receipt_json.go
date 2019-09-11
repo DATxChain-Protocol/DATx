@@ -7,8 +7,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
 )
 
 func (r Receipt) MarshalJSON() ([]byte, error) {

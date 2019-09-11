@@ -17,7 +17,7 @@
 package api
 
 import (
-	"github.com/DATx-Protocol/go-DATx/swarm/network"
+	"github.com/DATxChain-Protocol/DATx/swarm/network"
 )
 
 type Control struct {

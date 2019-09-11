@@ -22,11 +22,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx"
-	"github.com/DATx-Protocol/go-DATx/accounts/abi"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 // SignerFn is a signer function callback when a contract requires a method to

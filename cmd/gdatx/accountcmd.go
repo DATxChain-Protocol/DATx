@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/DATx-Protocol/go-DATx/accounts"
-	"github.com/DATx-Protocol/go-DATx/accounts/keystore"
-	"github.com/DATx-Protocol/go-DATx/cmd/utils"
-	"github.com/DATx-Protocol/go-DATx/console"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	"github.com/DATxChain-Protocol/DATx/console"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/log"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

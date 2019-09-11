@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 	set "gopkg.in/fatih/set.v0"
 )
 

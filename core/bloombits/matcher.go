@@ -26,8 +26,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common/bitutil"
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/common/bitutil"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 // bloomIndexes represents the bit indexes inside the bloom filter that belong

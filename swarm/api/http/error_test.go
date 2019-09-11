@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/swarm/testutil"
+	"github.com/DATxChain-Protocol/DATx/swarm/testutil"
 )
 
 func TestError(t *testing.T) {

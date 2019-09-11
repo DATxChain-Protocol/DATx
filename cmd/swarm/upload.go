@@ -30,8 +30,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/cmd/utils"
-	swarm "github.com/DATx-Protocol/go-DATx/swarm/api/client"
+	"github.com/DATxChain-Protocol/DATx/cmd/utils"
+	swarm "github.com/DATxChain-Protocol/DATx/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

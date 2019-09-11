@@ -24,8 +24,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/accounts/abi/bind"
-	"github.com/DATx-Protocol/go-DATx/common/compiler"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/common/compiler"
 )
 
 var (

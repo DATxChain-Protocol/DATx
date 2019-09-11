@@ -19,10 +19,10 @@ package les
 import (
 	"context"
 
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/datxdb"
-	"github.com/DATx-Protocol/go-DATx/light"
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/light"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // LesOdr implements light.OdrBackend

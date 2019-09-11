@@ -19,7 +19,7 @@ package vm
 import (
 	"fmt"
 
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 func makeStackFunc(pop, push int) stackValidationFunc {

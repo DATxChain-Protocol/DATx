@@ -22,7 +22,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 	"gopkg.in/urfave/cli.v1"
 )
 

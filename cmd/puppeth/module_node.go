@@ -25,7 +25,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // nodeDockerfile is the Dockerfile required to run an Ethereum node.

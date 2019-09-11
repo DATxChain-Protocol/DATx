@@ -26,13 +26,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/datx"
-	"github.com/DATx-Protocol/go-DATx/les/flowcontrol"
-	"github.com/DATx-Protocol/go-DATx/light"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/datx"
+	"github.com/DATxChain-Protocol/DATx/les/flowcontrol"
+	"github.com/DATxChain-Protocol/DATx/light"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 var (
@@ -80,7 +80,7 @@ type peer struct {
 
 func newPeer(version int, network uint64, p *p2p.Peer, rw p2p.MsgReadWriter) *peer {
 	id := p.ID()
-	pubKey, _ := id.Pubkey()
+	pubKey := p.Node().Pubkey()
 
 	return &peer{
 		Peer:        p,

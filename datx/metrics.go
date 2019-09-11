@@ -17,8 +17,8 @@
 package datx
 
 import (
-	"github.com/DATx-Protocol/go-DATx/metrics"
-	"github.com/DATx-Protocol/go-DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/metrics"
+	"github.com/DATxChain-Protocol/DATx/p2p"
 )
 
 var (

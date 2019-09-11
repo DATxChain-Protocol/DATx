@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/log"
 	"github.com/olekukonko/tablewriter"
 )
 

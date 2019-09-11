@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/crypto/sha3"
+	"github.com/DATxChain-Protocol/DATx/crypto/sha3"
 )
 
 const (

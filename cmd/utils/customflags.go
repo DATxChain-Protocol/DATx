@@ -27,7 +27,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/common/math"
+	"github.com/DATxChain-Protocol/DATx/common/math"
 	"gopkg.in/urfave/cli.v1"
 )
 

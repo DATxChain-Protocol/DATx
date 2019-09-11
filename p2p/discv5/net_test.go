@@ -1,18 +1,18 @@
-// Copyright 2016 The go-DATx Authors
-// This file is part of the go-DATx library.
+// Copyright 2016 The go-ethereum Authors
+// This file is part of the go-ethereum library.
 //
-// The go-DATx library is free software: you can redistribute it and/or modify
+// The go-ethereum library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-DATx library is distributed in the hope that it will be useful,
+// The go-ethereum library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
 package discv5
 
@@ -22,13 +22,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 func TestNetwork_Lookup(t *testing.T) {
 	key, _ := crypto.GenerateKey()
-	network, err := newNetwork(lookupTestnet, key.PublicKey, nil, "", nil)
+	network, err := newNetwork(lookupTestnet, key.PublicKey, "", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -336,26 +336,26 @@ func (*preminedTestnet) localAddr() *net.UDPAddr {
 
 // mine generates a testnet struct literal with nodes at
 // various distances to the given target.
-func (n *preminedTestnet) mine(target NodeID) {
-	n.target = target
-	n.targetSha = crypto.Keccak256Hash(n.target[:])
+func (tn *preminedTestnet) mine(target NodeID) {
+	tn.target = target
+	tn.targetSha = crypto.Keccak256Hash(tn.target[:])
 	found := 0
 	for found < bucketSize*10 {
 		k := newkey()
 		id := PubkeyID(&k.PublicKey)
 		sha := crypto.Keccak256Hash(id[:])
-		ld := logdist(n.targetSha, sha)
-		if len(n.dists[ld]) < bucketSize {
-			n.dists[ld] = append(n.dists[ld], id)
+		ld := logdist(tn.targetSha, sha)
+		if len(tn.dists[ld]) < bucketSize {
+			tn.dists[ld] = append(tn.dists[ld], id)
 			fmt.Println("found ID with ld", ld)
 			found++
 		}
 	}
 	fmt.Println("&preminedTestnet{")
-	fmt.Printf("	target: %#v,\n", n.target)
-	fmt.Printf("	targetSha: %#v,\n", n.targetSha)
-	fmt.Printf("	dists: [%d][]NodeID{\n", len(n.dists))
-	for ld, ns := range n.dists {
+	fmt.Printf("	target: %#v,\n", tn.target)
+	fmt.Printf("	targetSha: %#v,\n", tn.targetSha)
+	fmt.Printf("	dists: [%d][]NodeID{\n", len(tn.dists))
+	for ld, ns := range &tn.dists {
 		if len(ns) == 0 {
 			continue
 		}

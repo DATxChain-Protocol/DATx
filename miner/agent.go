@@ -21,8 +21,8 @@ import (
 
 	"sync/atomic"
 
-	"github.com/DATx-Protocol/go-DATx/consensus"
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/consensus"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 type CpuAgent struct {

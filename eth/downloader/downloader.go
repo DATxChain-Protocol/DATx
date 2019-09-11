@@ -27,7 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	datx "github.com/meitu/go-datx"
+	datx "github.com/DATxChain-Protocol/DATx"
 	"github.com/DATxChain-Protocol/DATx/common"
 	"github.com/DATxChain-Protocol/DATx/core/types"
 	"github.com/DATxChain-Protocol/DATx/ethdb"

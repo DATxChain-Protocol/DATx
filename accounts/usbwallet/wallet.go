@@ -25,11 +25,11 @@ import (
 	"sync"
 	"time"
 
-	DATx "github.com/DATx-Protocol/go-DATx"
-	"github.com/DATx-Protocol/go-DATx/accounts"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/log"
+	DATx "github.com/DATxChain-Protocol/DATx"
+	"github.com/DATxChain-Protocol/DATx/accounts"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/log"
 	"github.com/karalabe/hid"
 )
 
@@ -82,11 +82,11 @@ type wallet struct {
 	accounts []accounts.Account                         // List of derive accounts pinned on the hardware wallet
 	paths    map[common.Address]accounts.DerivationPath // Known derivation paths for signing operations
 
-	deriveNextPath accounts.DerivationPath   // Next derivation path for account auto-discovery
-	deriveNextAddr common.Address            // Next derived account address for auto-discovery
-	deriveChain    DATx.ChainStateReader // Blockchain state reader to discover used account with
-	deriveReq      chan chan struct{}        // Channel to request a self-derivation on
-	deriveQuit     chan chan error           // Channel to terminate the self-deriver with
+	deriveNextPath accounts.DerivationPath // Next derivation path for account auto-discovery
+	deriveNextAddr common.Address          // Next derived account address for auto-discovery
+	deriveChain    DATx.ChainStateReader   // Blockchain state reader to discover used account with
+	deriveReq      chan chan struct{}      // Channel to request a self-derivation on
+	deriveQuit     chan chan error         // Channel to terminate the self-deriver with
 
 	healthQuit chan chan error
 

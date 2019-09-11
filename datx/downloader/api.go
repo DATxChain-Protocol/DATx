@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	DATx "github.com/DATx-Protocol/go-DATx"
-	"github.com/DATx-Protocol/go-DATx/event"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	DATx "github.com/DATxChain-Protocol/DATx"
+	"github.com/DATxChain-Protocol/DATx/event"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

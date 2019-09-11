@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
 )
 
 // Tests that data bitset encoding and decoding works and is bijective.

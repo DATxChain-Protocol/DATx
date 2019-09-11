@@ -27,7 +27,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 	"golang.org/x/net/websocket"
 	"gopkg.in/fatih/set.v0"
 )

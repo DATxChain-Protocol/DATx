@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 )
 
 func TestUnmarshalJSONNewFilterArgs(t *testing.T) {

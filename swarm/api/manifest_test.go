@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/swarm/storage"
+	"github.com/DATxChain-Protocol/DATx/swarm/storage"
 )
 
 func manifest(paths ...string) (manifestReader storage.LazySectionReader) {

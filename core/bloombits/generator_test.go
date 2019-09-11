@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // Tests that batched bloom bits are correctly rotated from the input bloom

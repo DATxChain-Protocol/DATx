@@ -5,7 +5,7 @@ package whisperv5
 import (
 	"encoding/json"
 
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
 )
 
 var _ = (*criteriaOverride)(nil)

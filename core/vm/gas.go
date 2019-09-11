@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 const (

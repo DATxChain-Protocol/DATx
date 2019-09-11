@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/DATx-Protocol/go-DATx/rlp"
+	"github.com/DATxChain-Protocol/DATx/rlp"
 )
 
 var (

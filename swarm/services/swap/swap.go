@@ -26,14 +26,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/accounts/abi/bind"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/contracts/chequebook"
-	"github.com/DATx-Protocol/go-DATx/contracts/chequebook/contract"
-	"github.com/DATx-Protocol/go-DATx/core/types"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/log"
-	"github.com/DATx-Protocol/go-DATx/swarm/services/swap/swap"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi/bind"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/contracts/chequebook"
+	"github.com/DATxChain-Protocol/DATx/contracts/chequebook/contract"
+	"github.com/DATxChain-Protocol/DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/log"
+	"github.com/DATxChain-Protocol/DATx/swarm/services/swap/swap"
 )
 
 // SwAP       Swarm Accounting Protocol with

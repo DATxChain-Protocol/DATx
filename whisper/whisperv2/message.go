@@ -26,10 +26,10 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/crypto/ecies"
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto/ecies"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // Message represents an end-user data packet to transmit through the Whisper

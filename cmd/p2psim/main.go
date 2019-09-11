@@ -29,12 +29,12 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/p2p/discover"
-	"github.com/DATx-Protocol/go-DATx/p2p/simulations"
-	"github.com/DATx-Protocol/go-DATx/p2p/simulations/adapters"
-	"github.com/DATx-Protocol/go-DATx/rpc"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/discover"
+	"github.com/DATxChain-Protocol/DATx/p2p/simulations"
+	"github.com/DATxChain-Protocol/DATx/p2p/simulations/adapters"
+	"github.com/DATxChain-Protocol/DATx/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

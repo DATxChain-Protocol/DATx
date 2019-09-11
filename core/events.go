@@ -17,8 +17,8 @@
 package core
 
 import (
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // TxPreEvent is posted when a transaction enters the transaction pool.

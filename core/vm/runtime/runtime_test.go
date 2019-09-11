@@ -21,11 +21,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/accounts/abi"
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/core/state"
-	"github.com/DATx-Protocol/go-DATx/core/vm"
-	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/accounts/abi"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/core/state"
+	"github.com/DATxChain-Protocol/DATx/core/vm"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
 )
 
 func TestDefaults(t *testing.T) {

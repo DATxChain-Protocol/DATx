@@ -17,7 +17,7 @@
 package fuse
 
 import (
-	"github.com/DATx-Protocol/go-DATx/swarm/api"
+	"github.com/DATxChain-Protocol/DATx/swarm/api"
 	"sync"
 	"time"
 )

@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // ensureVirtualHost checks whether a reverse-proxy is running on the specified

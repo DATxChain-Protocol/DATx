@@ -16,7 +16,7 @@
 
 package ethclient
 
-import "github.com/meitu/go-datx"
+import "github.com/DATxChain-Protocol/DATx"
 
 // Verify that Client implements the datx interfaces.
 var (

@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/accounts/keystore"
-	"github.com/DATx-Protocol/go-DATx/core/types"
+	"github.com/DATxChain-Protocol/DATx/accounts/keystore"
+	"github.com/DATxChain-Protocol/DATx/core/types"
 )
 
 // Tests that the account management snippets work correctly.

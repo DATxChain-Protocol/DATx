@@ -24,7 +24,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 // ethstatsDockerfile is the Dockerfile required to build an datxstats backend

@@ -20,7 +20,6 @@ import (
 	"context"
 	"math/big"
 
-	"github.com/meitu/go-datx"
 	"github.com/DATxChain-Protocol/DATx/common"
 	"github.com/DATxChain-Protocol/DATx/common/hexutil"
 	"github.com/DATxChain-Protocol/DATx/core/types"
@@ -37,7 +36,7 @@ import (
 // object. These should be rewritten to internal Go method calls when the Go API
 // is refactored to support a clean library use.
 type ContractBackend struct {
-	eapi  *ethapi.PublicDATxAPI        // Wrapper around the DATx object to access metadata
+	eapi  *ethapi.PublicDATxAPI            // Wrapper around the DATx object to access metadata
 	bcapi *ethapi.PublicBlockChainAPI      // Wrapper around the blockchain to access chain data
 	txapi *ethapi.PublicTransactionPoolAPI // Wrapper around the transaction pool to access transaction data
 }

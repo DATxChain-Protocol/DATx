@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/DATx-Protocol/go-DATx/cmd/evm/internal/compiler"
+	"github.com/DATxChain-Protocol/DATx/cmd/evm/internal/compiler"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

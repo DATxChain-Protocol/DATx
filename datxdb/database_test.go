@@ -25,7 +25,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/datxdb"
+	"github.com/DATxChain-Protocol/DATx/datxdb"
 )
 
 func newTestLDB() (*datxdb.LDBDatabase, func()) {

@@ -26,8 +26,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/internal/jsre/deps"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/internal/jsre/deps"
 	"github.com/robertkrimen/otto"
 )
 

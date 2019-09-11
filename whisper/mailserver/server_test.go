@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATx-Protocol/go-DATx/common"
-	"github.com/DATx-Protocol/go-DATx/crypto"
-	whisper "github.com/DATx-Protocol/go-DATx/whisper/whisperv5"
+	"github.com/DATxChain-Protocol/DATx/common"
+	"github.com/DATxChain-Protocol/DATx/crypto"
+	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
 )
 
 const powRequirement = 0.00001

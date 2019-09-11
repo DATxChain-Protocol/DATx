@@ -22,7 +22,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 // Interface represents a wrapped version of Go's interface{}, with the capacity

@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 	"golang.org/x/tools/imports"
 )
 

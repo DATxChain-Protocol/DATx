@@ -22,7 +22,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/DATx-Protocol/go-DATx/log"
+	"github.com/DATxChain-Protocol/DATx/log"
 )
 
 func init() {

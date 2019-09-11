@@ -16,7 +16,7 @@
 
 package datxclient
 
-import "github.com/DATx-Protocol/go-DATx"
+import "github.com/DATxChain-Protocol/DATx"
 
 // Verify that Client implements the DATx interfaces.
 var (

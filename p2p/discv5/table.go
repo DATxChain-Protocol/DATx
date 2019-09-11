@@ -1,18 +1,18 @@
-// Copyright 2016 The go-DATx Authors
-// This file is part of the go-DATx library.
+// Copyright 2016 The go-ethereum Authors
+// This file is part of the go-ethereum library.
 //
-// The go-DATx library is free software: you can redistribute it and/or modify
+// The go-ethereum library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-DATx library is distributed in the hope that it will be useful,
+// The go-ethereum library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-DATx library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
 // Package discv5 implements the RLPx v5 Topic Discovery Protocol.
 //
@@ -29,7 +29,7 @@ import (
 	"net"
 	"sort"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 const (
@@ -38,7 +38,6 @@ const (
 	hashBits   = len(common.Hash{}) * 8
 	nBuckets   = hashBits + 1 // Number of buckets
 
-	maxBondingPingPongs = 16
 	maxFindnodeFailures = 5
 )
 
@@ -82,7 +81,7 @@ func (tab *Table) chooseBucketRefreshTarget() common.Hash {
 	if printTable {
 		fmt.Println()
 	}
-	for i, b := range tab.buckets {
+	for i, b := range &tab.buckets {
 		entries += len(b.entries)
 		if printTable {
 			for _, e := range b.entries {
@@ -94,7 +93,7 @@ func (tab *Table) chooseBucketRefreshTarget() common.Hash {
 	prefix := binary.BigEndian.Uint64(tab.self.sha[0:8])
 	dist := ^uint64(0)
 	entry := int(randUint(uint32(entries + 1)))
-	for _, b := range tab.buckets {
+	for _, b := range &tab.buckets {
 		if entry < len(b.entries) {
 			n := b.entries[entry]
 			dist = binary.BigEndian.Uint64(n.sha[0:8]) ^ prefix
@@ -122,9 +121,9 @@ func (tab *Table) readRandomNodes(buf []*Node) (n int) {
 	// TODO: tree-based buckets would help here
 	// Find all non-empty buckets and get a fresh slice of their entries.
 	var buckets [][]*Node
-	for _, b := range tab.buckets {
+	for _, b := range &tab.buckets {
 		if len(b.entries) > 0 {
-			buckets = append(buckets, b.entries[:])
+			buckets = append(buckets, b.entries)
 		}
 	}
 	if len(buckets) == 0 {
@@ -176,7 +175,7 @@ func (tab *Table) closest(target common.Hash, nresults int) *nodesByDistance {
 	// obviously correct. I believe that tree-based buckets would make
 	// this easier to implement efficiently.
 	close := &nodesByDistance{target: target}
-	for _, b := range tab.buckets {
+	for _, b := range &tab.buckets {
 		for _, n := range b.entries {
 			close.push(n, nresults)
 		}

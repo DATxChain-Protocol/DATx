@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/common"
+	"github.com/DATxChain-Protocol/DATx/common"
 )
 
 func TestHexOrDecimal256(t *testing.T) {

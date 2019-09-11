@@ -20,7 +20,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/DATx-Protocol/go-DATx/params"
+	"github.com/DATxChain-Protocol/DATx/params"
 )
 
 type (

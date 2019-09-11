@@ -19,7 +19,7 @@
 package downloader
 
 import (
-	"github.com/DATx-Protocol/go-DATx/metrics"
+	"github.com/DATxChain-Protocol/DATx/metrics"
 )
 
 var (

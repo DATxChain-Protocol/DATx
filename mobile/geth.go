@@ -24,17 +24,17 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/DATx-Protocol/go-DATx/core"
-	"github.com/DATx-Protocol/go-DATx/datx"
-	"github.com/DATx-Protocol/go-DATx/datx/downloader"
-	"github.com/DATx-Protocol/go-DATx/datxclient"
-	"github.com/DATx-Protocol/go-DATx/datxstats"
-	"github.com/DATx-Protocol/go-DATx/les"
-	"github.com/DATx-Protocol/go-DATx/node"
-	"github.com/DATx-Protocol/go-DATx/p2p"
-	"github.com/DATx-Protocol/go-DATx/p2p/nat"
-	"github.com/DATx-Protocol/go-DATx/params"
-	whisper "github.com/DATx-Protocol/go-DATx/whisper/whisperv5"
+	"github.com/DATxChain-Protocol/DATx/core"
+	"github.com/DATxChain-Protocol/DATx/datx"
+	"github.com/DATxChain-Protocol/DATx/datx/downloader"
+	"github.com/DATxChain-Protocol/DATx/datxclient"
+	"github.com/DATxChain-Protocol/DATx/datxstats"
+	"github.com/DATxChain-Protocol/DATx/les"
+	"github.com/DATxChain-Protocol/DATx/node"
+	"github.com/DATxChain-Protocol/DATx/p2p"
+	"github.com/DATxChain-Protocol/DATx/p2p/nat"
+	"github.com/DATxChain-Protocol/DATx/params"
+	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Gdatx

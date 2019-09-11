@@ -40,7 +40,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/DATx-Protocol/go-DATx/crypto"
+	"github.com/DATxChain-Protocol/DATx/crypto"
 )
 
 var dumpEnc bool

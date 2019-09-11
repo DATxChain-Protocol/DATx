@@ -23,7 +23,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
 	"gopkg.in/fatih/set.v0"
 )
 

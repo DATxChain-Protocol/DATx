@@ -19,10 +19,10 @@ package shhclient
 import (
 	"context"
 
-	"github.com/DATx-Protocol/go-DATx"
-	"github.com/DATx-Protocol/go-DATx/common/hexutil"
-	"github.com/DATx-Protocol/go-DATx/rpc"
-	whisper "github.com/DATx-Protocol/go-DATx/whisper/whisperv5"
+	"github.com/DATxChain-Protocol/DATx"
+	"github.com/DATxChain-Protocol/DATx/common/hexutil"
+	"github.com/DATxChain-Protocol/DATx/rpc"
+	whisper "github.com/DATxChain-Protocol/DATx/whisper/whisperv5"
 )
 
 // Client defines typed wrappers for the Whisper v5 RPC API.
