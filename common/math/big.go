@@ -22,6 +22,13 @@ import (
 	"math/big"
 )
 
+const (
+	// number of bits in a big.Word
+	wordBits = 32 << (uint64(^big.Word(0)) >> 63)
+	// number of bytes in a big.Word
+	wordBytes = wordBits / 8
+)
+
 var (
 	tt255     = BigPow(2, 255)
 	tt256     = BigPow(2, 256)
@@ -29,13 +36,6 @@ var (
 	MaxBig256 = new(big.Int).Set(tt256m1)
 	tt63      = BigPow(2, 63)
 	MaxBig63  = new(big.Int).Sub(tt63, big.NewInt(1))
-)
-
-const (
-	// number of bits in a big.Word
-	wordBits = 32 << (uint64(^big.Word(0)) >> 63)
-	// number of bytes in a big.Word
-	wordBytes = wordBits / 8
 )
 
 // HexOrDecimal256 marshals big.Int as hex or decimal.

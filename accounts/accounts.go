@@ -128,6 +128,10 @@ type Wallet interface {
 	SignTxWithPassphrase(account Account, passphrase string, tx *types.Transaction, chainID *big.Int) (*types.Transaction, error)
 }
 
+// WalletEventType represents the different event types that can be fired by
+// the wallet subscription subsystem.
+type WalletEventType int
+
 // Backend is a "wallet provider" that may contain a batch of accounts they can
 // sign transactions with and upon request, do so.
 type Backend interface {
@@ -147,10 +151,6 @@ type Backend interface {
 	// backend detects the arrival or departure of a wallet.
 	Subscribe(sink chan<- WalletEvent) event.Subscription
 }
-
-// WalletEventType represents the different event types that can be fired by
-// the wallet subscription subsystem.
-type WalletEventType int
 
 const (
 	// WalletArrived is fired when a new wallet is detected either via USB or via
