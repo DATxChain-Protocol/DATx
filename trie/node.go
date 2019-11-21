@@ -176,6 +176,13 @@ func decodeFull(hash, buf, elems []byte, cachegen uint16) (*fullNode, error) {
 
 const hashLen = len(common.Hash{})
 
+// wraps a decoding error with information about the path to the
+// invalid child node (for debugging encoding issues).
+type decodeError struct {
+	what  error
+	stack []string
+}
+
 func decodeRef(buf []byte, cachegen uint16) (node, []byte, error) {
 	kind, val, rest, err := rlp.Split(buf)
 	if err != nil {
@@ -199,13 +206,6 @@ func decodeRef(buf []byte, cachegen uint16) (node, []byte, error) {
 	default:
 		return nil, nil, fmt.Errorf("invalid RLP string size %d (want 0 or 32)", len(val))
 	}
-}
-
-// wraps a decoding error with information about the path to the
-// invalid child node (for debugging encoding issues).
-type decodeError struct {
-	what  error
-	stack []string
 }
 
 func wrapError(err error, ctx string) error {

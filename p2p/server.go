@@ -211,18 +211,6 @@ const (
 	trustedConn
 )
 
-// conn wraps a network connection with information gathered
-// during the two handshakes.
-type conn struct {
-	fd net.Conn
-	transport
-	node  *enode.Node
-	flags connFlag
-	cont  chan error // The run loop uses cont to signal errors to SetupConn.
-	caps  []Cap      // valid after the protocol handshake
-	name  string     // valid after the protocol handshake
-}
-
 type transport interface {
 	// The two handshakes.
 	doEncHandshake(prv *ecdsa.PrivateKey, dialDest *ecdsa.PublicKey) (*ecdsa.PublicKey, error)
@@ -236,6 +224,19 @@ type transport interface {
 	// anything in those tests because MsgPipe doesn't use it.
 	close(err error)
 }
+
+// conn wraps a network connection with information gathered
+// during the two handshakes.
+type conn struct {
+	fd net.Conn
+	transport
+	node  *enode.Node
+	flags connFlag
+	cont  chan error // The run loop uses cont to signal errors to SetupConn.
+	caps  []Cap      // valid after the protocol handshake
+	name  string     // valid after the protocol handshake
+}
+
 
 func (c *conn) String() string {
 	s := c.flags.String()

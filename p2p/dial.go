@@ -64,6 +64,16 @@ func (t TCPDialer) Dial(dest *enode.Node) (net.Conn, error) {
 	return t.Dialer.Dial("tcp", addr.String())
 }
 
+// A dialTask is generated for each node that is dialed. Its
+// fields cannot be accessed while the task is running.
+type dialTask struct {
+	flags        connFlag
+	dest         *enode.Node
+	lastResolved time.Time
+	resolveDelay time.Duration
+}
+
+
 // dialstate schedules dials and discovery lookups.
 // It gets a chance to compute new tasks on every iteration
 // of the main loop in Server.run.
@@ -93,15 +103,6 @@ type discoverTable interface {
 
 type task interface {
 	Do(*Server)
-}
-
-// A dialTask is generated for each node that is dialed. Its
-// fields cannot be accessed while the task is running.
-type dialTask struct {
-	flags        connFlag
-	dest         *enode.Node
-	lastResolved time.Time
-	resolveDelay time.Duration
 }
 
 // discoverTask runs discovery table operations.
